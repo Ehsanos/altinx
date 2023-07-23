@@ -15,5 +15,6 @@ class Lang extends Model
         'tr',
         'du',
         'es',
-    ];
+    ] ;
+
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -9,30 +11,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+
 
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable implements HasMedia
+class User extends  Authenticatable implements HasMedia
 {
     use InteractsWithMedia;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'type',
-        'phone',
-        'img',
-        'company',
-
-    ];
+    protected $guarded=[];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -54,14 +50,13 @@ class User extends Authenticatable implements HasMedia
     ];
 
 
-    public function getImgAttribute(){
 
-        if($this->hasMedia('users')){
-            return $this->getFirstMediaUrl('users');
-        }
-
+    public function orders()
+    {
+        return $this->hasmany(Order::class);
     }
-
-
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
 
 }

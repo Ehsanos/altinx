@@ -16,7 +16,16 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->longText('title');
-            $table->longText('description');
+            $table->longText('title_en')->nullable();
+            $table->longText('title_tr')->nullable();
+            $table->longText('title_es')->nullable();
+            $table->longText('title_du')->nullable();
+
+            $table->longText('description')->nullable();
+            $table->longText('description_en')->nullable();
+            $table->longText('description_tr')->nullable();
+            $table->longText('description_es')->nullable();
+            $table->longText('description_du')->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
         });

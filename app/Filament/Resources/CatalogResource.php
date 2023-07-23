@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CatalogResource\Pages;
 use App\Filament\Resources\CatalogResource\RelationManagers;
 use App\Models\Catalog;
+use App\Models\Section;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
@@ -27,19 +28,67 @@ class CatalogResource extends Resource
 {
     protected static ?string $model = Catalog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    protected static ?string $pluralModelLabel = 'الكتالوج';
+
+    protected static ?string $navigationGroup = 'المنتجات';
+
 
     public static function form(Form $form): Form
     {
 
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->label('الاسم'),
-                SpatieMediaLibraryFileUpload::make('img')->collection('catalogs')->label('الصورة'),
-                DatePicker::make('year'),
-                FileUpload::make('file')->acceptedFileTypes(['application/pdf']) ->uploadButtonPosition('left')
-                ,
-                TextArea::make('description')
+
+                Forms\Components\Card::make()->schema([
+                    DatePicker::make('year'),
+
+                    FileUpload::make('file')->acceptedFileTypes(['application/pdf'])->uploadButtonPosition('left'),
+                    SpatieMediaLibraryFileUpload::make('img')->collection('catalogs')->label('الصورة'),
+
+                ])->columns(3),
+
+                Forms\Components\Section::make('وصف')->schema([
+
+                    Forms\Components\Wizard::make()->schema([
+                        Forms\Components\Wizard\Step::make('AR')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('name')->nullable()->label('الاسم'),
+                            TextArea::make('description')->label('وصف'),
+                        ])->columns(2),
+                        ]),
+
+                        Forms\Components\Wizard\Step::make('En')->schema([
+                            Forms\Components\Card::make()->schema([
+                                Forms\Components\TextInput::make('name_en')->nullable()->label('ENالاسم'),
+                                TextArea::make('description_en')->label('وصف EN'),
+                            ])->columns(2)]),
+                        Forms\Components\Wizard\Step::make('TR')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('name_tr')->nullable()->label('TRالاسم'),
+                            TextArea::make('description_tr')->label('TR وصف '),
+                        ])->columns(2),
+                        ]),
+                        Forms\Components\Wizard\Step::make('DU')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('name_du')->nullable()->label('DUالاسم'),
+                            TextArea::make('description_du')->label('وصفDU '),
+                        ])->columns(2),
+                        ]),
+                        Forms\Components\Wizard\Step::make('ES')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('name_es')->nullable()->label('ESالاسم'),
+                            TextArea::make('description_ES')->label('وصفES '),
+                        ])->columns(2),
+                        ]),
+
+                    ])->skippable()
+
+                ]),
+
+                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية')
 
             ]);
     }
@@ -48,10 +97,12 @@ class CatalogResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->searchable(),
                 SpatieMediaLibraryImageColumn::make('الصورة')->collection('catalogs'),
-                Tables\Columns\TextColumn::make('year'),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('year')->label('عام'),
+                Tables\Columns\TextColumn::make('description')->label('الوصف')->searchable(),
+                Tables\Columns\TagsColumn::make('tags.name')->label('كلمات مفتاحية')
+
 
             ])
             ->filters([

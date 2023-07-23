@@ -6,29 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Tags\HasTags;
 
 class Post extends Model implements HasMedia
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia,HasTags;
     use HasFactory;
-    protected $fillable=[
-        'section_id',
-        'tilte_ar',
-        'tilte_en',
-        'tilte_tr',
-        'tilte_du',
-        'tilte_es',
-        'body_ar',
-        'body_en',
-        'body_tr',
-        'body_du',
-        'body_es',
-        'img',
-        'video',
+    protected $guarded=[];
+
+    protected $casts = [
+        'sections' => 'array',
     ];
 
 
     public function section(){
-        return $this->belongsTo(Section::class);
+        return $this->belongsToMany(Section::class);
     }
 }

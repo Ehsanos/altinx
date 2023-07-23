@@ -5,6 +5,7 @@ namespace App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Widgets\StatsOverviewWidget;
 
 class ListCategories extends ListRecords
 {
@@ -14,6 +15,13 @@ class ListCategories extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            CategoryResource\Widgets\CategoryOverview::class
         ];
     }
 }

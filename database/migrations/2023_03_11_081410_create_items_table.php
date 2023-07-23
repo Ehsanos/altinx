@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-           
+
+            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->integer('quantity');
+            $table->float('discount')->default(0);
+            $table->decimal('total',5,2);
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

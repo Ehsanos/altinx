@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Slider;
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class SliderPolicy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function viewAny(User $user)
+    {
+        return $user->can('view_any_slider');
+    }
+
+
+    public function view(User $user, Slider $slider)
+    {
+        return $user->can('view_slider');
+    }
+
+
+    public function create(User $user)
+    {
+        return $user->can('create_slider');
+
+    }
+
+
+    public function update(User $user, Slider $slider)
+    {
+        return $user->can('update_slider');
+    }
+
+
+    public function delete(User $user, Slider $slider)
+    {
+        return $user->can('delete_slider');
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Slider  $slider
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restore(User $user, Slider $slider)
+    {
+        return $user->can('restore_slider');
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Slider  $slider
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDelete(User $user, Slider $slider)
+    {
+        return $user->can('force-delete_any_slider');
+    }
+}

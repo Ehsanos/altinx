@@ -6,31 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Tags\HasTags;
+
 
 class Category extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use HasFactory;
+    use HasTags;
 
-    protected $fillable = [
-        'name',
-        'img',
-        'description',
-        'is_active',
+    protected $guarded=[];
+
+    protected $casts=[
+        'tags'=>'array',
     ];
 
     public function departments()
     {
         return $this->hasMany(Department::class);
-    }
-
-    public function getImgAttribute()
-    {
-
-        if ($this->hasMedia('categories')) {
-            return $this->getFirstMediaUrl('categories');
-        }
-
     }
 
 }

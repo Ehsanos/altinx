@@ -14,20 +14,75 @@ use Filament\Tables;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Wizard;
+
 
 class PostResource extends Resource
 {
-    protected static ?string $model = Post::class;
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $model = Post::class;
+    protected static ?string $pluralModelLabel = 'المنشورات';
+    protected static ?string $navigationGroup = 'الأخبار و المنشورات';
+
+
+
+
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('tilte')->required(),
-                Forms\Components\Textarea::make('body')->required(),
-                SpatieMediaLibraryFileUpload::make('img')->collection('posts')->label('الصورة'),
+
+
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\TextInput::make('video')->nullable(),
+                    SpatieMediaLibraryFileUpload::make('img')->collection('posts')->label('الصورة'),
+
+                ])->columns(2),
+
+
+                Forms\Components\Section::make('منشور')->schema([
+                    Wizard::make()->schema([
+                        Wizard\Step::make('AR')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('tilte_ar')->nullable()->label('عنوان عربي'),
+                            Forms\Components\Textarea::make('body_ar')->nullable()->label('منشور العربي'),
+
+                        ])->columns(2)]),
+                        Wizard\Step::make('EN')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('tilte_en')->nullable()->label('ENعنوان'),
+                            Forms\Components\Textarea::make('body_en')->nullable()->label('منشورEN'),
+
+                        ])->columns(2)]),
+                        Wizard\Step::make('TR')->schema([Forms\Components\Card::make()->schema([
+
+                            Forms\Components\TextInput::make('tilte_tr')->nullable()->label('TRعنوان'),
+                            Forms\Components\Textarea::make('body_tr')->nullable()->label('TRمنشور'),
+                        ])->columns(2),
+                        ]),
+                        Wizard\Step::make('ES')->schema([Forms\Components\Card::make()->schema([
+
+                            Forms\Components\TextInput::make('tilte_du')->nullable()->label('DUعنوان'),
+
+                            Forms\Components\Textarea::make('body_du')->nullable()->label('DUمنشور'),
+
+                        ])->columns(2),
+                        ]),
+                        Wizard\Step::make('DU')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('tilte_es')->nullable()->label('عنوانES'),
+                            Forms\Components\Textarea::make('body_es')->nullable()->label('منشورES'),
+                        ])->columns(2),
+                        ]),
+                    ])->skippable()
+
+                ]),
+
+                Forms\Components\CheckboxList::make('section_id')->relationship('section', 'title')->label('قسم'),
+                Forms\Components\TagsInput::make('tags'),
 
             ]);
     }
@@ -36,9 +91,10 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('tilte'),
-                Tables\Columns\TextColumn::make('body'),
-                SpatieMediaLibraryImageColumn::make('الصورة')->collection('posts'),
+                Tables\Columns\TextColumn::make('tilte_ar')->label('عنوان المنشور')->searchable(),
+                Tables\Columns\TextColumn::make('body_ar')->words(5)->label('المنشور')->searchable(),
+                SpatieMediaLibraryImageColumn::make('الصورة')->collection('posts')->label('صورة المنشور'),
+                Tables\Columns\TagsColumn::make('tags.name')->label('كلمات مفتاحية')->searchable()
             ])
             ->filters([
                 //
