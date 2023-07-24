@@ -60,8 +60,8 @@ class CityResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->button(),
+                Tables\Actions\DeleteAction::make()->button(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
