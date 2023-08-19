@@ -2,6 +2,7 @@
 
 use App\Enums\OrderStatusEnum;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MailTestingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[IndexController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

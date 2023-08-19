@@ -47,7 +47,7 @@ class CatalogResource extends Resource
             ->schema([
 
                 Forms\Components\Card::make()->schema([
-                    DatePicker::make('year'),
+                    DatePicker::make('year')->required(),
 
                     FileUpload::make('file')->acceptedFileTypes(['application/pdf'])->uploadButtonPosition('left'),
                     SpatieMediaLibraryFileUpload::make('img')->collection('catalogs')->label('الصورة'),

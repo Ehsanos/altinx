@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Statics;
 use App\Models\User;
+use App\Models\Statics;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class StaticsPolicy
@@ -25,10 +25,10 @@ class StaticsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\=Statics  $=Statics
+     * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Statics $statics)
     {
         return $user->can('view_statics');
     }
@@ -42,44 +42,110 @@ class StaticsPolicy
     public function create(User $user)
     {
         return $user->can('create_statics');
-
     }
 
-
-    public function update(User $user, Statics $Statics)
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Statics  $statics
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function update(User $user, Statics $statics)
     {
         return $user->can('update_statics');
-
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\=Statics  $=Statics
+     * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Statics $Statics)
+    public function delete(User $user, Statics $statics)
     {
         return $user->can('delete_statics');
-
-    }
-
-    public function restore(User $user, Statics $Statics)
-    {
-        return $user->can('restore_statics');
-
     }
 
     /**
-     * Determine whether the user can permanently delete the model.
+     * Determine whether the user can bulk delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\=Statics  $=Statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Statics $Statics)
+    public function deleteAny(User $user)
     {
-        //
+        return $user->can('delete_any_statics');
     }
+
+    /**
+     * Determine whether the user can permanently delete.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Statics  $statics
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDelete(User $user, Statics $statics)
+    {
+        return $user->can('force_delete_statics');
+    }
+
+    /**
+     * Determine whether the user can permanently bulk delete.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDeleteAny(User $user)
+    {
+        return $user->can('force_delete_any_statics');
+    }
+
+    /**
+     * Determine whether the user can restore.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Statics  $statics
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restore(User $user, Statics $statics)
+    {
+        return $user->can('restore_statics');
+    }
+
+    /**
+     * Determine whether the user can bulk restore.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restoreAny(User $user)
+    {
+        return $user->can('restore_any_statics');
+    }
+
+    /**
+     * Determine whether the user can replicate.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Statics  $statics
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function replicate(User $user, Statics $statics)
+    {
+        return $user->can('replicate_statics');
+    }
+
+    /**
+     * Determine whether the user can reorder.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function reorder(User $user)
+    {
+        return $user->can('reorder_statics');
+    }
+
 }

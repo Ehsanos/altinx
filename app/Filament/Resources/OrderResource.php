@@ -60,7 +60,7 @@ class OrderResource extends Resource
                         OrderStatusEnum::Success->value=>OrderStatusEnum::Success->getValue(),
 
 
-                ])->label('حالة الطلب'),
+                ])->icon(fn($record)=>OrderStatusEnum::tryFrom($record->status)?->getIcon())->color(fn($record)=>OrderStatusEnum::tryFrom($record->status)?->getColor())->label('حالة الطلب'),
                 Tables\Columns\TextColumn::make('result')->label('السعر قبل الخصم'),
                 Tables\Columns\TextColumn::make('total')->label('جمالي الفاتورة'),
 
@@ -69,8 +69,8 @@ class OrderResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->button(),
+                Tables\Actions\DeleteAction::make()->button(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Job;
 use App\Models\User;
+use App\Models\Job;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class JobPolicy
@@ -18,8 +18,7 @@ class JobPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_job');
-
+        return $user->can('view_any_job');
     }
 
     /**
@@ -32,7 +31,6 @@ class JobPolicy
     public function view(User $user, Job $job)
     {
         return $user->can('view_job');
-
     }
 
     /**
@@ -44,7 +42,6 @@ class JobPolicy
     public function create(User $user)
     {
         return $user->can('create_job');
-
     }
 
     /**
@@ -57,7 +54,6 @@ class JobPolicy
     public function update(User $user, Job $job)
     {
         return $user->can('update_job');
-
     }
 
     /**
@@ -73,19 +69,18 @@ class JobPolicy
     }
 
     /**
-     * Determine whether the user can restore the model.
+     * Determine whether the user can bulk delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Job  $job
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Job $job)
+    public function deleteAny(User $user)
     {
-        //
+        return $user->can('delete_any_job');
     }
 
     /**
-     * Determine whether the user can permanently delete the model.
+     * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Job  $job
@@ -93,6 +88,64 @@ class JobPolicy
      */
     public function forceDelete(User $user, Job $job)
     {
-        //
+        return $user->can('force_delete_job');
     }
+
+    /**
+     * Determine whether the user can permanently bulk delete.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDeleteAny(User $user)
+    {
+        return $user->can('force_delete_any_job');
+    }
+
+    /**
+     * Determine whether the user can restore.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Job  $job
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restore(User $user, Job $job)
+    {
+        return $user->can('restore_job');
+    }
+
+    /**
+     * Determine whether the user can bulk restore.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restoreAny(User $user)
+    {
+        return $user->can('restore_any_job');
+    }
+
+    /**
+     * Determine whether the user can replicate.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Job  $job
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function replicate(User $user, Job $job)
+    {
+        return $user->can('replicate_job');
+    }
+
+    /**
+     * Determine whether the user can reorder.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function reorder(User $user)
+    {
+        return $user->can('reorder_job');
+    }
+
 }
