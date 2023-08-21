@@ -38,6 +38,7 @@ class CountryResource extends Resource
                 Forms\Components\Toggle::make('is_active')->label('تفعيل الدولة'),
                 Forms\Components\Toggle::make('is_user_active')->label('السماح لمستدمي هذه الدولة'),
                 Forms\Components\TextInput::make('name')->label('الدولة'),
+                Forms\Components\TextInput::make('name_en')->label('EN'),
                 Forms\Components\TextInput::make('code')->label('رمز الدولة'),
 
 
@@ -50,6 +51,8 @@ class CountryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('الدولة')->searchable(),
+                Tables\Columns\TextColumn::make('name_en')->label('En')->searchable(),
+
                 Tables\Columns\IconColumn::make('is_active')->boolean()->label('مفعلة'),
                 Tables\Columns\IconColumn::make('is_user_active')->boolean()->label('مستخدمي الدولة')->searchable(),
                 Tables\Columns\TextColumn::make('code')->label('كود الدولة')->searchable(),
@@ -59,8 +62,8 @@ class CountryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make()->button(),
+                Tables\Actions\DeleteAction::make()->button(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

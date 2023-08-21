@@ -37,6 +37,7 @@ class CityResource extends Resource
                     ->schema([
 
                         Forms\Components\TextInput::make('name')->required()->label('المدينة'),
+                        Forms\Components\TextInput::make('name_en')->required()->label('EN'),
                         Forms\Components\Toggle::make('is_active')->label('تفعيل'),
                         Forms\Components\Select::make('country_id')->options(Country::all()->pluck("name", "id")) ->searchable()
                             ->disablePlaceholderSelection()->label('الدولة')->required()
@@ -53,6 +54,7 @@ class CityResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('المدينة')->searchable(),
+                Tables\Columns\TextColumn::make('name_en')->label('EN')->searchable(),
                 Tables\Columns\TextColumn::make('country.name')->label('الدولة')->searchable(),
                 Tables\Columns\IconColumn::make('is_active')->boolean()->label('مفعلة'),
             ])

@@ -12,3 +12,8 @@ function lang($name){
     return  "";
 }
 
+function getLangs(){
+    $lang=Lang::all();
+    return $lang;
+}
+
