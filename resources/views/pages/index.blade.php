@@ -154,8 +154,8 @@
                                     <div class="card-header"><img class="img-fluid rounded-img"
                                                                   src="{{$product->getFirstMediaUrl('products')}}"></div>
                                     <div class="card-body">
-                                        <p class="card-text sub-text-color">{{$product->name}}</p>
-                                        <p class="card-text cardbody-sub-text">{{$product->description}}</p>
+                                        <p class="card-text sub-text-color">{{getTrans($product,'name')}}</p>
+                                        <p class="card-text cardbody-sub-text">{{getTrans($product,'description')}}</p>
                                     </div>
                                 </div>
                             </a></div>
@@ -235,8 +235,8 @@
                                     <div class="card-header"><img class="img-fluid rounded-img"
                                                                   src="{{$new->getFirstMediaUrl('posts')}}"></div>
                                     <div class="card-body">
-                                        <p class="card-text sub-text-color">{{$new->tilte_ar}}</p>
-                                        <p class="card-text cardbody-sub-text">{{$new->body_ar}}</p>
+                                        <p class="card-text sub-text-color">{{getTrans($new,'tilte')}}</p>
+                                        <p class="card-text cardbody-sub-text">{{getTrans($new,'body')}}</p>
                                     </div>
                                 </div>
                             </a></div>

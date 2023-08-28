@@ -32,14 +32,14 @@
 <body class="p-0">
 <main>
     <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom" id="mainNav">
-        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link active" href="index.blade.php">الرئيسية</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="products.html">المنتجات</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="Catalog.blade.php">الخدمات</a></li>
-                    <li class="nav-item main-link"><a class="nav-link active font-weight-bolder" href="#">عروض الأسعار</a></li>
-                    <li class="nav-item main-link"><a class="nav-link active font-weight-bolder" href="#">من نحن ؟</a></li>
+                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link active" href="{{route('langs.index')}}">{{lang('home')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="{{route('langs.products')}}">{{lang('product')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="Catalog.blade.php">{{lang('services')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('offers')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('we_are')}}</a></li>
                     <li class="nav-item d-none d-lg-block mx-5">
                         <div class="center d-sm-block" mt-3="">
                             <form class="form-inline srch-form" action="">
@@ -57,13 +57,14 @@
                             <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"></path>
                         </svg></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">اللغة العربية</a>
-                        <a class="dropdown-item" href="#">EN</a>
-                        <a class="dropdown-item" href="#">TR</a>
-                        <a class="dropdown-item" href="#">DU</a>
+                        <a class="dropdown-item" href="{{route('change.lang',['lang'=>'ar'])}}">اللغة العربية</a>
+                        <a class="dropdown-item" href="{{route('change.lang',['lang'=>'en'])}}">EN</a>
+                        <a class="dropdown-item" href="{{route('change.lang',['lang'=>'tr'])}}">TR</a>
+                        <a class="dropdown-item" href="{{route('change.lang',['lang'=>'du'])}}">DU</a>
+                        <a class="dropdown-item" href="{{route('change.lang',['lang'=>'es'])}}">ES</a>
 
                     </div>
-                </div><a class="btn shadow btn-sign" role="button">تسجيل الدخول</a>
+                </div><a class="btn shadow btn-sign" role="button" >{{lang('login')}}</a>
             </div>
         </div>
     </nav>
@@ -76,31 +77,31 @@
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col-12 col-md-4">
-                    <div class="font-weight-bold text-lg-right d-flex align-items-center mb-2"><span class="text-dark">اشترك في المقالة البريدية</span></div>
+                    <div class="font-weight-bold text-lg-right d-flex align-items-center mb-2"><span class="text-dark">{{lang('emails')}}</span></div>
                     <div class="pt-2">
                         <form method="post">
                             <div class="mb-3"><input class="shadow form-control" type="email" id="email-1" name="email" placeholder="Email"></div>
-                            <div><button class="btn btn-primary shadow btn-sign d-block w-100" type="submit">ارسال</button></div>
+                            <div><button class="btn btn-primary shadow btn-sign d-block w-100" type="submit">{{lang('send')}}</button></div>
                         </form>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 text-lg-left d-flex flex-column">
                     <div class="p-3">
-                        <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">صفحات الموقع</h3>
+                        <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">{{lang('pages')}}</h3>
                         <ul class="list-unstyled text-center text-lg-right">
-                            <li><a href="#">الرئيسية</a></li>
-                            <li><a href="#">المنتجات</a></li>
-                            <li><a href="#">الخدمات</a></li>
+                            <li><a href="#">{{lang('home')}}</a></li>
+                            <li><a href="#">{{lang('product')}}</a></li>
+                            <li><a href="#">{{lang('services')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 text-lg-left d-flex flex-column">
                     <div class="p-3">
-                        <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">من نحن ؟</h3>
+                        <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">{{lang('about')}}</h3>
                         <ul class="list-unstyled text-center text-lg-right">
-                            <li><a href="#">من نحن ؟</a></li>
-                            <li><a href="#">سياسة الخصوصية</a></li>
-                            <li><a href="#">تعرف علينا أكثر</a></li>
+                            <li><a href="#">{{lang('we_are')}}</a></li>
+                            <li><a href="#">{{lang('policy')}}</a></li>
+                            <li><a href="#">{{lang('call_us')}}</a></li>
                         </ul>
                     </div>
                 </div>

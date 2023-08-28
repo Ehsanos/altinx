@@ -47,7 +47,7 @@ class ProductResource extends Resource
 
                 Forms\Components\Card::make()->schema([
                     Forms\Components\Toggle::make('is_active')->label('متوفر'),
-                    SpatieMediaLibraryFileUpload::make('img')->collection('products')->label('الصورة'),
+                    SpatieMediaLibraryFileUpload::make('img')->collection('products')->label('الصورة')->imageCropAspectRatio('1:1')->hint('يجي ان يكون قياس الصورة متناسق'),
 
                 ]),
 

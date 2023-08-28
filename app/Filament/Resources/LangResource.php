@@ -76,6 +76,7 @@ class LangResource extends Resource
             'index' => Pages\ListLangs::route('/'),
             'create' => Pages\CreateLang::route('/create'),
             'edit' => Pages\EditLang::route('/{record}/edit'),
+
         ];
     }
 }

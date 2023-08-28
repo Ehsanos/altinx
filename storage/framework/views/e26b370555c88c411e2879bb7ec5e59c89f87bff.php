@@ -154,8 +154,8 @@
                                     <div class="card-header"><img class="img-fluid rounded-img"
                                                                   src="<?php echo e($product->getFirstMediaUrl('products')); ?>"></div>
                                     <div class="card-body">
-                                        <p class="card-text sub-text-color"><?php echo e($product->name); ?></p>
-                                        <p class="card-text cardbody-sub-text"><?php echo e($product->description); ?></p>
+                                        <p class="card-text sub-text-color"><?php echo e(getTrans($product,'name')); ?></p>
+                                        <p class="card-text cardbody-sub-text"><?php echo e(getTrans($product,'description')); ?></p>
                                     </div>
                                 </div>
                             </a></div>
@@ -235,8 +235,8 @@
                                     <div class="card-header"><img class="img-fluid rounded-img"
                                                                   src="<?php echo e($new->getFirstMediaUrl('posts')); ?>"></div>
                                     <div class="card-body">
-                                        <p class="card-text sub-text-color"><?php echo e($new->tilte_ar); ?></p>
-                                        <p class="card-text cardbody-sub-text"><?php echo e($new->body_ar); ?></p>
+                                        <p class="card-text sub-text-color"><?php echo e(getTrans($new,'tilte')); ?></p>
+                                        <p class="card-text cardbody-sub-text"><?php echo e(getTrans($new,'body')); ?></p>
                                     </div>
                                 </div>
                             </a></div>

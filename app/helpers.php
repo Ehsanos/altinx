@@ -12,6 +12,27 @@ function lang($name){
     return  "";
 }
 
+function getTrans($model ,$feild){
+
+
+
+    if(app()->getLocale()=='es'){
+        return $model->{$feild.'_es'};
+    }
+    elseif (app()->getLocale()=='en'){
+       return $model->{$feild.'_en'};
+    }
+    elseif (app()->getLocale()=='du'){
+        return $model->{$feild.'_du'};
+    }
+    elseif (app()->getLocale()=='tr'){
+        return $model->{$feild.'_tr'};
+    }
+    return $model->$feild;
+
+
+}
+
 function getLangs(){
     $lang=Lang::all();
     return $lang;
