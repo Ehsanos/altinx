@@ -229,7 +229,7 @@
                     <div id="news" class="owl-carousel py-4">
 
                         @foreach($news as $new)
-                        <div class="px-3 product-item"><a class="text-decoration-none" href="news.blade.php">
+                        <div class="px-3 product-item"><a class="text-decoration-none" href="{{route('langs.showPost',['post'=>$new])}}">
                                 <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"
                                      data-aos-duration="950">
                                     <div class="card-header"><img class="img-fluid rounded-img"

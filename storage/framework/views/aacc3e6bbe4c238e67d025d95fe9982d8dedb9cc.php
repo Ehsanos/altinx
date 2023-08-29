@@ -5,13 +5,68 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <div class="text-center"><img class="img-fluid" src="../assets/img/1%20(3).jpg"></div>
+                        <div class="text-center"><img class="img-fluid" src="<?php echo e($post->getFirstMediaUrl('posts')); ?>"></div>
                     </div>
                     <div class="col">
-                        <h1 class="text-dark">عنوان الخبر</h1>
-                        <p class="text-dark"><span style="font-weight: normal !important; font-style: normal !important; color: rgb(122, 122, 122);">لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض علىالعميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ...بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص&nbsp;من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع&nbsp;النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات&nbsp;</span><br><br></p>
+                        <h1 class="text-dark"><?php echo e(getTrans($post,'tilte')); ?></h1>
+                        <p class="text-dark"><span style="font-weight: normal !important; font-style: normal !important; color: rgb(122, 122, 122);">
+                             <?php echo e(getTrans($post,'body')); ?>
+
+                            </span><br><br></p>
                     </div>
                 </div>
+                <div class=" mt-2">
+                    <a href="#" class="badge badge-dark ">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+
+
+
+
+                </div>
+
+
             </div>
         </section>
     </main>

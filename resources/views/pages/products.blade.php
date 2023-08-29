@@ -219,6 +219,57 @@
                         </div>
                     </div>
                 </div>
+                <div class=" mt-2">
+                    <a href="#" class="badge badge-dark ">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+
+
+
+
+
+                </div>
+
             </div>
         </section>
     </main>

@@ -35,13 +35,16 @@
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link active" href="{{route('langs.index')}}">{{lang('home')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="{{route('langs.products')}}">{{lang('product')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="Catalog.blade.php">{{lang('services')}}</a></li>
+                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link @if (\Request::route()->getName() =='langs.index') active @endif" href="{{route('langs.index')}}">{{lang('home')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder  @if (\Request::route()->getName() =='langs.products') active @endif"  href="{{route('langs.products')}}">{{lang('product')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('agents')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('news')}}</a></li>
                     <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('offers')}}</a></li>
                     <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('we_are')}}</a></li>
                     <li class="nav-item d-none d-lg-block mx-5">
                         <div class="center d-sm-block" mt-3="">
+
                             <form class="form-inline srch-form" action="">
                                 <div class="srch-wrapper"><input type="text" class="srch-input" placeholder="Search..."><button class="srch-button" type="submit"><em class="icon-search"></em><i class="fas fa-search"></i></button></div>
                             </form>

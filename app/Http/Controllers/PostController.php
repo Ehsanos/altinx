@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts=Post::all();
+        return view('pages.main-news',compact('posts'));
     }
 
     /**
@@ -46,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+      return view('pages.news',compact('post'));
     }
 
     /**

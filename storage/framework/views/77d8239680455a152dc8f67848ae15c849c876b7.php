@@ -35,13 +35,16 @@
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link active" href="<?php echo e(route('langs.index')); ?>"><?php echo e(lang('home')); ?></a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="<?php echo e(route('langs.products')); ?>"><?php echo e(lang('product')); ?></a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder" href="Catalog.blade.php"><?php echo e(lang('services')); ?></a></li>
+                    <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link <?php if(\Request::route()->getName() =='langs.index'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.index')); ?>"><?php echo e(lang('home')); ?></a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder  <?php if(\Request::route()->getName() =='langs.products'): ?> active <?php endif; ?>"  href="<?php echo e(route('langs.products')); ?>"><?php echo e(lang('product')); ?></a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.catalog'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.catalog')); ?>"><?php echo e(lang('services')); ?></a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.catalog'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.catalog')); ?>"><?php echo e(lang('agents')); ?></a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.catalog'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.catalog')); ?>"><?php echo e(lang('news')); ?></a></li>
                     <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#"><?php echo e(lang('offers')); ?></a></li>
                     <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#"><?php echo e(lang('we_are')); ?></a></li>
                     <li class="nav-item d-none d-lg-block mx-5">
                         <div class="center d-sm-block" mt-3="">
+
                             <form class="form-inline srch-form" action="">
                                 <div class="srch-wrapper"><input type="text" class="srch-input" placeholder="Search..."><button class="srch-button" type="submit"><em class="icon-search"></em><i class="fas fa-search"></i></button></div>
                             </form>
