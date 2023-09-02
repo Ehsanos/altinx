@@ -1,9 +1,12 @@
 <?php
 
 use App\Enums\OrderStatusEnum;
+use App\Http\Controllers\AgentContoller;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DelegteController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\MailTestingController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -27,6 +30,10 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/catalogs',[CatalogController::class,'index'])->name('catalog');
     Route::get('/posts',[PostController::class,'index'])->name('news');
     Route::get('/posts/{post}',[PostController::class,'show'])->name('showPost');
+    Route::get('/agents',[AgentContoller::class,'index'])->name('agents');
+    Route::get('/delegte',[DelegteController::class,'index'])->name('delegte');
+    Route::get('/jobs',[JobController::class,'index'])->name('jobs');
+    Route::get('/about',[IndexController::class,'about'])->name('about');
 
 
 });

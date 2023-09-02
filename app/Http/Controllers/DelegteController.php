@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Delegte;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DelegteController extends Controller
@@ -14,7 +15,8 @@ class DelegteController extends Controller
      */
     public function index()
     {
-        //
+        $delegte=User::where('type','delegte')->get();
+        return view('pages.delegte',compact('delegte'));
     }
 
     /**

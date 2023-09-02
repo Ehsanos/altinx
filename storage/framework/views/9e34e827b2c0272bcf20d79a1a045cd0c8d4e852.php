@@ -7,7 +7,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'filament-stats-overview-widget']); ?>
-    <div <?php echo ($pollingInterval = $this->getPollingInterval()) ? "wire:poll.{$pollingInterval}" : ''; ?>>
+    <div
+        <?php echo ($pollingInterval = $this->getPollingInterval()) ? "wire:poll.{$pollingInterval}" : ''; ?>
+
+    >
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.stats.index','data' => ['columns' => $this->getColumns()]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament::stats'); ?>

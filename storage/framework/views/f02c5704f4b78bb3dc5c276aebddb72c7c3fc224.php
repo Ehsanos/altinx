@@ -1,8 +1,8 @@
 <td
     <?php echo e($attributes->class([
-        'filament-tables-cell',
-        'dark:text-white' => config('tables.dark_mode'),
-    ])); ?>
+            'filament-tables-cell',
+            'dark:text-white' => config('tables.dark_mode'),
+        ])); ?>
 
 >
     <?php echo e($slot); ?>

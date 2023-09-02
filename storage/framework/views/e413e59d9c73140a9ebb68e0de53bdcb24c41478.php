@@ -64,7 +64,9 @@
 
     <div class="space-y-2">
         <?php if(($label && (! $labelSrOnly)) || $labelPrefix || $labelSuffix || $hint || $hintIcon || $hintAction): ?>
-            <div class="flex items-center justify-between space-x-2 rtl:space-x-reverse">
+            <div
+                class="flex items-center justify-between space-x-2 rtl:space-x-reverse"
+            >
                 <?php if($label && (! $labelSrOnly)): ?>
                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'forms::components.field-wrapper.label','data' => ['for' => $id,'error' => $errors->has($statePath),'prefix' => $labelPrefix,'required' => $required,'suffix' => $labelSuffix]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -116,8 +118,8 @@
         <?php echo e($slot); ?>
 
 
-            <?php if($errors->has($statePath) || ($hasNestedRecursiveValidationRules && $errors->has("{$statePath}.*"))): ?>
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+        <?php if($errors->has($statePath) || ($hasNestedRecursiveValidationRules && $errors->has("{$statePath}.*"))): ?>
+            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'forms::components.field-wrapper.error-message','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms::field-wrapper.error-message'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -126,15 +128,15 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-                    <?php echo e($errors->first($statePath) ?: ($hasNestedRecursiveValidationRules ? $errors->first("{$statePath}.*") : null)); ?>
+                <?php echo e($errors->first($statePath) ?: ($hasNestedRecursiveValidationRules ? $errors->first("{$statePath}.*") : null)); ?>
 
-                 <?php echo $__env->renderComponent(); ?>
+             <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-            <?php endif; ?>
+        <?php endif; ?>
 
         <?php if($helperText): ?>
             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>

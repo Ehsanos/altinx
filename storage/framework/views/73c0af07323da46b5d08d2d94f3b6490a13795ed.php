@@ -56,7 +56,7 @@
         'group-hover:text-warning-100 group-focus:text-warning-100' => $color === 'warning' && $hasHoverAndFocusState,
     ]);
 
-    $labelClasses = 'filament-dropdown-list-item-label truncate w-full text-start';
+    $labelClasses = 'filament-dropdown-list-item-label w-full truncate text-start';
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
         'filament-dropdown-list-item-icon mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0',
@@ -68,10 +68,12 @@
         'text-warning-500' => $color === 'warning',
     ]);
 
-    $hasLoadingIndicator = filled($attributes->get('wire:target')) || filled($attributes->get('wire:click'));
+    $wireTarget = $attributes->whereStartsWith(['wire:target', 'wire:click'])->first();
+
+    $hasLoadingIndicator = filled($wireTarget);
 
     if ($hasLoadingIndicator) {
-        $loadingIndicatorTarget = html_entity_decode($attributes->get('wire:target', $attributes->get('wire:click')), ENT_QUOTES);
+        $loadingIndicatorTarget = html_entity_decode($wireTarget, ENT_QUOTES);
     }
 ?>
 
@@ -167,7 +169,10 @@
         <?php endif; ?>
     </a>
 <?php elseif($tag === 'form'): ?>
-    <form <?php echo e($attributes->only(['action', 'class', 'method', 'wire:submit.prevent'])); ?>>
+    <form
+        <?php echo e($attributes->only(['action', 'class', 'method', 'wire:submit.prevent'])); ?>
+
+    >
         <?php echo csrf_field(); ?>
 
         <button

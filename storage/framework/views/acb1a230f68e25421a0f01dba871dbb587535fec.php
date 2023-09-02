@@ -24,21 +24,19 @@
 <div
     <?php if(config('filament.layout.forms.actions.are_sticky')): ?>
         x-data="{
-
             isSticky: false,
 
-            evaluatePageScrollPosition: function() {
-                let documentHeight = document.body.scrollHeight
-                let currentScroll = window.scrollY + window.innerHeight
-
-                this.isSticky = currentScroll <= documentHeight
+            evaluatePageScrollPosition: function () {
+                this.isSticky =
+                    window.scrollY + window.innerHeight * 2 <=
+                    document.body.scrollHeight
             },
-
         }"
         x-init="evaluatePageScrollPosition"
         x-on:scroll.window="evaluatePageScrollPosition"
         x-bind:class="{
-            'filament-form-actions-sticky-panel sticky bottom-0 -mx-4 transform md:-translate-y-4 bg-white p-4 shadow-lg transition ring-1 ring-black/5 md:rounded-xl': isSticky,
+            'filament-form-actions-sticky-panel sticky bottom-0 -mx-4 transform md:-translate-y-4 bg-white p-4 shadow-lg transition ring-1 ring-black/5 md:rounded-xl':
+                isSticky,
             'dark:bg-gray-800': <?php echo \Illuminate\Support\Js::from(config('filament.dark_mode'))->toHtml() ?> && isSticky,
         }"
     <?php endif; ?>

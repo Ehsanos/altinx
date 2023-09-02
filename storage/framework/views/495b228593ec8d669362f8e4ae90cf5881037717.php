@@ -1,7 +1,12 @@
-<div <?php echo e($attributes->merge($getExtraAttributes())->class([
-    'filament-tables-image-column',
-    'px-4 py-3' => ! $isInline(),
-])); ?>>
+<div
+    <?php echo e($attributes
+            ->merge($getExtraAttributes())
+            ->class([
+                'filament-tables-image-column',
+                'px-4 py-3' => ! $isInline(),
+            ])); ?>
+
+>
     <?php
         $height = $getHeight();
         $width = $getWidth() ?? ($isCircular() || $isSquare() ? $height : null);
@@ -29,11 +34,11 @@
 
                 "
                 <?php echo e($getExtraImgAttributeBag()->class([
-                    'object-cover object-center' => $isCircular() || $isSquare(),
-                ])); ?>
+                        'object-cover object-center' => $isCircular() || $isSquare(),
+                    ])); ?>
 
-            >
-       <?php endif; ?>
+            />
+        <?php endif; ?>
     </div>
 </div>
 <?php /**PATH D:\1\altin\vendor\filament\tables\src\/../resources/views/columns/image-column.blade.php ENDPATH**/ ?>

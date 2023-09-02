@@ -1,4 +1,4 @@
-<div class="filament-global-search flex items-center ml-4 rtl:ml-0 rtl:mr-4">
+<div class="filament-global-search ml-4 flex items-center rtl:ml-0 rtl:mr-4">
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.global-search.start','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament::global-search.start'); ?>

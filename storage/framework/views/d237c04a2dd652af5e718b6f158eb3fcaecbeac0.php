@@ -30,14 +30,19 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<div <?php echo e($attributes->class([
-    'filament-tables-empty-state flex flex-1 flex-col items-center justify-center p-6 mx-auto space-y-6 text-center bg-white',
-    'dark:bg-gray-800' => config('tables.dark_mode'),
-])); ?>>
-    <div class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-        'flex items-center justify-center w-16 h-16 text-primary-500 rounded-full bg-primary-50',
-        'dark:bg-gray-700' => config('tables.dark_mode'),
-    ]) ?>">
+<div
+    <?php echo e($attributes->class([
+            'filament-tables-empty-state mx-auto flex flex-1 flex-col items-center justify-center space-y-6 bg-white p-6 text-center',
+            'dark:bg-gray-800' => config('tables.dark_mode'),
+        ])); ?>
+
+>
+    <div
+        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+            'flex h-16 w-16 items-center justify-center rounded-full bg-primary-50 text-primary-500',
+            'dark:bg-gray-700' => config('tables.dark_mode'),
+        ]) ?>"
+    >
         <?php if (isset($component)) { $__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9 = $component; } ?>
 <?php $component = Illuminate\View\DynamicComponent::resolve(['component' => $icon] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dynamic-component'); ?>
@@ -46,7 +51,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-6 h-6','wire:loading.remove.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']); ?>
+<?php $component->withAttributes(['class' => 'h-6 w-6','wire:loading.remove.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>
@@ -55,14 +60,14 @@
 <?php endif; ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament-support::components.loading-indicator','data' => ['class' => 'w-6 h-6','wire:loading.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament-support::components.loading-indicator','data' => ['class' => 'h-6 w-6','wire:loading.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament-support::loading-indicator'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-6 h-6','wire:loading.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']); ?>
+<?php $component->withAttributes(['class' => 'h-6 w-6','wire:loading.delay' => true,'wire:target' => ''.e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)).'']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>

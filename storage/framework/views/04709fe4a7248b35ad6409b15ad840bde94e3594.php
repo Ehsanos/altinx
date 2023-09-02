@@ -17,7 +17,12 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['id' => $getId(),'label' => $getLabel(),'label-sr-only' => $isLabelHidden(),'helper-text' => $getHelperText(),'hint' => $getHint(),'hint-action' => $getHintAction(),'hint-color' => $getHintColor(),'hint-icon' => $getHintIcon(),'required' => $isRequired(),'state-path' => $getStatePath()]); ?>
-    <div <?php echo e($attributes->merge($getExtraAttributes())->class(['filament-forms-text-input-component flex items-center space-x-2 rtl:space-x-reverse group'])); ?>>
+    <div
+        <?php echo e($attributes
+                ->merge($getExtraAttributes())
+                ->class(['filament-forms-text-input-component group flex items-center space-x-2 rtl:space-x-reverse'])); ?>
+
+    >
         <?php if(($prefixAction = $getPrefixAction()) && (! $prefixAction->isHidden())): ?>
             <?php echo e($prefixAction); ?>
 
@@ -32,7 +37,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-5 h-5']); ?>
+<?php $component->withAttributes(['class' => 'h-5 w-5']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>
@@ -41,7 +46,7 @@
 <?php endif; ?>
         <?php endif; ?>
 
-        <?php if($label = $getPrefixLabel()): ?>
+        <?php if(filled($label = $getPrefixLabel())): ?>
             <span class="<?php echo \Illuminate\Support\Arr::toCssClasses($affixLabelClasses) ?>">
                 <?php echo e($label); ?>
 
@@ -65,8 +70,6 @@
                     <?php echo $isLazy() ? "x-on:blur=\"\$wire.\$refresh\"" : null; ?>
 
                     <?php echo $isDebounced() ? "x-on:input.debounce.{$getDebounce()}=\"\$wire.\$refresh\"" : null; ?>
-
-                    <?php echo e($getExtraAlpineAttributeBag()); ?>
 
                 <?php endif; ?>
                 dusk="filament.forms.<?php echo e($getStatePath()); ?>"
@@ -99,21 +102,28 @@
                     <?php echo $isRequired() ? 'required' : null; ?>
 
                 <?php endif; ?>
+                <?php echo e($getExtraAlpineAttributeBag()); ?>
+
                 <?php echo e($getExtraInputAttributeBag()->class([
-                    'block w-full transition duration-75 rounded-lg shadow-sm outline-none focus:border-primary-500 focus:ring-1 focus:ring-inset focus:ring-primary-500 disabled:opacity-70',
-                    'dark:bg-gray-700 dark:text-white dark:focus:border-primary-500' => config('forms.dark_mode'),
-                ])); ?>
+                        'filament-forms-input block w-full rounded-lg shadow-sm outline-none transition duration-75 focus:ring-1 focus:ring-inset disabled:opacity-70',
+                        'dark:bg-gray-700 dark:text-white' => config('forms.dark_mode'),
+                    ])); ?>
 
                 x-bind:class="{
-                    'border-gray-300': ! (<?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors),
-                    'dark:border-gray-600': ! (<?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors) && <?php echo \Illuminate\Support\Js::from(config('forms.dark_mode'))->toHtml() ?>,
-                    'border-danger-600 ring-danger-600': (<?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors),
-                    'dark:border-danger-400 dark:ring-danger-400': (<?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors) && <?php echo \Illuminate\Support\Js::from(config('forms.dark_mode'))->toHtml() ?>,
+                    'border-gray-300 focus:border-primary-500 focus:ring-primary-500': ! (
+                        <?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors
+                    ),
+                    'dark:border-gray-600 dark:focus:border-primary-500':
+                        ! (<?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors) && <?php echo \Illuminate\Support\Js::from(config('forms.dark_mode'))->toHtml() ?>,
+                    'border-danger-600 ring-danger-600 focus:border-danger-500 focus:ring-danger-500':
+                        <?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors,
+                    'dark:border-danger-400 dark:ring-danger-400 dark:focus:border-danger-500 dark:focus:ring-danger-500':
+                        <?php echo \Illuminate\Support\Js::from($getStatePath())->toHtml() ?> in $wire.__instance.serverMemo.errors && <?php echo \Illuminate\Support\Js::from(config('forms.dark_mode'))->toHtml() ?>,
                 }"
             />
         </div>
 
-        <?php if($label = $getSuffixLabel()): ?>
+        <?php if(filled($label = $getSuffixLabel())): ?>
             <span class="<?php echo \Illuminate\Support\Arr::toCssClasses($affixLabelClasses) ?>">
                 <?php echo e($label); ?>
 
@@ -129,7 +139,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-5 h-5']); ?>
+<?php $component->withAttributes(['class' => 'h-5 w-5']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>

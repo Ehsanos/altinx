@@ -20,10 +20,12 @@
 
 <div
     <?php echo e($attributes->class([
-        'w-10 h-10 rounded-full bg-gray-200 bg-cover bg-center',
-        'dark:bg-gray-900' => config('filament.dark_mode'),
-    ])); ?>
+            'h-10 w-10 rounded-full bg-gray-200 bg-cover bg-center',
+            'dark:bg-gray-900' => config('filament.dark_mode'),
+        ])); ?>
 
-    style="background-image: url('<?php echo e(\Filament\Facades\Filament::getUserAvatarUrl($user)); ?>')"
+    style="
+        background-image: url('<?php echo e(\Filament\Facades\Filament::getUserAvatarUrl($user)); ?>');
+    "
 ></div>
 <?php /**PATH D:\1\altin\vendor\filament\filament\src\/../resources/views/components/user-avatar.blade.php ENDPATH**/ ?>

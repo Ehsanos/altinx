@@ -28,9 +28,9 @@
         <?php echo e(\Filament\Facades\Filament::renderHook('head.start')); ?>
 
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
         <?php $__currentLoopData = \Filament\Facades\Filament::getMeta(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php echo e($tag); ?>
@@ -38,18 +38,36 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         <?php if($favicon = config('filament.favicon')): ?>
-            <link rel="icon" href="<?php echo e($favicon); ?>">
+            <link rel="icon" href="<?php echo e($favicon); ?>" />
         <?php endif; ?>
 
-        <title><?php echo e($title ? "{$title} - " : null); ?> <?php echo e(config('filament.brand')); ?></title>
+        <title>
+            <?php echo e($title ? "{$title} - " : null); ?> <?php echo e(config('filament.brand')); ?>
+
+        </title>
 
         <?php echo e(\Filament\Facades\Filament::renderHook('styles.start')); ?>
 
 
         <style>
-            [x-cloak=""], [x-cloak="x-cloak"], [x-cloak="1"] { display: none !important; }
-            @media (max-width: 1023px) { [x-cloak="-lg"] { display: none !important; } }
-            @media (min-width: 1024px) { [x-cloak="lg"] { display: none !important; } }
+            [x-cloak=''],
+            [x-cloak='x-cloak'],
+            [x-cloak='1'] {
+                display: none !important;
+            }
+
+            @media (max-width: 1023px) {
+                [x-cloak='-lg'] {
+                    display: none !important;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                [x-cloak='lg'] {
+                    display: none !important;
+                }
+            }
+
             :root {
                 --sidebar-width: <?php echo e(config('filament.layout.sidebar.width') ?? '20rem'); ?>;
                 --collapsed-sidebar-width: <?php echo e(config('filament.layout.sidebar.collapsed_width') ?? '5.4rem'); ?>;
@@ -60,8 +78,12 @@
 
 
         <?php if(filled($fontsUrl = config('filament.google_fonts'))): ?>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossorigin
+            />
             <link href="<?php echo e($fontsUrl); ?>" rel="stylesheet" />
         <?php endif; ?>
 
@@ -72,9 +94,12 @@
                 <?php echo $path; ?>
 
             <?php else: ?>
-                <link rel="stylesheet" href="<?php echo e(route('filament.asset', [
-                    'file' => "{$name}.css",
-                ])); ?>" />
+                <link
+                    rel="stylesheet"
+                    href="<?php echo e(route('filament.asset', [
+                            'file' => "{$name}.css",
+                        ])); ?>"
+                />
             <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -88,7 +113,12 @@
             <script>
                 const theme = localStorage.getItem('theme')
 
-                if ((theme === 'dark') || (! theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                if (
+                    theme === 'dark' ||
+                    (!theme &&
+                        window.matchMedia('(prefers-color-scheme: dark)')
+                            .matches)
+                ) {
                     document.documentElement.classList.add('dark')
                 }
             </script>
@@ -98,10 +128,12 @@
 
     </head>
 
-    <body class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-        'filament-body min-h-screen bg-gray-100 text-gray-900 overflow-y-auto',
-        'dark:text-gray-100 dark:bg-gray-900' => config('filament.dark_mode'),
-    ]) ?>">
+    <body
+        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+            'filament-body min-h-screen overflow-y-auto bg-gray-100 text-gray-900',
+            'dark:bg-gray-900 dark:text-gray-100' => config('filament.dark_mode'),
+        ]) ?>"
+    >
         <?php echo e(\Filament\Facades\Filament::renderHook('body.start')); ?>
 
 
@@ -115,7 +147,7 @@
 
 
         <script>
-            window.filamentData = <?php echo json_encode(\Filament\Facades\Filament::getScriptData(), 15, 512) ?>;
+            window.filamentData = <?php echo json_encode(\Filament\Facades\Filament::getScriptData(), 15, 512) ?>
         </script>
 
         <?php $__currentLoopData = \Filament\Facades\Filament::getBeforeCoreScripts(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $path): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -125,24 +157,33 @@
                 <?php echo $path; ?>
 
             <?php else: ?>
-                <script defer src="<?php echo e(route('filament.asset', [
-                    'file' => "{$name}.js",
-                ])); ?>"></script>
+                <script
+                    defer
+                    src="<?php echo e(route('filament.asset', [
+                            'file' => "{$name}.js",
+                        ])); ?>"
+                ></script>
             <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         <?php echo $__env->yieldPushContent('beforeCoreScripts'); ?>
 
-        <script defer src="<?php echo e(route('filament.asset', [
-            'id' => Filament\get_asset_id('app.js'),
-            'file' => 'app.js',
-        ])); ?>"></script>
+        <script
+            defer
+            src="<?php echo e(route('filament.asset', [
+                    'id' => Filament\get_asset_id('app.js'),
+                    'file' => 'app.js',
+                ])); ?>"
+        ></script>
 
         <?php if(config('filament.broadcasting.echo')): ?>
-            <script defer src="<?php echo e(route('filament.asset', [
-                'id' => Filament\get_asset_id('echo.js'),
-                'file' => 'echo.js',
-            ])); ?>"></script>
+            <script
+                defer
+                src="<?php echo e(route('filament.asset', [
+                        'id' => Filament\get_asset_id('echo.js'),
+                        'file' => 'echo.js',
+                    ])); ?>"
+            ></script>
 
             <script>
                 window.addEventListener('DOMContentLoaded', () => {
@@ -160,9 +201,12 @@
                 <?php echo $path; ?>
 
             <?php else: ?>
-                <script defer src="<?php echo e(route('filament.asset', [
-                    'file' => "{$name}.js",
-                ])); ?>"></script>
+                <script
+                    defer
+                    src="<?php echo e(route('filament.asset', [
+                            'file' => "{$name}.js",
+                        ])); ?>"
+                ></script>
             <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

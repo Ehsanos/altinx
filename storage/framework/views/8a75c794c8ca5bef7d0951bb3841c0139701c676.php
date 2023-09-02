@@ -24,7 +24,10 @@
         window.addEventListener('EchoLoaded', () => {
             window.Echo.private(<?php echo \Illuminate\Support\Js::from($channel)->toHtml() ?>)
                 .notification((notification) => {
-                    setTimeout(() => $wire.handleBroadcastNotification(notification), 500)
+                    setTimeout(
+                        () => $wire.handleBroadcastNotification(notification),
+                        500,
+                    )
                 })
                 .listen('.database-notifications.sent', () => {
                     setTimeout(() => $wire.call('$refresh'), 500)

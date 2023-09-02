@@ -48,7 +48,14 @@ class CategoryResource extends Resource
                 Forms\Components\Card::make()->schema([
                     Toggle::make('is_active')->onColor('success')
                         ->offColor('black')->label('متوفر'),
-                    SpatieMediaLibraryFileUpload::make('img')->collection('categories')->label('الصورة'),
+
+                ]),
+
+                Forms\Components\Card::make()->schema([
+                    SpatieMediaLibraryFileUpload::make('img')
+                        ->collection('categories')->multiple()
+                        ->enableReordering()->label('الصورة')
+                        ->enableOpen()->columns(2),
 
                 ]),
 

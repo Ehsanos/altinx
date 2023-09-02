@@ -27,24 +27,31 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<label <?php echo e($attributes->class(['filament-forms-field-wrapper-label inline-flex items-center space-x-3 rtl:space-x-reverse'])); ?>>
+<label
+    <?php echo e($attributes->class(['filament-forms-field-wrapper-label inline-flex items-center space-x-3 rtl:space-x-reverse'])); ?>
+
+>
     <?php echo e($prefix); ?>
 
 
-    <span class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-        'text-sm font-medium leading-4',
-        'text-gray-700' => ! $error,
-        'dark:text-gray-300' => (! $error) && config('forms.dark_mode'),
-        'text-danger-700' => $error,
-        'dark:text-danger-400' => $error && config('forms.dark_mode'),
-    ]) ?>">
+    <span
+        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+            'text-sm font-medium leading-4',
+            'text-gray-700' => ! $error,
+            'dark:text-gray-300' => (! $error) && config('forms.dark_mode'),
+            'text-danger-700' => $error,
+            'dark:text-danger-400' => $error && config('forms.dark_mode'),
+        ]) ?>"
+    >
         
-        <?php echo e($slot); ?><?php if($required): ?><span class="whitespace-nowrap">
-                <sup class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'font-medium text-danger-700',
+        <?php echo e($slot); ?><?php if($required): ?><sup
+                class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                    'text-danger-700 whitespace-nowrap font-medium',
                     'dark:text-danger-400' => config('forms.dark_mode'),
-                ]) ?>">*</sup>
-            </span>
+                ]) ?>"
+            >
+                *
+            </sup>
         <?php endif; ?>
     </span>
 

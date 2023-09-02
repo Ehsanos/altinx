@@ -1,14 +1,14 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
 <?php foreach($attributes->onlyProps([
-    'label' => null
+    'label' => null,
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $attributes = $attributes->exceptProps([
-    'label' => null
+    'label' => null,
 ]); ?>
 <?php foreach (array_filter(([
-    'label' => null
+    'label' => null,
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -21,9 +21,9 @@
 <label>
     <input
         <?php echo e($attributes->class([
-            'block border-gray-300 rounded shadow-sm text-primary-600 outline-none focus:ring focus:ring-primary-200 focus:ring-opacity-50',
-            'dark:bg-gray-700 dark:border-gray-600 dark:checked:bg-primary-600 dark:checked:border-primary-600' => config('tables.dark_mode'),
-        ])); ?>
+                'block rounded border-gray-300 text-primary-600 shadow-sm outline-none focus:ring focus:ring-primary-200 focus:ring-opacity-50',
+                'dark:border-gray-600 dark:bg-gray-700 dark:checked:border-primary-600 dark:checked:bg-primary-600' => config('tables.dark_mode'),
+            ])); ?>
 
         wire:loading.attr="disabled"
         wire:target="<?php echo e(implode(',', \Filament\Tables\Table::LOADING_TARGETS)); ?>"

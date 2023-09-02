@@ -19,10 +19,12 @@
 <?php unset($__defined_vars); ?>
 
 <div <?php echo e($attributes->class(['filament-breadcrumbs flex-1'])); ?>>
-    <ul class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-        'hidden gap-4 items-center font-medium text-sm lg:flex',
-        'dark:text-white' => config('filament.dark_mode'),
-    ]) ?>">
+    <ul
+        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+            'hidden items-center gap-4 text-sm font-medium lg:flex',
+            'dark:text-white' => config('filament.dark_mode'),
+        ]) ?>"
+    >
         <?php $__currentLoopData = $breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $url => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li>
                 <a
@@ -39,10 +41,12 @@
             </li>
 
             <?php if(! $loop->last): ?>
-                <li class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'h-6 border-r border-gray-300 -skew-x-12',
-                    'dark:border-gray-500' => config('filament.dark_mode'),
-                ]) ?>"></li>
+                <li
+                    class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                        'h-6 -skew-x-12 border-r border-gray-300',
+                        'dark:border-gray-500' => config('filament.dark_mode'),
+                    ]) ?>"
+                ></li>
             <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>

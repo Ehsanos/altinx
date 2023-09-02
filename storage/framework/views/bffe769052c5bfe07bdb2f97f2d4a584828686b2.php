@@ -29,16 +29,18 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => \Illuminate\Support\Arr::toCssClasses([
-        'filament-notifications-icon h-6 w-6',
-        match ($color) {
-            'success' => 'text-success-400',
-            'warning' => 'text-warning-400',
-            'danger' => 'text-danger-400',
-            'primary' => 'text-primary-400',
-            'secondary' => 'text-gray-400',
-        },
-    ])]); ?>
+<?php $component->withAttributes(['class' => 
+        \Illuminate\Support\Arr::toCssClasses([
+            'filament-notifications-icon h-6 w-6',
+            match ($color) {
+                'success' => 'text-success-400',
+                'warning' => 'text-warning-400',
+                'danger' => 'text-danger-400',
+                'primary' => 'text-primary-400',
+                'secondary' => 'text-gray-400',
+            },
+        ])
+    ]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>

@@ -38,10 +38,11 @@
                     <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link @if (\Request::route()->getName() =='langs.index') active @endif" href="{{route('langs.index')}}">{{lang('home')}}</a></li>
                     <li class="nav-item main-link"><a class="nav-link font-weight-bolder  @if (\Request::route()->getName() =='langs.products') active @endif"  href="{{route('langs.products')}}">{{lang('product')}}</a></li>
                     <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('agents')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif" href="{{route('langs.catalog')}}">{{lang('news')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('offers')}}</a></li>
-                    <li class="nav-item main-link"><a class="nav-link  font-weight-bolder" href="#">{{lang('we_are')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.agents') active @endif" href="{{route('langs.agents')}}">{{lang('agents')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.delegte') active @endif" href="{{route('langs.delegte')}}">{{lang('delegte')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.jobs') active @endif" href="{{route('langs.jobs')}}">{{lang('jobs')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.news') active @endif" href="{{route('langs.news')}}">{{lang('news')}}</a></li>
+                    <li class="nav-item main-link"><a class="nav-link  font-weight-bolder @if (\Request::route()->getName() =='langs.about') active @endif" href="{{route('langs.about')}}">{{lang('we_are')}}</a></li>
                     <li class="nav-item d-none d-lg-block mx-5">
                         <div class="center d-sm-block" mt-3="">
 
@@ -150,6 +151,7 @@
 <script src="{{asset('assets/js/Off-Canvas-Sidebar-Drawer-Navbar-off-canvas-sidebar.js')}}"></script>
 <script src="{{asset('assets/js/details-product.js')}}"></script>
 <script src="{{asset('assets/js/slide-animation-test.js')}}"></script>
+<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
 </body>
 
 </html>

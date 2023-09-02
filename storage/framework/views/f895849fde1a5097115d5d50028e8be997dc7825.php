@@ -2,19 +2,19 @@
 <?php foreach($attributes->onlyProps([
     'actions' => null,
     'heading',
-    'subheading' => null
+    'subheading' => null,
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $attributes = $attributes->exceptProps([
     'actions' => null,
     'heading',
-    'subheading' => null
+    'subheading' => null,
 ]); ?>
 <?php foreach (array_filter(([
     'actions' => null,
     'heading',
-    'subheading' => null
+    'subheading' => null,
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -24,7 +24,10 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<header <?php echo e($attributes->class(['filament-header space-y-2 items-start justify-between sm:flex sm:space-y-0 sm:space-x-4  sm:rtl:space-x-reverse sm:py-4'])); ?>>
+<header
+    <?php echo e($attributes->class(['filament-header items-start justify-between space-y-2 sm:flex sm:space-x-4 sm:space-y-0 sm:py-4 sm:rtl:space-x-reverse'])); ?>
+
+>
     <div>
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.header.heading','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -64,7 +67,6 @@
 <?php endif; ?>
         <?php endif; ?>
     </div>
-
 
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.pages.actions.index','data' => ['actions' => $actions,'class' => 'shrink-0']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

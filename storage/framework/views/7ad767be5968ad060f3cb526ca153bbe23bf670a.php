@@ -14,6 +14,7 @@
     'hrComponent' => 'filament-support::hr',
     'id' => null,
     'openEventName' => 'open-modal',
+    'scrollableContent' => false,
     'slideOver' => false,
     'subheading' => null,
     'subheadingComponent' => 'filament-support::modal.subheading',
@@ -38,6 +39,7 @@
     'hrComponent' => 'filament-support::hr',
     'id' => null,
     'openEventName' => 'open-modal',
+    'scrollableContent' => false,
     'slideOver' => false,
     'subheading' => null,
     'subheadingComponent' => 'filament-support::modal.subheading',
@@ -60,6 +62,7 @@
     'hrComponent' => 'filament-support::hr',
     'id' => null,
     'openEventName' => 'open-modal',
+    'scrollableContent' => false,
     'slideOver' => false,
     'subheading' => null,
     'subheadingComponent' => 'filament-support::modal.subheading',
@@ -77,7 +80,6 @@
 
 <div
     x-data="{
-
         isOpen: false,
 
         livewire: null,
@@ -85,15 +87,18 @@
         close: function () {
             this.isOpen = false
 
-            this.$refs.modalContainer.dispatchEvent(new CustomEvent('modal-closed', { id: '<?php echo e($id); ?>' }))
+            this.$refs.modalContainer.dispatchEvent(
+                new CustomEvent('modal-closed', { id: '<?php echo e($id); ?>' }),
+            )
         },
 
         open: function () {
             this.isOpen = true
 
-            this.$refs.modalContainer.dispatchEvent(new CustomEvent('modal-opened', { id: '<?php echo e($id); ?>' }))
+            this.$refs.modalContainer.dispatchEvent(
+                new CustomEvent('modal-opened', { id: '<?php echo e($id); ?>' }),
+            )
         },
-
     }"
     x-trap.noscroll="isOpen"
     <?php if($id): ?>
@@ -132,25 +137,28 @@
             <?php endif; ?>
             aria-hidden="true"
             class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                'filament-modal-close-overlay fixed inset-0 w-full h-full bg-black/50',
-                'cursor-pointer' => $closeByClickingAway
+                'filament-modal-close-overlay fixed inset-0 h-full w-full bg-black/50',
+                'cursor-pointer' => $closeByClickingAway,
             ]) ?>"
         ></div>
 
         <div
             x-ref="modalContainer"
             <?php echo e($attributes->class([
-                'relative w-full cursor-pointer pointer-events-none transition',
-                'my-auto p-4' => ! $slideOver,
-            ])); ?>
+                    'pointer-events-none relative w-full cursor-pointer transition',
+                    'my-auto p-4' => ! $slideOver,
+                    'flex max-h-screen shrink' => $scrollableContent,
+                ])); ?>
 
         >
             <div
                 x-data="{ isShown: false }"
-                x-init="$nextTick(()=> {
-                    isShown = isOpen
-                    $watch('isOpen', () => isShown = isOpen)
-                })"
+                x-init="
+                    $nextTick(() => {
+                        isShown = isOpen
+                        $watch('isOpen', () => (isShown = isOpen))
+                    })
+                "
                 x-show="isShown"
                 x-cloak
                 <?php if(filled($id)): ?>
@@ -172,11 +180,11 @@
                     x-transition:leave-end="translate-y-8"
                 <?php endif; ?>
                 class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'filament-modal-window w-full py-2 bg-white cursor-default pointer-events-auto',
+                    'filament-modal-window pointer-events-auto w-full cursor-default bg-white py-2',
                     'dark:bg-gray-800' => $darkMode,
                     'relative' => $width !== 'screen',
-                    'h-screen overflow-y-auto ml-auto mr-0 rtl:mr-auto rtl:ml-0' => $slideOver,
-                    'rounded-xl mx-auto' => ! ($slideOver || ($width === 'screen')),
+                    'ml-auto mr-0 h-screen overflow-y-auto rtl:ml-0 rtl:mr-auto' => $slideOver,
+                    'mx-auto rounded-xl' => ! ($slideOver || ($width === 'screen')),
                     'hidden' => ! $visible,
                     'max-w-xs' => $width === 'xs',
                     'max-w-sm' => $width === 'sm',
@@ -196,7 +204,7 @@
                     <button
                         tabindex="-1"
                         type="button"
-                        class="absolute top-2 right-2 rtl:right-auto rtl:left-2"
+                        class="absolute right-2 top-2 rtl:left-2 rtl:right-auto"
                         <?php if(filled($id)): ?>
                             x-on:click="$dispatch('<?php echo e($closeEventName); ?>', { id: '<?php echo e($id); ?>' })"
                         <?php else: ?>
@@ -228,7 +236,7 @@
 
                 <div
                     class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                        'flex flex-col h-full' => ($width === 'screen') || $slideOver,
+                        'flex h-full flex-col' => ($width === 'screen') || $slideOver || $scrollableContent,
                     ]) ?>"
                 >
                     <div class="space-y-2">
@@ -248,7 +256,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'px-2']); ?>
+<?php $component->withAttributes(['dark-mode' => $darkMode,'class' => 'px-2']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>
@@ -261,15 +269,17 @@
                     <div
                         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                             'filament-modal-content space-y-2 p-2',
-                            'flex-1 overflow-y-auto' => ($width === 'screen') || $slideOver,
+                            'flex-1 overflow-y-auto' => ($width === 'screen') || $slideOver || $scrollableContent,
                         ]) ?>"
                     >
                         <?php if($heading || $subheading): ?>
-                            <div class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'p-4 space-y-2',
-                                'text-center' => ! $slideOver,
-                                'dark:text-white' => $darkMode,
-                            ]) ?>">
+                            <div
+                                class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                                    'space-y-2 p-4',
+                                    'text-center' => ! $slideOver,
+                                    'dark:text-white' => $darkMode,
+                                ]) ?>"
+                            >
                                 <?php if($heading): ?>
                                     <?php if (isset($component)) { $__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9 = $component; } ?>
 <?php $component = Illuminate\View\DynamicComponent::resolve(['component' => $headingComponent] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -313,7 +323,7 @@
                         <?php endif; ?>
 
                         <?php if($slot->isNotEmpty()): ?>
-                            <div class="px-4 py-2 space-y-4">
+                            <div class="space-y-4 px-4 py-2">
                                 <?php echo e($slot); ?>
 
                             </div>
@@ -333,7 +343,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'px-2']); ?>
+<?php $component->withAttributes(['dark-mode' => $darkMode,'class' => 'px-2']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>

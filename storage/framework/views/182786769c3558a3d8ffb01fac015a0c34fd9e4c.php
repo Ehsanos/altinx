@@ -6,13 +6,12 @@
 
 <div
     x-data="{
-
         step: null,
 
         init: function () {
             this.$watch('step', () => this.updateQueryString())
-        
-            this.step = this.getSteps()[<?php echo e($getStartStep()); ?> - 1]
+
+            this.step = this.getSteps().at(<?php echo e($getStartStep() - 1); ?>)
         },
 
         nextStep: function () {
@@ -42,11 +41,15 @@
         },
 
         scrollToTop: function () {
-            this.$el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            this.$root.scrollIntoView({ behavior: 'smooth', block: 'start' })
         },
 
         autofocusFields: function () {
-            $nextTick(() => this.$refs[`step-${this.step}`].querySelector('[autofocus]')?.focus())
+            $nextTick(() =>
+                this.$refs[`step-${this.step}`]
+                    .querySelector('[autofocus]')
+                    ?.focus(),
+            )
         },
 
         getStepIndex: function (step) {
@@ -62,27 +65,27 @@
         },
 
         isLastStep: function () {
-            return (this.getStepIndex(this.step) + 1) >= this.getSteps().length
+            return this.getStepIndex(this.step) + 1 >= this.getSteps().length
         },
 
-        isStepAccessible: function(step, index) {
-            return <?php echo \Illuminate\Support\Js::from($isSkippable())->toHtml() ?> || (this.getStepIndex(step) > index)
+        isStepAccessible: function (step, index) {
+            return <?php echo \Illuminate\Support\Js::from($isSkippable())->toHtml() ?> || this.getStepIndex(step) > index
         },
 
         updateQueryString: function () {
             if (! <?php echo \Illuminate\Support\Js::from($isStepPersistedInQueryString())->toHtml() ?>) {
                 return
             }
-            
+
             const url = new URL(window.location.href)
             url.searchParams.set(<?php echo \Illuminate\Support\Js::from($getStepQueryStringKey())->toHtml() ?>, this.step)
 
             history.pushState(null, document.title, url.toString())
         },
-        
     }"
     x-on:next-wizard-step.window="if ($event.detail.statePath === '<?php echo e($getStatePath()); ?>') nextStep()"
     x-cloak
+    wire:ignore.self
     <?php echo $getId() ? "id=\"{$getId()}\"" : null; ?>
 
     <?php echo e($attributes->merge($getExtraAttributes())->class(['filament-forms-wizard-component grid gap-y-6'])); ?>
@@ -92,11 +95,11 @@
 >
     <input
         type="hidden"
-        value='<?php echo e(collect($getChildComponentContainer()->getComponents())
+        value="<?php echo e(collect($getChildComponentContainer()->getComponents())
                 ->filter(static fn (\Filament\Forms\Components\Wizard\Step $step): bool => ! $step->isHidden())
                 ->map(static fn (\Filament\Forms\Components\Wizard\Step $step) => $step->getId())
                 ->values()
-                ->toJson()); ?>'
+                ->toJson()); ?>"
         x-ref="stepsData"
     />
 
@@ -105,32 +108,39 @@
 
         role="list"
         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-            'border border-gray-300 shadow-sm bg-white rounded-xl overflow-hidden divide-y divide-gray-300 md:flex md:divide-y-0',
-            'dark:bg-gray-800 dark:border-gray-700 dark:divide-gray-700' => config('forms.dark_mode'),
+            'filament-forms-wizard-component-header divide-y divide-gray-300 overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm md:flex md:divide-y-0',
+            'dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800' => config('forms.dark_mode'),
         ]) ?>"
     >
         <?php $__currentLoopData = $getChildComponentContainer()->getComponents(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $step): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li class="relative overflow-hidden group md:flex-1">
+            <li
+                class="filament-forms-wizard-component-header-step group relative overflow-hidden md:flex-1"
+            >
                 <button
                     type="button"
                     x-on:click="if (isStepAccessible(step, <?php echo e($loop->index); ?>)) step = '<?php echo e($step->getId()); ?>'"
                     x-bind:aria-current="getStepIndex(step) === <?php echo e($loop->index); ?> ? 'step' : null"
                     x-bind:class="{
-                        'cursor-not-allowed pointer-events-none': ! isStepAccessible(step, <?php echo e($loop->index); ?>),
+                        'cursor-not-allowed pointer-events-none': ! isStepAccessible(
+                            step,
+                            <?php echo e($loop->index); ?>,
+                        ),
                     }"
                     role="step"
-                    class="flex items-center w-full h-full text-start"
+                    class="flex h-full w-full items-center text-start"
                 >
                     <div
                         x-bind:class="{
                             'bg-primary-600': getStepIndex(step) === <?php echo e($loop->index); ?>,
                             'bg-transparent group-hover:bg-gray-200 <?php if(config('forms.dark_mode')): ?> dark:group-hover:bg-gray-600 <?php endif; ?>': getStepIndex(step) > <?php echo e($loop->index); ?>,
                         }"
-                        class="absolute top-0 left-0 w-1 h-full md:w-full md:h-1 md:bottom-0 md:top-auto"
+                        class="absolute left-0 top-0 h-full w-1 md:bottom-0 md:top-auto md:h-1 md:w-full"
                         aria-hidden="true"
                     ></div>
 
-                    <div class="flex items-center gap-3 px-5 py-4 text-sm font-medium">
+                    <div
+                        class="flex items-center gap-3 px-5 py-4 text-sm font-medium"
+                    >
                         <div class="flex-shrink-0">
                             <div
                                 x-bind:class="{
@@ -139,7 +149,7 @@
                                     'border-primary-500': getStepIndex(step) === <?php echo e($loop->index); ?>,
                                     'border-gray-300 <?php if(config('forms.dark_mode')): ?> dark:border-gray-500 <?php endif; ?>': getStepIndex(step) < <?php echo e($loop->index); ?>,
                                 }"
-                                class="flex items-center justify-center w-10 h-10 rounded-full"
+                                class="filament-forms-wizard-component-header-step-icon flex h-10 w-10 items-center justify-center rounded-full"
                             >
                                 <?php if (isset($component)) { $__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e = $component; } ?>
 <?php $component = BladeUI\Icons\Components\Svg::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -149,7 +159,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(BladeUI\Icons\Components\Svg::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['x-show' => 'getStepIndex(step) > '.e($loop->index).'','x-cloak' => true,'class' => 'w-5 h-5 text-white']); ?>
+<?php $component->withAttributes(['x-show' => 'getStepIndex(step) > '.e($loop->index).'','x-cloak' => true,'class' => 'h-5 w-5 text-white']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e)): ?>
@@ -169,7 +179,7 @@
 <?php $component->withAttributes(['x-show' => 'getStepIndex(step) <= '.e($loop->index).'','x-cloak' => true,'x-bind:class' => '{
                                             \'text-gray-500 @if (config(\'forms.dark_mode\')) dark:text-gray-400 @endif\': getStepIndex(step) !== '.e($loop->index).',
                                             \'text-primary-500\': getStepIndex(step) === '.e($loop->index).',
-                                        }','class' => 'w-5 h-5']); ?>
+                                        }','class' => 'h-5 w-5']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>
@@ -192,16 +202,20 @@
                         </div>
 
                         <div class="flex flex-col items-start justify-center">
-                            <div class="text-sm font-semibold tracking-wide uppercase">
+                            <div
+                                class="filament-forms-wizard-component-header-step-label text-sm font-semibold uppercase tracking-wide"
+                            >
                                 <?php echo e($step->getLabel()); ?>
 
                             </div>
 
                             <?php if(filled($description = $step->getDescription())): ?>
-                                <div class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                    'text-sm leading-4 font-medium text-gray-500',
-                                    'dark:text-gray-400' => config('forms.dark_mode'),
-                                ]) ?>">
+                                <div
+                                    class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                                        'filament-forms-wizard-component-header-step-description text-sm font-medium leading-4 text-gray-500',
+                                        'dark:text-gray-400' => config('forms.dark_mode'),
+                                    ]) ?>"
+                                >
                                     <?php echo e($description); ?>
 
                                 </div>
@@ -211,12 +225,24 @@
                 </button>
 
                 <?php if(! $loop->first): ?>
-                    <div class="absolute inset-0 top-0 left-0 hidden w-3 md:block" aria-hidden="true">
-                        <svg class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'h-full w-full text-gray-300 rtl:rotate-180',
-                            'dark:text-gray-700' => config('forms.dark_mode'),
-                        ]) ?>" viewBox="0 0 12 82" fill="none" preserveAspectRatio="none">
-                            <path d="M0.5 0V31L10.5 41L0.5 51V82" stroke="currentcolor" vector-effect="non-scaling-stroke" />
+                    <div
+                        class="absolute inset-0 left-0 top-0 hidden w-3 md:block"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                                'h-full w-full text-gray-300 rtl:rotate-180',
+                                'dark:text-gray-700' => config('forms.dark_mode'),
+                            ]) ?>"
+                            viewBox="0 0 12 82"
+                            fill="none"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M0.5 0V31L10.5 41L0.5 51V82"
+                                stroke="currentcolor"
+                                vector-effect="non-scaling-stroke"
+                            />
                         </svg>
                     </div>
                 <?php endif; ?>

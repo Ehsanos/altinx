@@ -48,7 +48,7 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('name')->required()->label('الاسم'),
                 SpatieMediaLibraryFileUpload::make('img')->collection('users')->label('الصورة'),
                 Forms\Components\TextInput::make('password')->password()->dehydrateStateUsing(fn($state) => Hash::make($state))
-                    ->dehydrated(fn($state) => filled($state)),
+                    ->dehydrated(fn($state) => filled($state))->required(),
                 Forms\Components\TextInput::make('email')->required()->label('البريد'),
                 Forms\Components\TextInput::make('phone')->required()->label('الهاتف'),
                 Forms\Components\Select::make('type')->options([

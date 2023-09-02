@@ -33,14 +33,19 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<th <?php echo e($attributes->merge($extraAttributes)->class(['filament-tables-header-cell p-0'])); ?>>
+<th
+    <?php echo e($attributes
+            ->merge($extraAttributes)
+            ->class(['filament-tables-header-cell p-0'])); ?>
+
+>
     <button
         <?php if($sortable): ?>
             wire:click="sortTable('<?php echo e($name); ?>')"
         <?php endif; ?>
         type="button"
         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-            'flex items-center gap-x-1 w-full px-4 py-2 whitespace-nowrap font-medium text-sm text-gray-600',
+            'flex w-full items-center gap-x-1 whitespace-nowrap px-4 py-2 text-sm font-medium text-gray-600',
             'dark:text-gray-300' => config('tables.dark_mode'),
             'cursor-default' => ! $sortable,
             match ($alignment) {
@@ -82,11 +87,13 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => \Illuminate\Support\Arr::toCssClasses([
-                    'filament-tables-header-cell-sort-icon h-3 w-3',
-                    'dark:text-gray-300' => config('tables.dark_mode'),
-                    'opacity-25' => ! $isSortColumn,
-                ])]); ?>
+<?php $component->withAttributes(['class' => 
+                    \Illuminate\Support\Arr::toCssClasses([
+                        'filament-tables-header-cell-sort-icon h-3 w-3',
+                        'dark:text-gray-300' => config('tables.dark_mode'),
+                        'opacity-25' => ! $isSortColumn,
+                    ])
+                ]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>

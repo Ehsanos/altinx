@@ -1,42 +1,50 @@
 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'notifications::components.notification','data' => ['notification' => $notification,'class' => \Illuminate\Support\Arr::toCssClasses([
-        'flex gap-3 w-full transition duration-300',
-        'shadow-lg max-w-sm bg-white rounded-xl p-4 border border-gray-200' => ! $isInline(),
-        'dark:border-gray-700 dark:bg-gray-800' => (! $isInline()) && config('notifications.dark_mode'),
-    ]),'xTransition:enterStart' => \Illuminate\Support\Arr::toCssClasses([
-        'opacity-0',
-        match (config('notifications.layout.alignment.horizontal')) {
-            'left' => '-translate-x-12',
-            'right' => 'translate-x-12',
-            'center' => match (config('notifications.layout.alignment.vertical')) {
-                'top' => '-translate-y-12',
-                'bottom' => 'translate-y-12',
-                'center' => null,
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'notifications::components.notification','data' => ['notification' => $notification,'class' => 
+        \Illuminate\Support\Arr::toCssClasses([
+            'flex gap-3 w-full transition duration-300',
+            'shadow-lg max-w-sm bg-white rounded-xl p-4 border border-gray-200' => ! $isInline(),
+            'dark:border-gray-700 dark:bg-gray-800' => (! $isInline()) && config('notifications.dark_mode'),
+        ])
+    ,'xTransition:enterStart' => 
+        \Illuminate\Support\Arr::toCssClasses([
+            'opacity-0',
+            match (config('notifications.layout.alignment.horizontal')) {
+                'left' => '-translate-x-12',
+                'right' => 'translate-x-12',
+                'center' => match (config('notifications.layout.alignment.vertical')) {
+                    'top' => '-translate-y-12',
+                    'bottom' => 'translate-y-12',
+                    'center' => null,
+                },
             },
-        },
-    ]),'xTransition:leaveEnd' => 'scale-95 opacity-0']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+        ])
+    ,'xTransition:leaveEnd' => 'scale-95 opacity-0']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('notifications::notification'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['notification' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($notification),'class' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(\Illuminate\Support\Arr::toCssClasses([
-        'flex gap-3 w-full transition duration-300',
-        'shadow-lg max-w-sm bg-white rounded-xl p-4 border border-gray-200' => ! $isInline(),
-        'dark:border-gray-700 dark:bg-gray-800' => (! $isInline()) && config('notifications.dark_mode'),
-    ])),'x-transition:enter-start' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(\Illuminate\Support\Arr::toCssClasses([
-        'opacity-0',
-        match (config('notifications.layout.alignment.horizontal')) {
-            'left' => '-translate-x-12',
-            'right' => 'translate-x-12',
-            'center' => match (config('notifications.layout.alignment.vertical')) {
-                'top' => '-translate-y-12',
-                'bottom' => 'translate-y-12',
-                'center' => null,
+<?php $component->withAttributes(['notification' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($notification),'class' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(
+        \Illuminate\Support\Arr::toCssClasses([
+            'flex gap-3 w-full transition duration-300',
+            'shadow-lg max-w-sm bg-white rounded-xl p-4 border border-gray-200' => ! $isInline(),
+            'dark:border-gray-700 dark:bg-gray-800' => (! $isInline()) && config('notifications.dark_mode'),
+        ])
+    ),'x-transition:enter-start' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(
+        \Illuminate\Support\Arr::toCssClasses([
+            'opacity-0',
+            match (config('notifications.layout.alignment.horizontal')) {
+                'left' => '-translate-x-12',
+                'right' => 'translate-x-12',
+                'center' => match (config('notifications.layout.alignment.vertical')) {
+                    'top' => '-translate-y-12',
+                    'bottom' => 'translate-y-12',
+                    'center' => null,
+                },
             },
-        },
-    ])),'x-transition:leave-end' => 'scale-95 opacity-0']); ?>
+        ])
+    ),'x-transition:leave-end' => 'scale-95 opacity-0']); ?>
     <?php if($icon = $getIcon()): ?>
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'notifications::components.icon','data' => ['icon' => $icon,'color' => $getIconColor()]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

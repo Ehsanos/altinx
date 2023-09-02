@@ -5,6 +5,7 @@
     'badge' => null,
     'badgeColor' => null,
     'icon',
+    'iconColor' => null,
     'shouldOpenUrlInNewTab' => false,
     'url',
 ]) as $__key => $__value) {
@@ -16,6 +17,7 @@
     'badge' => null,
     'badgeColor' => null,
     'icon',
+    'iconColor' => null,
     'shouldOpenUrlInNewTab' => false,
     'url',
 ]); ?>
@@ -25,6 +27,7 @@
     'badge' => null,
     'badgeColor' => null,
     'icon',
+    'iconColor' => null,
     'shouldOpenUrlInNewTab' => false,
     'url',
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
@@ -36,7 +39,12 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<li class="<?php echo \Illuminate\Support\Arr::toCssClasses(['filament-sidebar-item overflow-hidden', 'filament-sidebar-item-active' => $active]) ?>">
+<li
+    class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+        'filament-sidebar-item overflow-hidden',
+        'filament-sidebar-item-active' => $active,
+    ]) ?>"
+>
     <a
         href="<?php echo e($url); ?>"
         <?php echo $shouldOpenUrlInNewTab ? 'target="_blank"' : ''; ?>
@@ -60,7 +68,7 @@
             x-tooltip.html="tooltip"
         <?php endif; ?>
         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-            'flex items-center justify-center gap-3 px-3 py-2 rounded-lg font-medium transition',
+            'flex items-center justify-center gap-3 rounded-lg px-3 py-2 font-medium transition',
             'hover:bg-gray-500/5 focus:bg-gray-500/5' => ! $active,
             'dark:text-gray-300 dark:hover:bg-gray-700' => (! $active) && config('filament.dark_mode'),
             'bg-primary-500 text-white' => $active,
@@ -74,7 +82,16 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\DynamicComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'h-5 w-5 shrink-0']); ?>
+<?php $component->withAttributes(['class' => 
+                \Illuminate\Support\Arr::toCssClasses([
+                    'h-5 w-5 shrink-0',
+                    'text-primary-500' => (! $active) && ($iconColor === 'primary'),
+                    'text-danger-500' => (! $active) && ($iconColor === 'danger'),
+                    'text-gray-500' => (! $active) && ($iconColor === 'secondary'),
+                    'text-success-500' => (! $active) && ($iconColor === 'success'),
+                    'text-warning-500' => (! $active) && ($iconColor === 'warning'),
+                ])
+            ]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9)): ?>
@@ -82,7 +99,8 @@
 <?php unset($__componentOriginal3bf0a20793be3eca9a779778cf74145887b021b9); ?>
 <?php endif; ?>
 
-        <div class="flex flex-1"
+        <div
+            class="flex flex-1"
             <?php if(config('filament.layout.sidebar.is_collapsible_on_desktop')): ?>
                 x-show="$store.sidebar.isOpen"
             <?php endif; ?>

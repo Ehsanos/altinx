@@ -1,17 +1,17 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
 <?php foreach($attributes->onlyProps([
     'paginator',
-    'recordsPerPageSelectOptions',
+    'recordsPerPageSelectOptions' => [],
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $attributes = $attributes->exceptProps([
     'paginator',
-    'recordsPerPageSelectOptions',
+    'recordsPerPageSelectOptions' => [],
 ]); ?>
 <?php foreach (array_filter(([
     'paginator',
-    'recordsPerPageSelectOptions',
+    'recordsPerPageSelectOptions' => [],
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -31,9 +31,10 @@
 <nav
     role="navigation"
     aria-label="<?php echo e(__('tables::table.pagination.label')); ?>"
-    class="filament-tables-pagination flex items-center justify-between"
+    <?php echo e($attributes->class(['filament-tables-pagination flex items-center justify-between'])); ?>
+
 >
-    <div class="flex justify-between items-center flex-1 lg:hidden">
+    <div class="flex flex-1 items-center justify-between lg:hidden">
         <div class="w-10">
             <?php if($paginator->hasPages() && (! $paginator->onFirstPage())): ?>
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -93,7 +94,7 @@
         </div>
     </div>
 
-    <div class="hidden flex-1 items-center lg:grid grid-cols-3">
+    <div class="hidden flex-1 grid-cols-3 items-center lg:grid">
         <div class="flex items-center">
             <?php if($isSimple): ?>
                 <?php if(! $paginator->onFirstPage()): ?>
@@ -116,19 +117,21 @@
 <?php endif; ?>
                 <?php endif; ?>
             <?php else: ?>
-                <div class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'pl-2 text-sm font-medium',
-                    'dark:text-white' => config('tables.dark_mode'),
-                ]) ?>">
+                <div
+                    class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                        'pl-2 text-sm font-medium',
+                        'dark:text-white' => config('tables.dark_mode'),
+                    ]) ?>"
+                >
                     <?php echo e(trans_choice(
-                        'tables::table.pagination.overview',
-                        $paginator->total(),
-                        [
-                            'first' => $paginator->firstItem(),
-                            'last' => $paginator->lastItem(),
-                            'total' => $paginator->total(),
-                        ],
-                    )); ?>
+                            'tables::table.pagination.overview',
+                            $paginator->total(),
+                            [
+                                'first' => $paginator->firstItem(),
+                                'last' => $paginator->lastItem(),
+                                'total' => $paginator->total(),
+                            ],
+                        )); ?>
 
                 </div>
             <?php endif; ?>
@@ -177,14 +180,18 @@
                 <?php endif; ?>
             <?php else: ?>
                 <?php if($paginator->hasPages()): ?>
-                    <div class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                        'py-3 border rounded-lg',
-                        'dark:border-gray-600' => config('tables.dark_mode'),
-                    ]) ?>">
-                        <ol class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'flex items-center text-sm text-gray-500 divide-x rtl:divide-x-reverse divide-gray-300',
-                            'dark:text-gray-400 dark:divide-gray-600' => config('tables.dark_mode'),
-                        ]) ?>">
+                    <div
+                        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                            'rounded-lg border py-3',
+                            'dark:border-gray-600' => config('tables.dark_mode'),
+                        ]) ?>"
+                    >
+                        <ol
+                            class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                                'flex items-center gap-px divide-x divide-gray-300 text-sm text-gray-500 rtl:divide-x-reverse',
+                                'dark:divide-gray-600 dark:text-gray-400' => config('tables.dark_mode'),
+                            ]) ?>"
+                        >
                             <?php if(! $paginator->onFirstPage()): ?>
                                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'tables::components.pagination.item','data' => ['wire:click' => 'previousPage(\'' . $paginator->getPageName() . '\')','icon' => 'heroicon-s-chevron-left','ariaLabel' => ''.e(__('tables::table.pagination.buttons.previous.label')).'','rel' => 'prev']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -225,14 +232,14 @@
                                 <?php if(is_array($element)): ?>
                                     <?php $__currentLoopData = $element; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page => $url): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'tables::components.pagination.item','data' => ['wire:click' => 'gotoPage(' . $page . ', \'' . $paginator->getPageName() . '\')','label' => $page,'ariaLabel' => __('tables::table.pagination.buttons.go_to_page.label', ['page' => $page]),'active' => $page === $paginator->currentPage(),'wire:key' => $this->id . '.table.pagination.' . $paginator->getPageName() . '.' . $page]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'tables::components.pagination.item','data' => ['wire:click' => 'gotoPage(' . $page . ', \'' . $paginator->getPageName() . '\')','label' => $page,'ariaLabel' => trans_choice('tables::table.pagination.buttons.go_to_page.label', $page, ['page' => $page]),'active' => $page === $paginator->currentPage(),'wire:key' => $this->id . '.table.pagination.' . $paginator->getPageName() . '.' . $page]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('tables::pagination.item'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:click' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute('gotoPage(' . $page . ', \'' . $paginator->getPageName() . '\')'),'label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($page),'aria-label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('tables::table.pagination.buttons.go_to_page.label', ['page' => $page])),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($page === $paginator->currentPage()),'wire:key' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($this->id . '.table.pagination.' . $paginator->getPageName() . '.' . $page)]); ?>
+<?php $component->withAttributes(['wire:click' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute('gotoPage(' . $page . ', \'' . $paginator->getPageName() . '\')'),'label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($page),'aria-label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(trans_choice('tables::table.pagination.buttons.go_to_page.label', $page, ['page' => $page])),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($page === $paginator->currentPage()),'wire:key' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($this->id . '.table.pagination.' . $paginator->getPageName() . '.' . $page)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>

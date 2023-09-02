@@ -100,10 +100,12 @@
         'ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5' => ($iconPosition === 'after') && ($size === 'sm') && (! $labelSrOnly),
     ]);
 
-    $hasLoadingIndicator = filled($attributes->get('wire:target')) || filled($attributes->get('wire:click')) || (($type === 'submit') && filled($form));
+    $wireTarget = $attributes->whereStartsWith(['wire:target', 'wire:click'])->first();
+
+    $hasLoadingIndicator = filled($wireTarget) || ($type === 'submit' && filled($form));
 
     if ($hasLoadingIndicator) {
-        $loadingIndicatorTarget = html_entity_decode($attributes->get('wire:target', $attributes->get('wire:click', $form)), ENT_QUOTES);
+        $loadingIndicatorTarget = html_entity_decode($wireTarget ?: $form, ENT_QUOTES);
     }
 ?>
 
@@ -128,9 +130,6 @@
             form: null,
             isUploadingFile: false,
         }"
-        <?php if (! ($disabled)): ?>
-            x-bind:class="{ 'opacity-70 cursor-wait': isUploadingFile }"
-        <?php endif; ?>
         x-bind:disabled="isUploadingFile"
         x-init="
             form = $el.closest('form')
@@ -143,6 +142,7 @@
                 isUploadingFile = false
             })
         "
+        x-bind:class="{ 'enabled:opacity-70 enabled:cursor-wait': isUploadingFile }"
         <?php echo e($attributes->class($buttonClasses)); ?>
 
     >
@@ -207,16 +207,15 @@
 
                 </span>
 
-                <span x-show="! isUploadingFile" class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'sr-only' => $labelSrOnly,
-                ]) ?>">
+                <span
+                    x-show="! isUploadingFile"
+                    class="<?php echo \Illuminate\Support\Arr::toCssClasses(['sr-only' => $labelSrOnly]) ?>"
+                >
                     <?php echo e($slot); ?>
 
                 </span>
             <?php else: ?>
-                <span class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    'sr-only' => $labelSrOnly,
-                ]) ?>">
+                <span class="<?php echo \Illuminate\Support\Arr::toCssClasses(['sr-only' => $labelSrOnly]) ?>">
                     <?php echo e($slot); ?>
 
                 </span>

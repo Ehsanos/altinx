@@ -36,9 +36,9 @@ if(in_array($lang,['ar','es','en','du','tr'])) {
     }
 
 
-    public function create()
+    public function about()
     {
-        //
+        return view('pages.about');
     }
 
     public function store(Request $request)

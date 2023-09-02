@@ -20,8 +20,11 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['placement' => 'bottom-end']); ?>
-     <?php $__env->slot('trigger', null, ['class' => 'ml-4 rtl:mr-4 rtl:ml-0']); ?> 
-        <button class="block" aria-label="<?php echo e(__('filament::layout.buttons.user_menu.label')); ?>">
+     <?php $__env->slot('trigger', null, ['class' => 'ml-4 rtl:ml-0 rtl:mr-4']); ?> 
+        <button
+            class="block"
+            aria-label="<?php echo e(__('filament::layout.buttons.user_menu.label')); ?>"
+        >
             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.user-avatar','data' => ['user' => $user]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament::user-avatar'); ?>
@@ -39,28 +42,63 @@
 <?php endif; ?>
         </button>
      <?php $__env->endSlot(); ?>
-    
+
     <?php echo e(\Filament\Facades\Filament::renderHook('user-menu.account.before')); ?>
 
 
-    <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.dropdown.header','data' => ['color' => $accountItem?->getColor() ?? 'secondary','icon' => $accountItem?->getIcon() ?? 'heroicon-s-user-circle','href' => $accountItemUrl,'tag' => filled($accountItemUrl) ? 'a' : 'div']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+    <?php if(filled($accountItemUrl)): ?>
+        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.dropdown.list.index','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('filament::dropdown.list'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.dropdown.list.item','data' => ['color' => $accountItem->getColor() ?? 'secondary','icon' => $accountItem->getIcon() ?? 'heroicon-s-user-circle','href' => $accountItemUrl,'tag' => 'a']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('filament::dropdown.list.item'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['color' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem->getColor() ?? 'secondary'),'icon' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem->getIcon() ?? 'heroicon-s-user-circle'),'href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItemUrl),'tag' => 'a']); ?>
+                <?php echo e($accountItem->getLabel() ?? \Filament\Facades\Filament::getUserName($user)); ?>
+
+             <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+         <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+    <?php else: ?>
+        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.dropdown.header','data' => ['color' => $accountItem?->getColor() ?? 'secondary','icon' => $accountItem?->getIcon() ?? 'heroicon-s-user-circle']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament::dropdown.header'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['color' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem?->getColor() ?? 'secondary'),'icon' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem?->getIcon() ?? 'heroicon-s-user-circle'),'href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItemUrl),'tag' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(filled($accountItemUrl) ? 'a' : 'div')]); ?>
-        <?php echo e($accountItem?->getLabel() ?? \Filament\Facades\Filament::getUserName($user)); ?>
+<?php $component->withAttributes(['color' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem?->getColor() ?? 'secondary'),'icon' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($accountItem?->getIcon() ?? 'heroicon-s-user-circle')]); ?>
+            <?php echo e($accountItem?->getLabel() ?? \Filament\Facades\Filament::getUserName($user)); ?>
 
-     <?php echo $__env->renderComponent(); ?>
+         <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-    
+    <?php endif; ?>
+
     <?php echo e(\Filament\Facades\Filament::renderHook('user-menu.account.after')); ?>
 
 
@@ -155,7 +193,7 @@
                 return window.matchMedia(\'(prefers-color-scheme: dark)\').matches
             },
         }']); ?>
-        <div>
+        <div class="filament-theme-toggle">
             <?php if(config('filament.dark_mode')): ?>
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.dropdown.list.item','data' => ['icon' => 'heroicon-s-moon','xShow' => 'theme === \'dark\'','xOn:click' => 'close(); mode = \'manual\'; theme = \'light\'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

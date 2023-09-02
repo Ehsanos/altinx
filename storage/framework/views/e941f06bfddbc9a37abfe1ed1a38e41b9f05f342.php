@@ -1,6 +1,7 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
 <?php foreach($attributes->onlyProps([
     'darkMode' => false,
+    'maxHeight' => null,
     'offset' => 8,
     'placement' => null,
     'shift' => false,
@@ -12,6 +13,7 @@
 } ?>
 <?php $attributes = $attributes->exceptProps([
     'darkMode' => false,
+    'maxHeight' => null,
     'offset' => 8,
     'placement' => null,
     'shift' => false,
@@ -21,6 +23,7 @@
 ]); ?>
 <?php foreach (array_filter(([
     'darkMode' => false,
+    'maxHeight' => null,
     'offset' => 8,
     'placement' => null,
     'shift' => false,
@@ -64,11 +67,14 @@
         x-ref="panel"
         x-float<?php echo e($placement ? ".placement.{$placement}" : ''); ?>.flip<?php echo e($shift ? '.shift' : ''); ?><?php echo e($teleport ? '.teleport' : ''); ?><?php echo e($offset ? '.offset' : ''); ?>="{ offset: <?php echo e($offset); ?> }"
         x-cloak
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:leave-end="opacity-0 scale-95"
+        x-transition:enter-start="scale-95 opacity-0"
+        x-transition:leave-end="scale-95 opacity-0"
         <?php if($attributes->has('wire:key')): ?>
             wire:ignore.self
             wire:key="<?php echo e($attributes->get('wire:key')); ?>.panel"
+        <?php endif; ?>
+        <?php if($maxHeight): ?>
+            style="max-height: <?php echo e($maxHeight); ?>"
         <?php endif; ?>
         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
             'filament-dropdown-panel absolute z-10 w-full divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-black/5 transition',
@@ -87,6 +93,7 @@
                 '7xl' => 'max-w-7xl',
                 default => 'max-w-[14rem]',
             },
+            'overflow-y-auto' => $maxHeight,
         ]) ?>"
     >
         <?php echo e($slot); ?>

@@ -19,8 +19,11 @@
 <?php unset($__defined_vars); ?>
 
 <?php if(count($indicators)): ?>
-    <div <?php echo e($attributes->class(['filament-tables-filter-indicators bg-gray-500/5 gap-x-4 px-4 py-1 text-sm flex'])); ?>>
-        <div class="flex flex-1 items-center flex-wrap gap-y-1 gap-x-2">
+    <div
+        <?php echo e($attributes->class(['filament-tables-filter-indicators flex gap-x-4 bg-gray-500/5 px-4 py-1 text-sm'])); ?>
+
+    >
+        <div class="flex flex-1 flex-wrap items-center gap-x-2 gap-y-1">
             <span class="font-medium dark:text-gray-200">
                 <?php echo e(__('tables::table.filters.indicator')); ?>
 
@@ -32,10 +35,12 @@
                         $field = is_numeric($field) ? null : $field;
                     ?>
 
-                    <span class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                        'filament-tables-filter-indicator inline-flex items-center justify-center min-h-6 px-2 py-0.5 text-xs font-medium tracking-tight rounded-xl text-gray-700 bg-gray-500/10 whitespace-normal',
-                        'dark:text-gray-300 dark:bg-gray-500/20' => config('tables.dark_mode'),
-                    ]) ?>">
+                    <span
+                        class="<?php echo \Illuminate\Support\Arr::toCssClasses([
+                            'filament-tables-filter-indicator min-h-6 inline-flex items-center justify-center whitespace-normal rounded-xl bg-gray-500/10 px-2 py-0.5 text-xs font-medium tracking-tight text-gray-700',
+                            'dark:bg-gray-500/20 dark:text-gray-300' => config('tables.dark_mode'),
+                        ]) ?>"
+                    >
                         <?php echo e($indicator); ?>
 
 
@@ -45,7 +50,7 @@
                             wire:loading.class="cursor-wait"
                             wire:target="removeTableFilter"
                             type="button"
-                            class="ml-1 -mr-2 rtl:mr-1 rtl:-ml-2 p-1 -my-1 hover:bg-gray-500/10 rounded-full"
+                            class="-my-1 -mr-2 ml-1 rounded-full p-1 hover:bg-gray-500/10 rtl:-ml-2 rtl:mr-1"
                         >
                             <?php if (isset($component)) { $__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e = $component; } ?>
 <?php $component = BladeUI\Icons\Components\Svg::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -55,7 +60,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(BladeUI\Icons\Components\Svg::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-3 h-3']); ?>
+<?php $component->withAttributes(['class' => 'h-3 w-3']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e)): ?>
@@ -78,11 +83,11 @@
                 wire:click="removeTableFilters"
                 type="button"
                 class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                    '-mb-1.5 -mt-0.5 -mr-2 p-1.5 text-gray-600 hover:bg-gray-500/10 rounded-full hover:text-gray-700',
-                    'dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-500/20' => config('tables.dark_mode'),
+                    '-mb-1.5 -mr-2 -mt-0.5 rounded-full p-1.5 text-gray-600 hover:bg-gray-500/10 hover:text-gray-700',
+                    'dark:text-gray-400 dark:hover:bg-gray-500/20 dark:hover:text-gray-300' => config('tables.dark_mode'),
                 ]) ?>"
             >
-                <div class="w-5 h-5 flex items-center justify-center">
+                <div class="flex h-5 w-5 items-center justify-center">
                     <?php if (isset($component)) { $__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e = $component; } ?>
 <?php $component = BladeUI\Icons\Components\Svg::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('heroicon-s-x'); ?>
@@ -91,7 +96,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(BladeUI\Icons\Components\Svg::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['x-tooltip.raw' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('tables::table.filters.buttons.remove_all.tooltip')),'wire:loading.remove.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'w-5 h-5']); ?>
+<?php $component->withAttributes(['x-tooltip.raw' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('tables::table.filters.buttons.remove_all.tooltip')),'wire:loading.remove.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'h-5 w-5']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalcd9972c8156dfa6e5fd36675ca7bf5f21b506e2e)): ?>
@@ -100,14 +105,14 @@
 <?php endif; ?>
 
                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament-support::components.loading-indicator','data' => ['wire:loading.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'w-5 h-5']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament-support::components.loading-indicator','data' => ['wire:loading.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'h-5 w-5']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('filament-support::loading-indicator'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:loading.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'w-5 h-5']); ?>
+<?php $component->withAttributes(['wire:loading.delay' => true,'wire:target' => 'removeTableFilters,removeTableFilter','class' => 'h-5 w-5']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
