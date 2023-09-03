@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+
+    @if(app()->getLocale()=='ar')
+        <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap-rtl.min.css')}}">
+    @else
+        <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+    @endif
+
+
+{{--    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('assets/css/agent.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/about.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100i,200,200i,300,300i,400,400i,500,500i&amp;display=swap">
     <link rel="stylesheet" href="{{asset('assets/css/ws-ctrl-convex.css')}}">
@@ -18,7 +29,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/Animated-numbers-section-styles.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/best-carousel-slide.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/Bold-BS4-Image-Caption-Hover-Effect-2.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-rtl.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/details-product.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -27,6 +37,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/Off-Canvas-Sidebar-Drawer-Navbar.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slide-animation-test.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
 </head>
 
 <body class="p-0">
