@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\UserTypeEnum;
+use App\Models\Agent;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class AgentContoller extends Controller
      */
     public function index()
     {
-        $agents=User::where('type','agent')->get();
+        $agents=Agent::where('type','agent')->get();
+
 
        return view('pages.agents',compact('agents'));
     }

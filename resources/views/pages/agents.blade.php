@@ -25,102 +25,66 @@
     </div>
 </section>
 
-<div class="container ">
+<div class="container mt-5">
+
     <div class="row clearfix">
+        @foreach($agents as $agent)
+
         <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="card agent">
                 <div class="agent-avatar">
                     <a class="agent-name " href="agent-profile.html">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="img-fluid " alt="">
+                        <img src="{{$agent->getFirstMediaUrl('users')}}" class="img-fluid " alt="">
                     </a>
                 </div>
                 <div class="agent-content">
                     <div class="agent-name agent-color">
-                        <h4><a class="agent-color" href="agent-profile.html">Tim Hank</a></h4>
-                        <span class="agent-color">Fairview, Texas</span>
+                        <h4><a class="agent-color" href="agent-profile.html">{{$agent->name}}</a></h4>
+                        <span class="agent-color">{{getTrans($agent,'name')}}</span>
                     </div>
                     <ul class="agent-contact-details">
-                        <li><i class="zmdi zmdi-phone"></i><span>(123) 123-456</span></li>
-                        <li><i class="zmdi zmdi-email"></i>info@example.com</li>
+                        <li><i class="zmdi zmdi-phone"></i><span>{{$agent->phone}}</span></li>
+                        <li><i class="zmdi zmdi-email"></i>{{$agent->email}}</li>
                     </ul>
                     <ul class="social-icons">
-                        <li><a class="facebook agent-color" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                        <li><a class="twitter agent-color" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                        <li><a class="gplus agent-color" href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                        <li><a class="linkedin agent-color" href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                        <li><a class="facebook agent-color" href="{{$agent->facebook}}"><i class="zmdi zmdi-facebook"></i></a></li>
+                        <li><a class="twitter agent-color" href="{{$agent->twitter}}"><i class="zmdi zmdi-twitter"></i></a></li>
+                        <li><a class="gplus agent-color" href="{{$agent->insegram}}"><i class="zmdi zmdi-google-plus"></i></a></li>
+                        <li><a class="linkedin agent-color" href="{{$agent->instegram}}"><i class="zmdi zmdi-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        @endforeach
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card agent">
-                <div class="agent-avatar">
-                    <a href="agent-profile.html"> <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-fluid " alt=""> </a> </div>
-                <div class="agent-content">
-                    <div class="agent-name">
-                        <h4><a href="agent-profile.html">Gary Camara</a></h4>
-                        <span>Bristol, Pennsylvania</span>
-                    </div>
-                    <ul class="agent-contact-details agent-color">
-                        <li><i class="zmdi zmdi-phone"></i><span>(123) 123-456</span></li>
-                        <li><i class="zmdi zmdi-email"></i>info@example.com</li>
-                    </ul>
-                    <ul class="social-icons agent-color">
-                        <li><a class="facebook agent-color" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                        <li><a class="twitter agent-color" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                        <li><a class="gplus agent-color" href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                        <li><a class="linkedin agent-color" href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card agent">
-                <div class="agent-avatar">
-                    <a href="agent-profile.html"> <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-fluid " alt=""> </a> </div>
-                <div class="agent-content">
-                    <div class="agent-name">
-                        <h4><a href="agent-profile.html">Hossein Shams</a></h4>
-                        <span>Springfield, Florida</span>
-                    </div>
-                    <ul class="agent-contact-details">
-                        <li><i class="zmdi zmdi-phone"></i><span>(123) 123-456</span></li>
-                        <li><i class="zmdi zmdi-email"></i>info@example.com</li>
-                    </ul>
-                    <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                        <li><a class="gplus" href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card agent">
-                <div class="agent-avatar"> <a href="agent-profile.html"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="img-fluid " alt=""> </a> </div>
-                <div class="agent-content">
-                    <div class="agent-name">
-                        <h4><a href="agent-profile.html">Tom Wilson</a></h4>
-                        <span>Washington, Illinois</span>
-                    </div>
-                    <ul class="agent-contact-details">
-                        <li><i class="zmdi zmdi-phone"></i><span>(123) 123-456</span></li>
-                        <li><i class="zmdi zmdi-email"></i>info@example.com</li>
-                    </ul>
-                    <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                        <li><a class="gplus" href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <div class=" mt-2">
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+        <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+
+
+
+
+
+
+    </div>
+
 </div>
 
 @endsection

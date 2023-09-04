@@ -40,36 +40,7 @@
                         </div>
 
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"><span
                         class="carousel-control-prev-icon" aria-hidden="true"></span><span

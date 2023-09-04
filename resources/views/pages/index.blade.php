@@ -40,36 +40,7 @@
                         </div>
 
                     @endforeach
-                    {{--                        <div class="carousel-item">--}}
-                    {{--                            <div class="h-100 w-100" style="background: url(&quot;assets/img/01.jpg&quot;) center / cover no-repeat;">--}}
-                    {{--                                <div class="h-100 w-100 overlay">--}}
-                    {{--                                    <div class="slide_style_right">--}}
-                    {{--                                        <div class="row justify-content-center align-items-center">--}}
-                    {{--                                            <div class="col-12 text-center align-self-center slide-text">--}}
-                    {{--                                                <h1 class="animate__animated animate__lightSpeedInLeft">Bootstrap Carousel</h1>--}}
-                    {{--                                                <p class="animate__animated animate__fadeInUp px-4">Bootstrap now touch enable slide.</p>--}}
-                    {{--                                            </div>--}}
-                    {{--                                            <div class="col-12 text-center slide-text"><a class="btn btn-primary btn-lg animate__animated animate__fadeInUp" role="button" href="#">select one</a><a class="btn btn-primary btn-lg animate__animated animate__fadeInUp" role="button" href="#">select two</a></div>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="carousel-item">--}}
-                    {{--                            <div class="h-100 w-100" style="background: url(&quot;assets/img/030.jpg&quot;) center / cover no-repeat;">--}}
-                    {{--                                <div class="h-100 w-100 overlay">--}}
-                    {{--                                    <div class="slide_style_right">--}}
-                    {{--                                        <div class="row justify-content-center align-items-center">--}}
-                    {{--                                            <div class="col-12 text-center align-self-center slide-text">--}}
-                    {{--                                                <h1 class="animate__animated animate__lightSpeedInLeft">Bootstrap Carousel</h1>--}}
-                    {{--                                                <p class="animate__animated animate__fadeInUp px-4">Bootstrap now touch enable slide.</p>--}}
-                    {{--                                            </div>--}}
-                    {{--                                            <div class="col-12 text-center slide-text"><a class="btn btn-primary btn-lg animate__animated animate__fadeInUp" role="button" href="#">select one</a><a class="btn btn-primary btn-lg animate__animated animate__fadeInUp" role="button" href="#">select two</a></div>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
+
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"><span
                         class="carousel-control-prev-icon" aria-hidden="true"></span><span

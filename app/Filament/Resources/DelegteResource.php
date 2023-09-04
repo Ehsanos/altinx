@@ -31,7 +31,7 @@ class DelegteResource extends Resource
 
                     Forms\Components\TextInput::make('password')->password()->dehydrateStateUsing(fn($state) => Hash::make($state))
                         ->dehydrated(fn($state) => filled($state)),
-                    Forms\Components\SpatieMediaLibraryFileUpload::make('الصورة')->collection('users'),
+                    Forms\Components\SpatieMediaLibraryFileUpload::make('الصورة')->collection('users')->imageResizeMode(1),
                     Forms\Components\Select::make('country_id')->relationship('country', 'name')->label('الدولة')->required(),
 
                 ])->columns(3),
@@ -41,6 +41,7 @@ class DelegteResource extends Resource
                     Forms\Components\TextInput::make('email')->label('بريد الكتروني أول')->required(),
                     Forms\Components\TextInput::make('email2')->label('بريد الكتروني ثاني'),
                     Forms\Components\TextInput::make('email3')->label('بريد الكتروني ثالث'),
+                    Forms\Components\TextInput::make('phone')->label('رقم الهاتف')->required(),
                     Forms\Components\TextInput::make('whatsapp')->label('واتساب أول'),
                     Forms\Components\TextInput::make('whatsapp2')->label('واتساب ثاني'),
                     Forms\Components\TextInput::make('facebook')->label('حساب الفيس بوك'),

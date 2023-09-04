@@ -45,39 +45,35 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                 </div>
-                <div class=" mt-2">
-
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-
-
-                    <a href="#" class="badge badge-dark">Dark</a>
-
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-
-
-                </div>
 
 
             </div>
         </section>
+        <div class=" mt-2">
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+
+
+
+
+
+
+        </div>
+
     </main>
 <?php $__env->stopSection(); ?>
 

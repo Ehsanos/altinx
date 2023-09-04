@@ -15,8 +15,8 @@ class DelegteController extends Controller
      */
     public function index()
     {
-        $delegte=User::where('type','delegte')->get();
-        return view('pages.delegte',compact('delegte'));
+        $delegtes=Delegte::where('type','delegte')->get();
+        return view('pages.delegte',compact('delegtes'));
     }
 
     /**
