@@ -25,14 +25,9 @@
                                     <div class="slide_style_right">
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-12 text-center align-self-center slide-text">
-                                                <h1 class="animate__animated animate__lightSpeedInLeft">{{$slide->discrption}}</h1>
                                                 {{--                                                <p class="animate__animated animate__fadeInUp px-4">Bootstrap now touch enable slide.</p>--}}
                                             </div>
-                                            <div class="col-12 text-center slide-text "><a
-                                                    class="btn btn-primary mt-5 mx-5 btn-lg animate__animated animate__fadeInUp"
-                                                    role="button" href="#">المزيد....</a>
-                                                {{--                                                <a class="btn btn-primary btn-lg animate__animated animate__fadeInUp" role="button" href="#">select two</a>--}}
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

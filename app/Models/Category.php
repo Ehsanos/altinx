@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
@@ -21,9 +23,12 @@ class Category extends Model implements HasMedia
         'tags'=>'array',
     ];
 
-    public function departments()
+    public function departments():HasMany
     {
         return $this->hasMany(Department::class);
     }
-
+    public function products():HasManyThrough
+    {
+        return $this->hasManyThrough(Product::class, Department::class);
+    }
 }

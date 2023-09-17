@@ -37,6 +37,7 @@ class SliderResource extends Resource
             ->schema([
                 SpatieMediaLibraryFileUpload::make('img')->collection('slider')->label('الصورة'),
 
+
                 Forms\Components\Card::make()->schema([
                     Forms\Components\TextInput::make('discrption')->nullable()->label('وصف بالعربي'),
                     Forms\Components\TextInput::make('discrption_en')->nullable()->label('وصف EN'),

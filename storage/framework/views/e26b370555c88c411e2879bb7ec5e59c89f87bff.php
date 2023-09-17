@@ -25,14 +25,9 @@
                                     <div class="slide_style_right">
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-12 text-center align-self-center slide-text">
-                                                <h1 class="animate__animated animate__lightSpeedInLeft"><?php echo e($slide->discrption); ?></h1>
                                                 
                                             </div>
-                                            <div class="col-12 text-center slide-text "><a
-                                                    class="btn btn-primary mt-5 mx-5 btn-lg animate__animated animate__fadeInUp"
-                                                    role="button" href="#">المزيد....</a>
-                                                
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

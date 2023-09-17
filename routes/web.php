@@ -25,7 +25,7 @@ Route::get('/languages/{lang}', [IndexController::class, 'change_lang'])->name('
 
 Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
-    Route::get('/products',[ProductController::class,'index'])->name('products');
+    Route::get('/products/{catId?}/{depId?}',[ProductController::class,'index'])->name('products');
     Route::get('/details/{id}',[ProductController::class,'show'])->name('product_details');
     Route::get('/catalogs',[CatalogController::class,'index'])->name('catalog');
     Route::get('/posts',[PostController::class,'index'])->name('news');
@@ -34,6 +34,7 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/delegte',[DelegteController::class,'index'])->name('delegte');
     Route::get('/jobs',[JobController::class,'index'])->name('jobs');
     Route::get('/about',[IndexController::class,'about'])->name('about');
+    Route::get('/search',[])->name('search');
 
 
 });
