@@ -49,31 +49,50 @@
 
 
             </div>
+            <div class=" mt-2 container">
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+
+
+
+
+
+
+            </div>
+
         </section>
-        <div class=" mt-2">
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-            <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-
-
-
-
-
-
-        </div>
 
     </main>
 @endsection

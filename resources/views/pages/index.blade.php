@@ -21,7 +21,7 @@
                         <div class="carousel-item @if($loop->first)active @endif">
                             <div class="h-100 w-100 img-div"
                                  style="background: url('{{$slide->getFirstMediaUrl('slider')}}') center / cover no-repeat;">
-                                <div class="h-100 w-100 overlay">
+                                <div class="h-100 w-100 ">
                                     <div class="slide_style_right">
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-12 text-center align-self-center slide-text">
@@ -71,33 +71,7 @@
                                 </a></div>
                         @endforeach
 
-                        {{--                            <div class="px-3 product-item"><a class="text-decoration-none" href="#">--}}
-                        {{--                                    <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left" data-aos-duration="950">--}}
-                        {{--                                        <div class="card-header"><img class="img-fluid rounded-img" src="../assets/img/2.jpg"></div>--}}
-                        {{--                                        <div class="card-body">--}}
-                        {{--                                            <p class="card-text sub-text-color">Last activity:</p>--}}
-                        {{--                                            <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a></div>--}}
-                        {{--                            <div class="px-3 product-item"><a class="text-decoration-none" href="#">--}}
-                        {{--                                    <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left" data-aos-duration="950">--}}
-                        {{--                                        <div class="card-header"><img class="img-fluid rounded-img" src="../assets/img/3.jpg"></div>--}}
-                        {{--                                        <div class="card-body">--}}
-                        {{--                                            <p class="card-text sub-text-color">Last activity:</p>--}}
-                        {{--                                            <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a></div>--}}
-                        {{--                            <div class="px-3 product-item"><a class="text-decoration-none" href="#">--}}
-                        {{--                                    <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left" data-aos-duration="950">--}}
-                        {{--                                        <div class="card-header"><img class="img-fluid rounded-img" src="../assets/img/4.jpg"></div>--}}
-                        {{--                                        <div class="card-body">--}}
-                        {{--                                            <p class="card-text sub-text-color">Last activity:</p>--}}
-                        {{--                                            <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a></div>--}}
+
 
 
                     </div>
@@ -126,29 +100,6 @@
                                 </div>
                             </a></div>
                         @endforeach
-{{--                        <div class="px-3 product-item"><a class="text-decoration-none" href="#">--}}
-{{--                                <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"--}}
-{{--                                     data-aos-duration="950">--}}
-{{--                                    <div class="card-header"><img class="img-fluid rounded-img"--}}
-{{--                                                                  src="../assets/img/2.jpg"></div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <p class="card-text sub-text-color">Last activity:</p>--}}
-{{--                                        <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a></div>--}}
-{{--                        <div class="px-3 product-item"><a class="text-decoration-none" href="#">--}}
-{{--                                <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"--}}
-{{--                                     data-aos-duration="950">--}}
-{{--                                    <div class="card-header"><img class="img-fluid rounded-img"--}}
-{{--                                                                  src="../assets/img/3.jpg"></div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <p class="card-text sub-text-color">Last activity:</p>--}}
-{{--                                        <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a></div>--}}
-{{--                   --}}
 
                     </div>
                 </div>
@@ -207,34 +158,12 @@
                                 </div>
                             </a></div>
                         @endforeach
-{{--                        <div class="px-3 product-item"><a class="text-decoration-none" href="news.blade.php">--}}
-{{--                                <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"--}}
-{{--                                     data-aos-duration="950">--}}
-{{--                                    <div class="card-header"><img class="img-fluid rounded-img"--}}
-{{--                                                                  src="../assets/img/2.jpg"></div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <p class="card-text sub-text-color">Last activity:</p>--}}
-{{--                                        <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a></div>--}}
-{{--                        <div class="px-3 product-item"><a class="text-decoration-none" href="news.blade.php">--}}
-{{--                                <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"--}}
-{{--                                     data-aos-duration="950">--}}
-{{--                                    <div class="card-header"><img class="img-fluid rounded-img"--}}
-{{--                                                                  src="../assets/img/3.jpg"></div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <p class="card-text sub-text-color">Last activity:</p>--}}
-{{--                                        <p class="card-text cardbody-sub-text">2 minutes ago</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a></div>--}}
 
                     </div>
                 </div>
                 <div class="col-12 py-4">
                     <div class="text-center"><a class="more-news py-3 px-5 text-decoration-none"
-                                                href="main-news.blade.php">المزيد من الأخبار</a></div>
+                                                href="{{route('langs.news')}}">{{lang('more_news')}}</a></div>
                 </div>
             </div>
         </div>
@@ -249,24 +178,23 @@
                                 height="100%"></iframe>
                     </div>
                     <div class="d-none d-md-block position-absolute" style="top: 0;left: 0;right: 0;bottom: 0;">
-                        <iframe allowfullscreen="" frameborder="0"
-                                src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%"
-                                height="100%"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3219.748817026996!2d36.727874974758834!3d36.19699020147182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15257b9d95e230af%3A0x35083c421d8a65ee!2z2LTYsdmD2Kkg2YXYr9mJ!5e0!3m2!1sen!2str!4v1695054919233!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
                     <div>
                         <form class="bg-white border rounded shadow p-3 p-sm-4 p-lg-5" method="post"
-                              style="background: var(--bs-body-bg);">
-                            <h3 class="font-weight-bold text-center mb-3">تواصل معنا</h3>
-                            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="الإسم">
+                              style="background: var(--bs-body-bg);" action="{{route('langs.sub')}}">
+                            @csrf
+                            <h3 class="font-weight-bold text-center text-black-50 mb-3">{{lang('call_us')}}</h3>
+                            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="{{lang('name')}}">
                             </div>
                             <div class="mb-3"><input class="form-control" type="email" name="email"
-                                                     placeholder="البريد الإلكتروني"></div>
-                            <div class="mb-3"><textarea class="form-control" name="message" placeholder="الرسالة"
+                                                     placeholder="{{lang('email')}}"></div>
+                            <div class="mb-3"><textarea class="form-control" name="message" placeholder="{{lang('message')}}"
                                                         rows="6"></textarea></div>
                             <div class="mb-3">
-                                <button class="btn btn-primary btn-sign" type="submit">ارسال</button>
+                                <button class="btn btn-primary btn-sign" type="submit" >{{lang('send')}}</button>
                             </div>
                         </form>
                     </div>

@@ -36,6 +36,8 @@ if(in_array($lang,['ar','es','en','du','tr'])) {
     }
 
 
+
+
     public function about()
     {
         return view('pages.about');

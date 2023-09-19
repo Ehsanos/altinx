@@ -91,7 +91,7 @@
                             <div class="col p-0">
                                 <div class="d-flex flex-row justify-content-end align-items-center bg-gray">
                                     <div class="px-3">
-                                        <h2 class="text-left text-dark">الحمّام</h2>
+
                                     </div>
                                     <div class="div-left"></div>
                                 </div>
@@ -100,18 +100,19 @@
                         <div class="row">
                             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
+
                             <div class="col-12 col-md-6 col-lg-4 mb-2">
-                                <a class="text-decoration-none" href="product-details.blade.php">
-                                    <div class="p-2 card">
+                                <a class="text-decoration-none" href="<?php echo e(route('langs.product_details',[$product])); ?>">
+                                    <div class="p-2 card product-main">
                                         <div class="text-center">
-                                            <h5 class="text-truncate font-weight-bolder">صنبور حمام - Bc -15 in</h5>
+                                            <h5 class="text-truncate font-weight-bolder"><?php echo e(getTrans($product,'name')); ?></h5>
                                         </div>
                                         <div class="div-hr-w"></div>
                                         <div>
                                             <div class="text-center card-img p-2"><img class="img-fluid" src="<?php echo e($product->getFirstMediaUrl('products')); ?>">
                                             </div>
                                             <div class="px-3">
-                                                <p class="text-dark font-weight-bold">سلسلة الحمّام - Idea Black</p>
+                                                <p class="text-dark font-weight-bold"><?php echo e($product->department->name ?? 'None'); ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,53 +125,20 @@
                 </div>
                 
 
-                <div class=" mt-2">
-                    <a href="#" class="badge badge-dark ">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
 
-                    <a href="#" class="badge badge-dark">Dark</a>
+            </div>
+            <div class=" mt-2 container">
+                <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1"><?php echo e($tag->name['ar'] ?? ' '); ?></a>
 
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
-                    <a href="#" class="badge badge-dark">Dark</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
 
 
-                </div>
+
+
+
 
             </div>
         </section>

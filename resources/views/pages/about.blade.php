@@ -35,7 +35,7 @@
                                 <i class="fas fa-map-marked"></i>
                             </div>
                             <div class="contact-info-text">
-                                <h2>address</h2>
+                                <h2>{{lang('address')}}</h2>
                                 <span>1215 Lorem Ipsum, Ch 176080 </span>
                                 <span>Chandigarh , INDIA</span>
                             </div>
@@ -49,7 +49,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-info-text">
-                                <h2>E-mail</h2>
+                                <h2>{{lang('email')}}</h2>
                                 <span>info@LoremIpsum.com</span>
                                 <span>yourmail@gmail.com</span>
                             </div>
@@ -74,22 +74,23 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contact-page-form" method="post">
-                        <h2>تواصل معنا</h2>
-                        <form action="contact-mail.php" method="post">
+                        <h2>{{lang('call_us')}}</h2>
+                        <form action="{{route('langs.sub')}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="single-input-field">
-                                        <input type="text" placeholder="Your Name" name="name"/>
+                                        <input type="text" placeholder="{{lang('name')}}" name="name"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="single-input-field">
-                                        <input type="email" placeholder="E-mail" name="email" required/>
+                                        <input type="email" placeholder="{{lang('email')}}" name="email" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="single-input-field">
-                                        <input type="text" placeholder="Phone Number" name="phone"/>
+                                        <input type="text" placeholder="{{lang('phone')}}" name="phone"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -99,11 +100,11 @@
                                 </div>
                                 <div class="col-md-12 message-input">
                                     <div class="single-input-field">
-                                        <textarea  placeholder="Write Your Message" name="message"></textarea>
+                                        <textarea  placeholder="{{lang('message')}}" name="message"></textarea>
                                     </div>
                                 </div>
                                 <div class="single-input-fieldsbtn">
-                                    <input type="submit" value="Send Now"/>
+                                    <input type="submit" value="{{lang('send')}}"/>
                                 </div>
                             </div>
                         </form>

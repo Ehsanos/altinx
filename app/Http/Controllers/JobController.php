@@ -36,7 +36,6 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        //
     }
 
     /**

@@ -49,8 +49,8 @@ class PostResource extends Resource
                 Forms\Components\Section::make('منشور')->schema([
                     Wizard::make()->schema([
                         Wizard\Step::make('AR')->schema([Forms\Components\Card::make()->schema([
-                            Forms\Components\TextInput::make('tilte_ar')->nullable()->label('عنوان عربي'),
-                            Forms\Components\Textarea::make('body_ar')->nullable()->label('منشور العربي'),
+                            Forms\Components\TextInput::make('tilte')->required()->label('عنوان عربي'),
+                            Forms\Components\Textarea::make('body')->required()->label('منشور العربي'),
 
                         ])->columns(2)]),
                         Wizard\Step::make('EN')->schema([Forms\Components\Card::make()->schema([

@@ -12,5 +12,11 @@ class Tag extends Model
 
     protected $guarded=[];
 
+    protected $casts=[
+      'name'=>'array',
+        'en'=>'array',
+        'ar'=>'array',
+    ];
+
 
 }

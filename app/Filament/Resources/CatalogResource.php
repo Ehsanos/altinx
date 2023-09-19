@@ -51,6 +51,7 @@ class CatalogResource extends Resource
 
                     FileUpload::make('file')->acceptedFileTypes(['application/pdf'])->uploadButtonPosition('left'),
                     SpatieMediaLibraryFileUpload::make('img')->collection('catalogs')->label('الصورة'),
+                    SpatieMediaLibraryFileUpload::make('img')->collection('catalogs-slider')->multiple()->label('صور السلايدر'),
 
                 ])->columns(3),
 

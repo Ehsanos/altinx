@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Catalog;
 use App\Models\Category;
 use App\Models\Department;
 use App\Models\Product;
+use App\Models\Tag;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -20,23 +24,26 @@ class ProductController extends Controller
         $cats = Category::where('is_active', true)->get();
         $departments = Department::when($catId, fn($q) => $q->whereCategoryId($catId))->whereIsActive(true)->get();
         if (isset($depId)) {
-            $products = Product::with('media')->where([
+            $products = Product::with('media')->with('tags')->where([
                 "department_id" => $depId,
                 "is_active" => true,
             ])->get();
 
         } else {
             if (isset($catId)) {
-                $products = Category::findOrFail($catId)->products;
+                $products = Category::with('tags')->findOrFail($catId)->products;
+
             } else {
-                $products = Product::all();
+                $products = Product::with('tags')->with('department')->get();
+//                dd($products[0]->tags()->get()[0]->name);
             }
         }
-        return view('pages.products', [
-            "cats" => $cats,
-            "departments" => $departments,
-            "products" => $products
-        ]);
+        $tags=Tag::all();
+
+
+        return view('pages.products', ["cats" => $cats, "departments" => $departments,
+            "products" => $products,"tags"=>$tags]);
+
     }
 
     /**
@@ -66,11 +73,16 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-
-//dd($product);
+        $product = Product::findOrfail($id);
         return view('pages.product-details', compact('product'));
+    }
+
+    public function download($id){
+$catlog=Catalog::findOfail($id);
+        return Storage::url($catlog->file);
+
     }
 
     /**
@@ -82,6 +94,34 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+    }
+
+
+    public function search(Request $request)
+    {
+        if ($request->search != " ") {
+            $products = Product::where('name', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('name_en', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('name_tr', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('name_du', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('name_es', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description_en', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description_tr', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description_du', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description_es', 'LIKE', '%' . $request->search . '%')
+                ->where('is_active', 'true')->get();
+            return view('pages.product-search', compact('products'));
+
+        }
+        else
+        {
+            $products=Product::where('is_active',true)->get();
+            return view('pages.product-search', compact('products'));
+
+        }
+
+
     }
 
     /**

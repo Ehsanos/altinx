@@ -12,6 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SubscribeController;
 use App\Models\Catalog;
 use App\Models\Country;
 use Illuminate\Support\Facades\Route;
@@ -20,13 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/', [IndexController::class, 'index'])->name('index');
 
+Route::get('/log',[IndexController::class,'login'])->name('login');
 
 Route::get('/languages/{lang}', [IndexController::class, 'change_lang'])->name('change.lang');
 
 Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::get('/products/{catId?}/{depId?}',[ProductController::class,'index'])->name('products');
-    Route::get('/details/{id}',[ProductController::class,'show'])->name('product_details');
+    Route::get('/details/{data}',[ProductController::class,'show'])->name('product_details');
     Route::get('/catalogs',[CatalogController::class,'index'])->name('catalog');
     Route::get('/posts',[PostController::class,'index'])->name('news');
     Route::get('/posts/{post}',[PostController::class,'show'])->name('showPost');
@@ -34,7 +36,8 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/delegte',[DelegteController::class,'index'])->name('delegte');
     Route::get('/jobs',[JobController::class,'index'])->name('jobs');
     Route::get('/about',[IndexController::class,'about'])->name('about');
-    Route::get('/search',[])->name('search');
+    Route::get('/search',[ProductController::class,'search'])->name('search');
+    Route::post('/sub',[SubscribeController::class,'store'])->name('sub');
 
 
 });

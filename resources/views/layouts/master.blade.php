@@ -17,8 +17,10 @@
 {{--    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('assets/css/agent.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/about.css')}}">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100i,200,200i,300,300i,400,400i,500,500i&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/ws-ctrl-convex.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/ws-ctrl-twist.css')}}">
     <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
@@ -58,13 +60,20 @@
                     <li class="nav-item d-none d-lg-block mx-5">
                         <div class="center d-sm-block" mt-3="">
 
-                            <form class="form-inline srch-form" action="">
-                                <div class="srch-wrapper"><input type="text" class="srch-input" placeholder="Search..."><button class="srch-button" type="submit"><em class="icon-search"></em><i class="fas fa-search"></i></button></div>
+                            <form class="form-inline srch-form" action="{{route('langs.search')}}">
+                                <div class="srch-wrapper">
+                                    <input type="text" class="srch-input" name="search" placeholder="Search...">
+                                    <button class="srch-button" type="submit">
+                                        <em class="icon-search"></em>
+                                        <i class="fas fa-search"></i></button>
+                                </div>
                             </form>
                         </div>
                     </li>
                     <li class="nav-item d-block d-lg-none">
-                        <div class="float-left float-md-right my-3 mt-md-0 search-area"><i class="fas fa-search float-left search-icon"></i><input class="float-left float-sm-right custom-search-input" type="search" placeholder="Type to filter by address"></div>
+                        <div class="float-left float-md-right my-3 mt-md-0 search-area">
+                            <i class="fas fa-search float-left search-icon"></i>
+                            <input class="float-left float-sm-right custom-search-input" type="search" name=""  placeholder="Type to filter by address"></div>
                     </li>
                 </ul>
                 <div class="dropdown d-lg-flex align-items-lg-center mx-4 py-2">
@@ -80,7 +89,12 @@
                         <a class="dropdown-item" href="{{route('change.lang',['lang'=>'es'])}}">ES</a>
 
                     </div>
-                </div><a class="btn shadow btn-sign" role="button" >{{lang('login')}}</a>
+                </div>
+            <div>
+                <a class="btn shadow btn-sign" href="{{url('/admin')}}" role="button" >{{lang('login')}}</a>
+
+            </div>
+
             </div>
         </div>
     </nav>
@@ -95,8 +109,9 @@
                 <div class="col-12 col-md-4">
                     <div class="font-weight-bold text-lg-right d-flex align-items-center mb-2"><span class="text-dark">{{lang('emails')}}</span></div>
                     <div class="pt-2">
-                        <form method="post">
-                            <div class="mb-3"><input class="shadow form-control" type="email" id="email-1" name="email" placeholder="Email"></div>
+                        <form method="post" action="{{route('langs.sub')}}">
+@csrf
+                            <div class="mb-3"><input class="shadow form-control" type="email" id="email-1" name="email" placeholder="{{lang('email')}}"></div>
                             <div><button class="btn btn-primary shadow btn-sign d-block w-100" type="submit">{{lang('send')}}</button></div>
                         </form>
                     </div>
@@ -105,9 +120,9 @@
                     <div class="p-3">
                         <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">{{lang('pages')}}</h3>
                         <ul class="list-unstyled text-center text-lg-right">
-                            <li><a href="#">{{lang('home')}}</a></li>
-                            <li><a href="#">{{lang('product')}}</a></li>
-                            <li><a href="#">{{lang('services')}}</a></li>
+                            <li><a href="{{route('langs.index')}}">{{lang('home')}}</a></li>
+                            <li><a href="{{route('langs.products')}}">{{lang('product')}}</a></li>
+                            <li><a href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -115,7 +130,7 @@
                     <div class="p-3">
                         <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">{{lang('about')}}</h3>
                         <ul class="list-unstyled text-center text-lg-right">
-                            <li><a href="#">{{lang('we_are')}}</a></li>
+                            <li><a href="{{route('langs.about')}}">{{lang('we_are')}}</a></li>
                             <li><a href="#">{{lang('policy')}}</a></li>
                             <li><a href="#">{{lang('call_us')}}</a></li>
                         </ul>
@@ -124,7 +139,7 @@
             </div>
             <hr>
             <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <p class="mb-0">Copyright © 2023 Brand</p>
+                <p class="mb-0">{{lang('rights')}} AlTinMIX </p>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
                             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>

@@ -10,7 +10,7 @@ $('#main-slider').owlCarousel({
 });
 $('#products').owlCarousel({
     center: false,
-    
+
     loop:true,
     margin:0,
     autoplay:true,
@@ -36,7 +36,7 @@ $('#products').owlCarousel({
 
 $('#sections').owlCarousel({
     center: false,
-   
+
     loop:true,
     margin:10,
     autoplay:true,
@@ -47,7 +47,7 @@ $('#sections').owlCarousel({
             items:1,
              center: false,
              dots:true,
-            
+
         },
         600:{
             items:2,
@@ -57,11 +57,11 @@ $('#sections').owlCarousel({
             items:3,
              dots:true,
         },
-       
+
     }
 });
 $('#news').owlCarousel({
-   
+
    center: false,
     loop:true,
     margin:0,
@@ -77,22 +77,22 @@ $('#news').owlCarousel({
         600:{
             items:2
         },
-     
+
     }
 });
 
 $(function() {
   $('.srch-button').click(function(){
-    var $wrapper = $('.srch-wrapper'), 
+    var $wrapper = $('.srch-wrapper'),
         isOpen = $wrapper.hasClass('open');
     $wrapper.toggleClass('open')
       .find('.srch-input')[isOpen ? 'blur' : 'focus']();
     // remove this - onyl for demo
-    return false;
+    if(!isOpen)return false
+
   });
-  
+
 })
 
 
 $('.hero-slider').owlCarousel({});
-    
