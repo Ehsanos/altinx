@@ -39,11 +39,16 @@ class SliderResource extends Resource
 
 
                 Forms\Components\Card::make()->schema([
-                    Forms\Components\TextInput::make('discrption')->nullable()->label('وصف بالعربي'),
-                    Forms\Components\TextInput::make('discrption_en')->nullable()->label('وصف EN'),
-                    Forms\Components\TextInput::make('discrption_tr')->nullable()->label('وصف TR'),
-                    Forms\Components\TextInput::make('discrption_es')->nullable()->label('وصف ES'),
-                    Forms\Components\TextInput::make('discrption_du')->nullable()->label('وصف DU'),
+                    Forms\Components\TextInput::make('discrption')->nullable()->label('سلايدر لقسم :'),
+                    Forms\Components\Radio::make('discrption')->options([
+                        'main'=>"الرئيسية",
+                        'product'=>"المنتجات",
+                        'deleget'=>"المندوبون",
+                        'الوكلاء',
+                        'about'=>"من نحن",
+                        'news'=>"الأخبار",
+                        'catalog'=>"الكتالوج",
+                    ]),
 
                 ])->columns(2),
             ]);

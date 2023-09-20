@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Delegte;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class DelegteController extends Controller
     public function index()
     {
         $delegtes=Delegte::where('type','delegte')->get();
-        return view('pages.delegte',compact('delegtes'));
+        $slider = Slider::where('discrption', '=', 'delegtes')->get();
+
+        return view('pages.delegte',compact('delegtes','slider'));
     }
 
     /**

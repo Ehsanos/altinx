@@ -19,13 +19,15 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $slider=Slider::all();
+//        $slider=Slider::all();
+        $slider = Slider::where('discrption', '=', 'main')->get();
+
         $settings=Setting::first();
-        $catigories=Category::where('is_active',true)->latest()->limit(5)->get();
+        $catigories=Category::where('is_active',true)->latest()->limit(10)->get();
         $prodcuts=Product::where('is_active',true)->latest()->limit(50)->get();
         $statics=Statics::all();
         $news=Post::latest()->limit(6)->get();
-//        dd($settings->phone);
+//        dd($slider);
        return view('pages.index',compact('slider','settings','prodcuts','catigories','statics','news'));
     }
 
@@ -43,7 +45,9 @@ if(in_array($lang,['ar','es','en','du','tr'])) {
 
     public function about()
     {
-        return view('pages.about');
+        $slider = Slider::where('discrption', '=', 'about')->get();
+
+        return view('pages.about',compact('slider'));
     }
 
     public function store(Request $request)

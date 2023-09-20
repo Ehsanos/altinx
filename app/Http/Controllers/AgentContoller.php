@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\UserTypeEnum;
 use App\Models\Agent;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,11 @@ class AgentContoller extends Controller
     public function index()
     {
         $agents=Agent::where('type','agent')->get();
+        $slider = Slider::where('discrption', '=', 'agent')->get();
 
 
-       return view('pages.agents',compact('agents'));
+
+        return view('pages.agents',compact('agents','slider'));
     }
 
     /**

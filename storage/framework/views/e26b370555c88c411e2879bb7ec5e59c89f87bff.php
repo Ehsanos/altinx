@@ -17,10 +17,13 @@
                     
                 </ol>
                 <div class="carousel-inner">
+
                     <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slide): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="carousel-item <?php if($loop->first): ?>active <?php endif; ?>">
+
                             <div class="h-100 w-100 img-div"
                                  style="background: url('<?php echo e($slide->getFirstMediaUrl('slider')); ?>') center / cover no-repeat;">
+
                                 <div class="h-100 w-100 ">
                                     <div class="slide_style_right">
                                         <div class="row justify-content-center align-items-center">
@@ -49,6 +52,35 @@
 
 
     
+    <section class="d-flex flex-column justify-content-center align-items-center pb-5 sections-s">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div id="sections" class="owl-carousel py-4">
+
+                        <?php $__currentLoopData = $prodcuts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="px-3 product-item"><a class="text-decoration-none" href="<?php echo e(route('langs.product_details',[$product])); ?>">
+                                    <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"
+                                         data-aos-duration="950">
+                                        <div class="card-header"><img class="img-fluid rounded-img"
+                                                                      src="<?php echo e($product->getFirstMediaUrl('products')); ?>"></div>
+                                        <div class="card-body">
+                                            <p class="card-text sub-text-color"><?php echo e(getTrans($product,'name')); ?></p>
+                                            <p class="card-text cardbody-sub-text"><?php echo e(getTrans($product,'description')); ?></p>
+                                        </div>
+                                    </div>
+                                </a></div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
     <section class="d-flex flex-column justify-content-center align-items-center pb-5 products">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
@@ -57,7 +89,7 @@
 
 
                         <?php $__currentLoopData = $catigories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="px-3 product-item"><a class="text-decoration-none" href="#">
+                            <div class="px-3 product-item"><a class="text-decoration-none" href="<?php echo e(route('langs.products')); ?>">
                                     <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"
                                          data-aos-duration="950">
                                         <div class="card-header"><img class="rounded-img"
@@ -73,33 +105,6 @@
 
 
 
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <section class="d-flex flex-column justify-content-center align-items-center pb-5 sections-s">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <div id="sections" class="owl-carousel py-4">
-
-                        <?php $__currentLoopData = $prodcuts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="px-3 product-item"><a class="text-decoration-none" href="#">
-                                <div class="card cards-shadown cards-hover my-5 w-100" data-aos="flip-left"
-                                     data-aos-duration="950">
-                                    <div class="card-header"><img class="img-fluid rounded-img"
-                                                                  src="<?php echo e($product->getFirstMediaUrl('products')); ?>"></div>
-                                    <div class="card-body">
-                                        <p class="card-text sub-text-color"><?php echo e(getTrans($product,'name')); ?></p>
-                                        <p class="card-text cardbody-sub-text"><?php echo e(getTrans($product,'description')); ?></p>
-                                    </div>
-                                </div>
-                            </a></div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     </div>
                 </div>
@@ -197,6 +202,7 @@
                                 <button class="btn btn-primary btn-sign" type="submit" ><?php echo e(lang('send')); ?></button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

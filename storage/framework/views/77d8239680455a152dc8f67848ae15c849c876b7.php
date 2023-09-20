@@ -56,7 +56,7 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item flex-column justify-content-start align-items-center main-link"><a class="nav-link <?php if(\Request::route()->getName() =='langs.index'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.index')); ?>"><?php echo e(lang('home')); ?></a></li>
 
-               
+
 
                     <li class="nav-item main-link"><a class="nav-link dropdown font-weight-bolder  <?php if(\Request::route()->getName() =='langs.products'): ?> active <?php endif; ?>"  href="<?php echo e(route('langs.products')); ?>"><?php echo e(lang('product')); ?></a></li>
                     <li class="nav-item main-link"><a class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.catalog'): ?> active <?php endif; ?>" href="<?php echo e(route('langs.catalog')); ?>"><?php echo e(lang('services')); ?></a></li>

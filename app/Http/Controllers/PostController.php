@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,9 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
-        return view('pages.main-news',compact('posts'));
+        $slider = Slider::where('discrption', '=', 'news')->get();
+
+        return view('pages.main-news',compact('posts','slider'));
     }
 
     /**

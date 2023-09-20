@@ -6,6 +6,7 @@ use App\Models\Catalog;
 use App\Models\Category;
 use App\Models\Department;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\Tag;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class ProductController extends Controller
     {
 
         $cats = Category::where('is_active', true)->get();
+        $slider = Slider::where('discrption', '=', 'product')->get();
         $departments = Department::when($catId, fn($q) => $q->whereCategoryId($catId))->whereIsActive(true)->get();
         if (isset($depId)) {
             $products = Product::with('media')->with('tags')->where([
@@ -38,11 +40,11 @@ class ProductController extends Controller
 //                dd($products[0]->tags()->get()[0]->name);
             }
         }
-        $tags=Tag::all();
+        $tags = Tag::all();
 
 
         return view('pages.products', ["cats" => $cats, "departments" => $departments,
-            "products" => $products,"tags"=>$tags]);
+            "products" => $products, "tags" => $tags, "slider" => $slider]);
 
     }
 
@@ -78,11 +80,12 @@ class ProductController extends Controller
         $product = Product::with('media')->findOrfail($id);
         $imgs = Product::with('media')->findOrfail($id)->getMedia("*");
 //     dd($imgs);
-        return view('pages.product-details', compact('product','imgs'));
+        return view('pages.product-details', compact('product', 'imgs'));
     }
 
-    public function download($id){
-$catlog=Catalog::findOfail($id);
+    public function download($id)
+    {
+        $catlog = Catalog::findOfail($id);
         return Storage::url($catlog->file);
 
     }
@@ -115,10 +118,8 @@ $catlog=Catalog::findOfail($id);
                 ->where('is_active', 'true')->get();
             return view('pages.product-search', compact('products'));
 
-        }
-        else
-        {
-            $products=Product::where('is_active',true)->get();
+        } else {
+            $products = Product::where('is_active', true)->get();
             return view('pages.product-search', compact('products'));
 
         }
