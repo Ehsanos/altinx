@@ -75,8 +75,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrfail($id);
-        return view('pages.product-details', compact('product'));
+        $product = Product::with('media')->findOrfail($id);
+        $imgs = Product::with('media')->findOrfail($id)->getMedia("*");
+//     dd($imgs);
+        return view('pages.product-details', compact('product','imgs'));
     }
 
     public function download($id){

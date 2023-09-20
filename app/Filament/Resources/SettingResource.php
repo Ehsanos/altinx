@@ -41,11 +41,18 @@ class SettingResource extends Resource
                         SpatieMediaLibraryFileUpload::make('img')->collection('setting')->label('اللوغو '),
 
                         Forms\Components\TextInput::make('phone')->nullable()->tel(),
-                        Forms\Components\TextInput::make('sub_phone')->tel(),
+                        Forms\Components\TextInput::make('phone2')->tel(),
+                        Forms\Components\TextInput::make('phone3')->nullable()->tel(),
+
+                        Forms\Components\TextInput::make('whatsapp1')->nullable()->tel(),
+                        Forms\Components\TextInput::make('whatsapp2')->nullable()->tel(),
+                        Forms\Components\TextInput::make('whatsapp3')->nullable()->tel(),
+
                         Forms\Components\TextInput::make('facebook')->nullable(),
                         Forms\Components\TextInput::make('twitter')->nullable(),
                         Forms\Components\TextInput::make('email')->nullable()->email(),
-                        Forms\Components\TextInput::make('sub_email')->nullable()->email(),
+                        Forms\Components\TextInput::make('email2')->nullable()->email(),
+                        Forms\Components\TextInput::make('email3')->nullable()->email(),
                         Forms\Components\TextInput::make('youtube')->nullable(),
                         Forms\Components\TextInput::make('chat_bot')->nullable(),
                         Forms\Components\TextInput::make('map')->nullable(),

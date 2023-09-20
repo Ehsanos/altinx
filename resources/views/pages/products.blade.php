@@ -40,14 +40,18 @@
                                 </div>
                                 <div class="row padMar">
                                     <div class="col padMar">
-                                        <div class="input-group">
+                                        <form action="{{route('langs.search')}}">
+                                            @csrf
+                                        <div class="input-group ">
                                             <div class="input-group-prepend"></div>
                                             <input class="form-control autocomplete" type="text"
                                                    placeholder="{{lang('search_cat')}}">
                                             <div class="input-group-append">
-                                                <button class="btn btn-sm search-btn btn-outline-dark" type="button"><i
+                                                <button class="btn btn-sm search-btn btn-outline-dark" type="submit"><i
                                                         class="fa fa-search"></i></button>
+
                                             </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>

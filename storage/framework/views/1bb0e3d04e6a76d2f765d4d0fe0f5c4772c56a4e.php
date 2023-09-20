@@ -60,16 +60,16 @@
                 <div class="img-display">
                     <div class="img-showcase">
                         <img
-                            src="<?php echo e($product->getFirstMediaUrl('products')); ?>"
+                            src="<?php echo e($imgs[0]->getUrl()); ?>"
                             alt="shoe image">
                         <img
-                            src="<?php echo e($product->getFirstMediaUrl('products')); ?>"
+                            src="<?php echo e($imgs[1]->getUrl()); ?>"
                             alt="shoe image">
                         <img
-                            src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg"
+                            src="<?php echo e($imgs[2]->getUrl()); ?>"
                             alt="shoe image">
                         <img
-                            src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg"
+                            src="<?php echo e($imgs[3]->getUrl()); ?>"
                             alt="shoe image">
                     </div>
                 </div>
@@ -77,28 +77,29 @@
                     <div class="img-item">
                         <a href="#" data-id="1">
                             <img
-                                src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg"
+                                src="<?php echo e($imgs[0]->getUrl()); ?>"
                                 alt="shoe image">
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="2">
                             <img
-                                src="<?php echo e($product->getFirstMediaUrl('products')); ?>"
+                                src="<?php echo e($imgs[1]->getUrl()); ?>"
                                 alt="shoe image">
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="3">
                             <img
-                                src="<?php echo e($product->getFirstMediaUrl('products')); ?>"
+                                src="<?php echo e($imgs[2]->getUrl()); ?>"
                                 alt="shoe image">
                         </a>
                     </div>
                     <div class="img-item">
                         <a href="#" data-id="4">
                             <img
-                                src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg"
+                                src="<?php echo e($imgs[3]->getUrl()); ?>"
+
                                 alt="shoe image">
                         </a>
                     </div>

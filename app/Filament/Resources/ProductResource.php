@@ -118,7 +118,6 @@ class ProductResource extends Resource
                 Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية عربي'),
                 Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية انجليزي'),
 
-
             ]);
     }
 
