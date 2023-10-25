@@ -3,8 +3,7 @@
 
 
 <main>
-
-
+{{--   <h1 class="bg-danger">{{Auth()->user()->name ?? 'none'}} </h1>--}}
     <header class="h-100">
         <div class="top-content">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -189,7 +188,7 @@
                 <div class="col-12 col-lg-6">
                     <div>
                         <form class="bg-white border rounded shadow p-3 p-sm-4 p-lg-5" method="post"
-                              style="background: var(--bs-body-bg);" action="{{route('langs.sub')}}">
+                              style="background: var(--bs-body-bg);" action="{{route('sub')}}">
                             @csrf
                             <h3 class="font-weight-bold text-center text-black-50 mb-3">{{lang('call_us')}}</h3>
                             <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="{{lang('name')}}">

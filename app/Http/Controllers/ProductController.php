@@ -40,14 +40,23 @@ class ProductController extends Controller
 //                dd($products[0]->tags()->get()[0]->name);
             }
         }
+
+
+
         $tags = Tag::all();
+        $lang=App()->getLocale();
 
 
         return view('pages.products', ["cats" => $cats, "departments" => $departments,
-            "products" => $products, "tags" => $tags, "slider" => $slider]);
+            "products" => $products, "tags" => $tags, "slider" => $slider,"lang"=>$lang]);
 
     }
 
+
+    public function profile(){
+        return view('pages.profile');
+
+    }
     /**
      * Show the form for creating a new resource.
      *

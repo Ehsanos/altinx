@@ -63,67 +63,68 @@
                                     <div class="col padMar">
                                         <form action="{{route('langs.search')}}">
                                             @csrf
-                                        <div class="input-group ">
-                                            <div class="input-group-prepend"></div>
-                                            <input class="form-control autocomplete" type="text"
-                                                   placeholder="{{lang('search_cat')}}">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-sm search-btn btn-outline-dark" type="submit"><i
-                                                        class="fa fa-search"></i></button>
+                                            <div class="input-group ">
+                                                <div class="input-group-prepend"></div>
+                                                <input class="form-control autocomplete" type="text"
+                                                       placeholder="{{lang('search_cat')}}">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-sm search-btn btn-outline-dark"
+                                                            type="submit"><i
+                                                            class="fa fa-search"></i></button>
 
-                                            </div>
+                                                </div>
                                         </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-5">
-                            <div class="col-12 alfeat-head">
-                                <div class="p-2">
-                                    <h3 class="text-dark font-weight-bolder m-0">{{lang('cats')}}</h3>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="list-group">
-                                    @foreach($cats as $cat)
-                                        <a class="list-group-item list-group-item-action font-weight-bolder"
-                                           href="{{route('langs.products', ["catId"=>$cat->id])}}">{{getTrans($cat,'name')}}</a>
-                                    @endforeach
-
-                                </div>
-                            </div>
-                            <div class="row pt-5">
-                                <div class="col-12 alfeat-head">
-                                    <div class="p-2">
-                                        <h3 class="text-dark font-weight-bolder m-0">{{lang('sections')}}</h3>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="list-group">
-                                        @foreach($departments as $dep )
-                                            <a class="list-group-item list-group-item-action font-weight-bolder"
-                                               href="{{route("langs.products",["catId"=>$dep->category_id,"depId"=>"$dep->id"])}}">{{$dep->name}}</a>
-                                        @endforeach
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="row p-3">
-                            <div class="col p-0">
-                                <div class="d-flex flex-row justify-content-end align-items-center bg-gray">
-                                    <div class="px-3">
-{{--                                       x--}}
-                                    </div>
-                                    <div class="div-left"></div>
+                    <div class="row pt-5">
+                        <div class="col-12 alfeat-head">
+                            <div class="p-2">
+                                <h3 class="text-dark font-weight-bolder m-0">{{lang('cats')}}</h3>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="list-group">
+                                @foreach($cats as $cat)
+                                    <a class="list-group-item list-group-item-action font-weight-bolder"
+                                       href="{{route('langs.products', ["catId"=>$cat->id])}}">{{getTrans($cat,'name')}}</a>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col-12 alfeat-head">
+                                <div class="p-2">
+                                    <h3 class="text-dark font-weight-bolder m-0">{{lang('sections')}}</h3>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="list-group">
+                                    @foreach($departments as $dep )
+                                        <a class="list-group-item list-group-item-action font-weight-bolder"
+                                           href="{{route("langs.products",["catId"=>$dep->category_id,"depId"=>"$dep->id"])}}">{{$dep->name}}</a>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            @foreach($products as $product )
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="row p-3">
+                        <div class="col p-0">
+                            <div class="d-flex flex-row justify-content-end align-items-center bg-gray">
+                                <div class="px-3">
+                                    {{--                                       x--}}
+                                </div>
+                                <div class="div-left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach($products as $product )
 
 
                             <div class="col-12 col-md-6 col-lg-4 mb-2">
@@ -134,7 +135,8 @@
                                         </div>
                                         <div class="div-hr-w"></div>
                                         <div>
-                                            <div class="text-center card-img p-2"><img class="img-fluid" src="{{$product->getFirstMediaUrl('products')}}">
+                                            <div class="text-center card-img p-2"><img class="img-fluid"
+                                                                                       src="{{$product->getFirstMediaUrl('products')}}">
                                             </div>
                                             <div class="px-3">
                                                 <p class="text-dark font-weight-bold">{{$product->department->name ?? 'None'}}</p>
@@ -144,25 +146,22 @@
                                 </a>
                             </div>
 
-                                @endforeach
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                {{--Tags bar--}}
+            </div>
+            {{--Tags bar--}}
 
 
             </div>
             <div class=" mt-2 container">
                 @foreach($tags as $tag)
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">{{$tag->name['ar'] ?? ' '}}</a>
+
+                    <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">{{$tag->name[$lang] ?? ''}}</a>
 
                 @endforeach
 
-                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>
-
-
-
-
+                {{--                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>--}}
 
 
             </div>

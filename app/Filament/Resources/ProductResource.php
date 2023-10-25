@@ -18,6 +18,8 @@ use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use RalphJSmit\Filament\SEO\SEO;
+use Filament\Forms\Components\SpatieTagsInput;
+
 
 class ProductResource extends Resource
 {
@@ -62,6 +64,7 @@ class ProductResource extends Resource
                                 Forms\Components\RichEditor::make('description')->label('توصيف المنتج بالعربي'),
 
 
+
                             ]),
                         ]),
                         Forms\Components\Wizard\Step::make("EN")->schema([Forms\Components\Card::make()->schema([
@@ -69,6 +72,7 @@ class ProductResource extends Resource
                             Forms\Components\TextInput::make('marke_en')->label('ماركة EN'),
                             Forms\Components\RichEditor::make('description')->label('توصيف EN'),
 
+                            SpatieTagsInput::make('tags'),
 
                         ])]),
                         Forms\Components\Wizard\Step::make("TR")->schema([Forms\Components\Card::make()->schema([
@@ -115,8 +119,8 @@ class ProductResource extends Resource
                 ]),
 
 
-                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية عربي'),
-                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية انجليزي'),
+                SpatieTagsInput::make('tags'),
+//                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية انجليزي'),
 
             ]);
     }

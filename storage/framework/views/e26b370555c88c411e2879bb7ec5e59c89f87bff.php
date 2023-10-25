@@ -4,7 +4,6 @@
 
 <main>
 
-
     <header class="h-100">
         <div class="top-content">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -189,7 +188,7 @@
                 <div class="col-12 col-lg-6">
                     <div>
                         <form class="bg-white border rounded shadow p-3 p-sm-4 p-lg-5" method="post"
-                              style="background: var(--bs-body-bg);" action="<?php echo e(route('langs.sub')); ?>">
+                              style="background: var(--bs-body-bg);" action="<?php echo e(route('sub')); ?>">
                             <?php echo csrf_field(); ?>
                             <h3 class="font-weight-bold text-center text-black-50 mb-3"><?php echo e(lang('call_us')); ?></h3>
                             <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="<?php echo e(lang('name')); ?>">

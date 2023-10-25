@@ -95,7 +95,7 @@
                 <div class="col-12">
                     <div class="contact-page-form" method="post">
                         <h2><?php echo e(lang('call_us')); ?></h2>
-                        <form action="<?php echo e(route('langs.sub')); ?>" method="post">
+                        <form action="<?php echo e(route('sub')); ?>" method="post">
                             <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12">

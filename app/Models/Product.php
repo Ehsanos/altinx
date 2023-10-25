@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
@@ -15,9 +16,9 @@ class Product extends Model implements HasMedia
 
     protected $guarded=[];
 
-    protected $casts = [
-        'tags' => 'array',
-    ];
+//    protected $casts = [
+//        'tags' => 'array',
+//    ];
 
     public function department()
     {
@@ -28,6 +29,8 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Category::class);
 
     }
+
+
 
 
 }

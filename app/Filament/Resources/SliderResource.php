@@ -39,15 +39,16 @@ class SliderResource extends Resource
 
 
                 Forms\Components\Card::make()->schema([
-                    Forms\Components\TextInput::make('discrption')->nullable()->label('سلايدر لقسم :'),
+                    Forms\Components\TextInput::make('discrption')->required()->label('سلايدر لقسم :'),
                     Forms\Components\Radio::make('discrption')->options([
                         'main'=>"الرئيسية",
                         'product'=>"المنتجات",
-                        'deleget'=>"المندوبون",
-                        'الوكلاء',
+                        'delegtes'=>"المندوبون",
+                        'agents'=>"ألوكلاء",
                         'about'=>"من نحن",
+                        'jobs'=>"الوظائف",
                         'news'=>"الأخبار",
-                        'catalog'=>"الكتالوج",
+                        'catalogs'=>"الكتالوج",
                     ]),
 
                 ])->columns(2),
@@ -59,7 +60,7 @@ class SliderResource extends Resource
         return $table
             ->columns([
                 SpatieMediaLibraryImageColumn::make('الصورة')->collection('slider'),
-                Tables\Columns\TextColumn::make('discrption'),
+                Tables\Columns\TextColumn::make('discrption')->label('قسم')->sortable(),
             ])
             ->filters([
                 //

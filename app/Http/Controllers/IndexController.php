@@ -20,6 +20,7 @@ class IndexController extends Controller
     public function index()
     {
 //        $slider=Slider::all();
+//        return view('dashboard');
         $slider = Slider::where('discrption', '=', 'main')->get();
 
         $settings=Setting::first();

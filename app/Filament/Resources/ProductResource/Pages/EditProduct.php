@@ -18,9 +18,9 @@ class EditProduct extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        $category = Product::find($data['id']);
-
-        $data['tags'] = $category->tags()->pluck('name');
+//        $category = Product::find($data['id']);
+//
+//        $data['tags'] = $category->tags()->pluck('name');
 
         return $data;
     }

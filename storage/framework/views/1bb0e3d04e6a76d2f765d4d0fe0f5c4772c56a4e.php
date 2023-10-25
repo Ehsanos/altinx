@@ -4,53 +4,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 <main>
     <div class="card-wrapper  py-4">
@@ -59,50 +12,56 @@
             <div class="product-imgs">
                 <div class="img-display">
                     <div class="img-showcase">
+
+                        <?php $__currentLoopData = $imgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <img
-                            src="<?php echo e($imgs[0]->getUrl()); ?>"
+                            src="<?php echo e($imgs[$loop->index]->getUrl()); ?>"
                             alt="shoe image">
-                        <img
-                            src="<?php echo e($imgs[1]->getUrl()); ?>"
-                            alt="shoe image">
-                        <img
-                            src="<?php echo e($imgs[2]->getUrl()); ?>"
-                            alt="shoe image">
-                        <img
-                            src="<?php echo e($imgs[3]->getUrl()); ?>"
-                            alt="shoe image">
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
                 <div class="img-select">
-                    <div class="img-item">
-                        <a href="#" data-id="1">
-                            <img
-                                src="<?php echo e($imgs[0]->getUrl()); ?>"
-                                alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="2">
-                            <img
-                                src="<?php echo e($imgs[1]->getUrl()); ?>"
-                                alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="3">
-                            <img
-                                src="<?php echo e($imgs[2]->getUrl()); ?>"
-                                alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="4">
-                            <img
-                                src="<?php echo e($imgs[3]->getUrl()); ?>"
+                    <?php $__currentLoopData = $imgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
+                    <div class="img-item">
+                        <a href="#" data-id="<?php echo e($loop->index+1); ?>">
+                            <img
+                                src="<?php echo e($imgs[$loop->index]->getUrl()); ?>"
                                 alt="shoe image">
                         </a>
                     </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
             <!-- card right -->
@@ -167,7 +126,12 @@
         function slideImage(){
             const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
-            document.querySelector('.img-showcase').style.transform = `translateX(${(imgId - 1) * displayWidth}px)`;
+            let x=1;
+            if(document.dir==='ltr')
+                {
+                    x=-1;
+                }
+            document.querySelector('.img-showcase').style.transform = `translateX(${x*(imgId - 1) * displayWidth}px)`;
         }
 
         window.addEventListener('resize', slideImage);

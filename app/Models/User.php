@@ -18,7 +18,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends  Authenticatable implements HasMedia
+class User extends  Authenticatable implements HasMedia , MustVerifyEmail
 {
     use InteractsWithMedia;
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
