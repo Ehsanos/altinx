@@ -8,6 +8,7 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        {{__('Already registered?')}}
 
         <form method="POST" action="{{ route('register') }}">
             @csrf

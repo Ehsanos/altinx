@@ -151,7 +151,7 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4 ">
                 <?php if(Route::has('password.request')): ?>
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('password.request')); ?>">
                         <?php echo e(__('Forgot your password?')); ?>
@@ -176,8 +176,11 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
+
+
             </div>
         </form>
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('register')); ?>">ليس لدي حساب</a>
      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>

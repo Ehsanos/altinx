@@ -52,6 +52,8 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
+        <?php echo e(__('Already registered?')); ?>
+
 
         <form method="POST" action="<?php echo e(route('register')); ?>">
             <?php echo csrf_field(); ?>
