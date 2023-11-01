@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AdminResource\Pages;
 use App\Filament\Resources\AdminResource\RelationManagers;
 use App\Models\Admin;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Pages\Actions\DeleteAction;
@@ -20,7 +21,8 @@ use Spatie\Permission\Models\Role;
 
 class AdminResource extends Resource
 {
-    protected static ?string $model = Admin::class;
+    protected static ?string $model = User::class;
+    protected static ?string $slug='admins';
 
     protected static ?string $pluralLabel = 'الموظفون';
 

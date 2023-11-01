@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Enums\OrderStatusEnum;
@@ -42,6 +43,7 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/about', [IndexController::class, 'about'])->name('about');
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/profile', [ProductController::class, 'profile'])->name('profile');
+    Route::get('/user/{id}',[UserController::class,'edit'])->name('user_edit');
 
 
 });

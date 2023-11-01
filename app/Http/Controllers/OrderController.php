@@ -49,7 +49,8 @@ class OrderController extends Controller
     public function show( $order)
     {
 
-dd($order);
+
+
         $items = Item::with('product')->where('order_id', '=', $order)->get();
 
         $sum = 0;

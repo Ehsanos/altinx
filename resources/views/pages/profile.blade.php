@@ -17,6 +17,8 @@
     </head>
 
     <body>
+
+    {{--@dd(auth()->user()->getMedia('users'))--}}
     <section class="my-5">
         <div class="container">
             <div class="main-body">
@@ -26,25 +28,27 @@
                             <div class="card-body">
 
                                 <div class="d-flex flex-column align-items-center text-center">
-
-                                    {{--                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"--}}
-                                    {{--                                     class="rounded-circle p-1 bg-warning" width="110">--}}
                                     <div class="personal-image">
+
                                         <label class="label">
                                             <input type="file"/>
                                             <figure class="personal-figure">
-                                                <img src="https://avatars1.githubusercontent.com/u/11435231?s=460&v=4"
-                                                     class="personal-avatar" alt="avatar">
+                                                <img src="{{auth()->user()->getFirstMediaUrl('users')}}"
+                                                     class="personal-avatar"  >
                                                 <figcaption class="personal-figcaption">
                                                     <img
                                                         src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
                                                 </figcaption>
                                             </figure>
                                         </label>
+
+                                        <a href="">Edit</a>
+
                                     </div>
 
                                     <div class="mt-3">
                                         <h4>{{Auth()->user()->name}}</h4>
+
                                         <p class="text-secondary mb-1">{{Auth()->user()->email}}</p>
                                         <p class="text-muted font-size-sm">{{Auth()->user()->phone}}</p>
                                     </div>
@@ -132,8 +136,6 @@
 
                                             </li>
                                         @endforeach
-
-
 
 
                                     </ul>

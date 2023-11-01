@@ -16,6 +16,8 @@
     </head>
 
     <body>
+
+    
     <section class="my-5">
         <div class="container">
             <div class="main-body">
@@ -25,25 +27,27 @@
                             <div class="card-body">
 
                                 <div class="d-flex flex-column align-items-center text-center">
-
-                                    
-                                    
                                     <div class="personal-image">
+
                                         <label class="label">
                                             <input type="file"/>
                                             <figure class="personal-figure">
-                                                <img src="https://avatars1.githubusercontent.com/u/11435231?s=460&v=4"
-                                                     class="personal-avatar" alt="avatar">
+                                                <img src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>"
+                                                     class="personal-avatar"  >
                                                 <figcaption class="personal-figcaption">
                                                     <img
                                                         src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
                                                 </figcaption>
                                             </figure>
                                         </label>
+
+                                        <a href="">Edit</a>
+
                                     </div>
 
                                     <div class="mt-3">
                                         <h4><?php echo e(Auth()->user()->name); ?></h4>
+
                                         <p class="text-secondary mb-1"><?php echo e(Auth()->user()->email); ?></p>
                                         <p class="text-muted font-size-sm"><?php echo e(Auth()->user()->phone); ?></p>
                                     </div>
@@ -131,8 +135,6 @@
 
                                             </li>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
 
 
                                     </ul>

@@ -69,24 +69,15 @@
     <div class="totals">
         <div class="totals-item">
             <label>Subtotal</label>
-            @foreach($items as $item)
+            <div class="sum d-none">
+                @foreach($items as $item)
 
-                {{$sum}}={{$sum}}+ {{$item->quantity*$item->product->price}}
-            @endforeach
+                    {{$sum}}={{$sum}}+ {{$item->quantity*$item->product->price}}
+                @endforeach
+            </div>
 
-            <div class="totals-value" id="cart-subtotal">71.97</div>
-        </div>
-        <div class="totals-item">
-            <label>Tax (5%)</label>
-            <div class="totals-value" id="cart-tax">3.60</div>
-        </div>
-        <div class="totals-item">
-            <label>Shipping</label>
-            <div class="totals-value" id="cart-shipping">15.00</div>
-        </div>
-        <div class="totals-item totals-item-total">
-            <label>Grand Total</label>
-            <div class="totals-value" id="cart-total">90.57</div>
+
+            <div class="totals-value" id="cart-subtotal">{{$sum}}</div>
         </div>
     </div>
 

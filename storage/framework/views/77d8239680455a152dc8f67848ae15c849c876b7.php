@@ -67,7 +67,8 @@
                             href="<?php echo e(route('langs.index')); ?>"><?php echo e(lang('home')); ?></a></li>
 
 
-                    <li class="nav-item main-link"><a class="nav-link dropdown font-weight-bolder  <?php if(\Request::route()->getName() =='langs.products'): ?> active <?php endif; ?>"
+                    <li class="nav-item main-link"><a
+                            class="nav-link dropdown font-weight-bolder  <?php if(\Request::route()->getName() =='langs.products'): ?> active <?php endif; ?>"
                             href="<?php echo e(route('langs.products')); ?>"><?php echo e(lang('product')); ?></a></li>
                     <li class="nav-item main-link"><a
                             class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.catalog'): ?> active <?php endif; ?>"
@@ -85,9 +86,9 @@
                             class="nav-link font-weight-bolder <?php if(\Request::route()->getName() =='langs.news'): ?> active <?php endif; ?>"
                             href="<?php echo e(route('langs.news')); ?>"><?php echo e(lang('news')); ?></a></li>
                     <li class="nav-item main-link"><a
-                            class="nav-link  font-weight-bolder <?php if(\Request::route()->getName() =='langs.about'): ?> active <?php endif; ?>"
+                            class="nav-link text-nowrap font-weight-bolder <?php if(\Request::route()->getName() =='langs.about'): ?> active <?php endif; ?>"
                             href="<?php echo e(route('langs.about')); ?>"><?php echo e(lang('we_are')); ?></a></li>
-                    <li class="nav-item d-none d-lg-block mx-5">
+                    <li class="nav-item d-none d-lg-block mx-2">
                         <div class="center d-sm-block" mt-3="">
 
                             <form class="form-inline srch-form" action="<?php echo e(route('langs.search')); ?>">
@@ -108,17 +109,32 @@
                     </li>
                 </ul>
                 <?php if(Auth::check()): ?>
-                    <div>
+
+
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="<?php echo e(route('langs.cart')); ?>">
+                            <div class="mx-3 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-shopping-cart m-0 " style="font-size: 22px"></i>
+                                <span
+                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">0</span>
+                            </div>
+                        </a>
+
                         <a href="<?php echo e(route('langs.profile')); ?>">
-                        <img style="height: 50px; width:50px; border-radius: 50% " src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&q=80&w=1480&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="user-img">
+                            <img style="height: 50px; width:50px; border-radius: 50% "
+                                 src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>" alt="<?php echo e(auth()->user()->name); ?>">
                         </a>
                     </div>
+
+
                 <?php else: ?>
                     <div>
                         <a class="btn shadow btn-sign" href="<?php echo e(route('login')); ?>" role="button"><?php echo e(lang('login')); ?></a>
 
                     </div>
+
                 <?php endif; ?>
+
                 <div class="dropdown d-lg-flex align-items-lg-center mx-4 py-2">
                     <a class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
@@ -127,6 +143,7 @@
                                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"></path>
                         </svg>
                     </a>
+
 
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo e(route('change.lang',['lang'=>'ar'])); ?>">اللغة العربية</a>
@@ -137,7 +154,7 @@
 
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
