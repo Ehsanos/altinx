@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\User;
@@ -24,9 +25,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        if (auth()->check())
+
+            $cart = Cart::where('user_id', auth()->user()->id)->get();
+        dd($cart);
+
+
     }
 
     /**
@@ -46,9 +53,8 @@ class OrderController extends Controller
      * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
-    public function show( $order)
+    public function show($order)
     {
-
 
 
         $items = Item::with('product')->where('order_id', '=', $order)->get();

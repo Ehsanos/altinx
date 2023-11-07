@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/slide-animation-test.css')); ?>">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <?php echo \Livewire\Livewire::styles(); ?>
 
 </head>
 <?php
@@ -116,7 +117,23 @@
                             <div class="mx-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-shopping-cart m-0 " style="font-size: 22px"></i>
                                 <span
-                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">0</span>
+                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">
+                                    <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('counter', [])->html();
+} elseif ($_instance->childHasBeenRendered('CVj1jRk')) {
+    $componentId = $_instance->getRenderedChildComponentId('CVj1jRk');
+    $componentTag = $_instance->getRenderedChildComponentTagName('CVj1jRk');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('CVj1jRk');
+} else {
+    $response = \Livewire\Livewire::mount('counter', []);
+    $html = $response->html();
+    $_instance->logRenderedChild('CVj1jRk', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+                                </span>
                             </div>
                         </a>
 
@@ -159,6 +176,8 @@
             </div>
         </div>
     </nav>
+
+
     <?php echo $__env->yieldContent('content'); ?>;
 
 
@@ -246,6 +265,7 @@
     </footer>
 </main>
 
+<?php echo \Livewire\Livewire::scripts(); ?>
 
 <script src="<?php echo e(asset('assets/js/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/bootstrap/js/bootstrap.min.js')); ?>"></script>

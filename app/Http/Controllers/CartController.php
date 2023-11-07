@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Item;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,8 +16,60 @@ class CartController extends Controller
      */
     public function index()
     {
-return view('pages.cart');
+        if (auth()->check()) {
+            $cart = Cart::where('user_id', auth()->user()->id)->get();
+//        dd(auth()->user()->id);
+            $sum = $cart->sum('price');
+            return view('pages.cart', compact('cart', 'sum'));
+        }
+        else
+            return redirect('/login');
 
+
+    }
+
+    public function addToCart(Request $request)
+    {
+//dd($request->input('num'));
+        if (auth()->check()) {
+
+
+            $this->validate($request, [
+                'num' => 'required|gt:0',
+                'product' => 'required|exists:products,id'
+            ]);
+            $num = $request->input('num');
+            $product_id = $request->input('product');
+
+
+//        dd($num,$product_id);
+
+
+            $product = Product::find($product_id);
+
+            $cart = Cart::updateOrCreate([
+                'product_id' => $product_id,
+
+            ], [
+                'quantity' => $num,
+                'price' => $product->price * $num,
+                'user_id' => auth()->user()->id,
+
+
+            ]);
+
+
+
+            return redirect()->back()->with([
+                'type' => 'Success',
+                'message' => 'تم إضافة المنتج للسلة بنجاح'
+            ]);
+
+
+        } else
+
+
+            return redirect('/login');
 
     }
 
@@ -32,7 +86,7 @@ return view('pages.cart');
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,7 +97,7 @@ return view('pages.cart');
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function show(Cart $cart)
@@ -54,7 +108,7 @@ return view('pages.cart');
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function edit(Cart $cart)
@@ -65,8 +119,8 @@ return view('pages.cart');
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Cart $cart)
@@ -77,11 +131,13 @@ return view('pages.cart');
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        //
+//        dd('inside delet');
+        Cart::destroy($id);
+        return redirect('cart')->with('flash_message', 'تم الحذف');
     }
 }

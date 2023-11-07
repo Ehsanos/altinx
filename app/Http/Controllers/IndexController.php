@@ -23,32 +23,31 @@ class IndexController extends Controller
 //        return view('dashboard');
         $slider = Slider::where('discrption', '=', 'main')->get();
 
-        $settings=Setting::first();
-        $catigories=Category::where('is_active',true)->latest()->limit(10)->get();
-        $prodcuts=Product::where('is_active',true)->latest()->limit(50)->get();
-        $statics=Statics::all();
-        $news=Post::latest()->limit(6)->get();
+        $settings = Setting::first();
+        $catigories = Category::where('is_active', true)->latest()->limit(10)->get();
+        $prodcuts = Product::where('is_active', true)->latest()->limit(50)->get();
+        $statics = Statics::all();
+        $news = Post::latest()->limit(6)->get();
 //        dd($slider);
-       return view('pages.index',compact('slider','settings','prodcuts','catigories','statics','news'));
+        return view('pages.index', compact('slider', 'settings', 'prodcuts', 'catigories', 'statics', 'news'));
     }
 
-    public function change_lang($lang){
-if(in_array($lang,['ar','es','en','du','tr'])) {
-    session()->forget('lang');
-    session()->put('lang', $lang);
-}
+    public function change_lang($lang)
+    {
+        if (in_array($lang, ['ar', 'es', 'en', 'du', 'tr'])) {
+            session()->forget('lang');
+            session()->put('lang', $lang);
+        }
 
         return back();
     }
-
-
 
 
     public function about()
     {
         $slider = Slider::where('discrption', '=', 'about')->get();
 
-        return view('pages.about',compact('slider'));
+        return view('pages.about', compact('slider'));
     }
 
     public function store(Request $request)
@@ -79,4 +78,10 @@ if(in_array($lang,['ar','es','en','du','tr'])) {
     {
         //
     }
+
+
+    public function test(){
+        return view('livewire.test');
+    }
+
 }

@@ -44,6 +44,11 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/profile', [ProductController::class, 'profile'])->name('profile');
     Route::get('/user/{id}',[UserController::class,'edit'])->name('user_edit');
+    Route::post('add_to_cart',[CartController::class,'addToCart'])->name('addToCart');
+    Route::get('delcart/{id}',[CartController::class,'destroy'])->name('delCart');
+    Route::post('/createOrder',[OrderController::class,'create'])->name('create_order');
+
+    Route::get('/test',[IndexController::class,'test']);
 
 
 });

@@ -88,7 +88,7 @@ class ProductController extends Controller
     {
         $product = Product::with('media')->findOrfail($id);
         $imgs = Product::with('media')->findOrfail($id)->getMedia("*");
-//     dd($imgs);
+    //     dd($imgs);
         return view('pages.product-details', compact('product', 'imgs'));
     }
 

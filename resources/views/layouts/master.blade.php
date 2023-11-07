@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/slide-animation-test.css')}}">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-
+    @livewireStyles
 </head>
 @php
     $setting=App\Models\Setting::first();
@@ -116,7 +116,9 @@
                             <div class="mx-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-shopping-cart m-0 " style="font-size: 22px"></i>
                                 <span
-                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">0</span>
+                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">
+                                    <livewire:counter/>
+                                </span>
                             </div>
                         </a>
 
@@ -159,6 +161,8 @@
             </div>
         </div>
     </nav>
+
+
     @yield('content');
 
 
@@ -246,7 +250,7 @@
     </footer>
 </main>
 
-
+@livewireScripts
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/aos.min.js')}}"></script>
