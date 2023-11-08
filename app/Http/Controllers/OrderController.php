@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\OrderStatusEnum;
 use App\Models\Cart;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\b;
+
 
 class OrderController extends Controller
 {
@@ -28,12 +31,29 @@ class OrderController extends Controller
     public function create(Request $request)
     {
 
-        if (auth()->check())
+        if (auth()->check()) {
 
             $cart = Cart::where('user_id', auth()->user()->id)->get();
-        dd($cart);
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'order_code' => str_pad('NO', '3', auth()->user()->id) . rand(1000, 2000),
+                'status'=>OrderStatusEnum::Wait->value,
+                'total'=>$cart->sum('price'),
+            ]);
+            foreach ($cart as $item) {
+                $items = Item::create([
+                    'order_id' => $order->id,
+                    'product_name' => $item->products->name,
+                    'quantity' => $item->quantity,
+                    'price' => $item->price
 
 
+                ]);
+            };
+            $delet=Cart::where('user_id',auth()->user()->id)->delete();
+return redirect()->route('langs.index');
+
+        }
     }
 
     /**
