@@ -22,30 +22,33 @@
 
 <div class="shopping-cart">
 
-    <div class="column-labels">
-        <label class="product-image">Image</label>
-        <label class="product-details">Product</label>
-        <label class="product-price">Price</label>
-        <label class="product-quantity">Quantity</label>
+    <div class="product">
+        <label class="product-image"><?php echo e(lang('img_product')); ?></label>
+        <label class="product-details"><?php echo e(lang('name')); ?></label>
+        <label class="product-details"><?php echo e(lang('price_one')); ?></label>
+        <label class="product-details"><?php echo e(lang('quantity')); ?></label>
 
-        <label class="product-line-price">Total</label>
+        <label class="product-details"><?php echo e(lang('one_price')); ?></label>
     </div>
 
 
     <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="product">
+        <div class="product ">
             <div class="product-image">
+                <a href="<?php echo e(route('langs.product_details',$item->product->id)); ?>">
                 <img src="<?php echo e($item->product->getFirstMediaUrl('products')); ?>">
+                    </a>
             </div>
             <div class="product-details">
-                <div class="product-title"><?php echo e($item->product->name); ?></div>
-                <p class="product-description"><?php echo e($item->product->discrption); ?></p>
+                <div class="product-title"><?php echo e(getTrans($item->product,'name')); ?></div>
+                <p class="product-description"><?php echo e(getTrans($item->product,'discrption')); ?></p>
             </div>
-            <div class="product-price"><?php echo e($item->product->price); ?></div>
-            <div class="product-quantity">
-                <h3 class="text-black-50"><?php echo e($item->quantity); ?></h3>
+            <div class="product-details"><?php echo e($item->price); ?></div>
+            <div class="product-details">
+                <h3 class="product-detail"><?php echo e($item->quantity); ?></h3>
             </div>
-            <div class="product-line-price"><?php echo e($item->quantity*$item->product->price); ?></div>
+
+            <div class="product-details"><?php echo e($item->total); ?></div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -69,15 +72,11 @@
         <div class="totals-item">
             <label>Subtotal</label>
             <div class="sum d-none">
-                <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                    <?php echo e($sum); ?>=<?php echo e($sum); ?>+ <?php echo e($item->quantity*$item->product->price); ?>
-
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
 
 
-            <div class="totals-value" id="cart-subtotal"><?php echo e($sum); ?></div>
+            <div class="totals-value " id="cart-subtotal"><?php echo e($sum); ?></div>
         </div>
     </div>
 

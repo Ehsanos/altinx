@@ -133,6 +133,7 @@
                                                     </svg>
                                                 </a>
                                                 <span>{{$order->order_code}}</span>
+                                                <span>{{$order->status}}</span>
 
                                             </li>
                                         @endforeach

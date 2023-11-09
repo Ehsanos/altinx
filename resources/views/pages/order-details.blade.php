@@ -23,30 +23,33 @@
 
 <div class="shopping-cart">
 
-    <div class="column-labels">
-        <label class="product-image">Image</label>
-        <label class="product-details">Product</label>
-        <label class="product-price">Price</label>
-        <label class="product-quantity">Quantity</label>
+    <div class="product">
+        <label class="product-image">{{lang('img_product')}}</label>
+        <label class="product-details">{{lang('name')}}</label>
+        <label class="product-details">{{lang('price_one')}}</label>
+        <label class="product-details">{{lang('quantity')}}</label>
 
-        <label class="product-line-price">Total</label>
+        <label class="product-details">{{lang('one_price')}}</label>
     </div>
 
 
     @foreach($items as $item)
-        <div class="product">
+        <div class="product ">
             <div class="product-image">
+                <a href="{{route('langs.product_details',$item->product->id)}}">
                 <img src="{{$item->product->getFirstMediaUrl('products')}}">
+                    </a>
             </div>
             <div class="product-details">
-                <div class="product-title">{{$item->product->name}}</div>
-                <p class="product-description">{{$item->product->discrption}}</p>
+                <div class="product-title">{{getTrans($item->product,'name')}}</div>
+                <p class="product-description">{{getTrans($item->product,'discrption')}}</p>
             </div>
-            <div class="product-price">{{$item->product->price}}</div>
-            <div class="product-quantity">
-                <h3 class="text-black-50">{{$item->quantity}}</h3>
+            <div class="product-details">{{$item->price}}</div>
+            <div class="product-details">
+                <h3 class="product-detail">{{$item->quantity}}</h3>
             </div>
-            <div class="product-line-price">{{$item->quantity*$item->product->price}}</div>
+
+            <div class="product-details">{{$item->total}}</div>
         </div>
     @endforeach
 
@@ -70,14 +73,11 @@
         <div class="totals-item">
             <label>Subtotal</label>
             <div class="sum d-none">
-                @foreach($items as $item)
 
-                    {{$sum}}={{$sum}}+ {{$item->quantity*$item->product->price}}
-                @endforeach
             </div>
 
 
-            <div class="totals-value" id="cart-subtotal">{{$sum}}</div>
+            <div class="totals-value " id="cart-subtotal">{{$sum}}</div>
         </div>
     </div>
 

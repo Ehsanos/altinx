@@ -33,25 +33,29 @@ class OrderController extends Controller
 
         if (auth()->check()) {
 
-            $cart = Cart::where('user_id', auth()->user()->id)->get();
+            $cart = Cart::with('products')->where('user_id', auth()->user()->id)->get();
             $order = Order::create([
                 'user_id' => auth()->user()->id,
                 'order_code' => str_pad('NO', '3', auth()->user()->id) . rand(1000, 2000),
-                'status'=>OrderStatusEnum::Wait->value,
-                'total'=>$cart->sum('price'),
+                'status' => OrderStatusEnum::Wait->value,
+                'total' => $cart->sum('price'),
             ]);
+
             foreach ($cart as $item) {
+                $price_now=$item->products->price;
                 $items = Item::create([
                     'order_id' => $order->id,
+                    'product_id' => $item->products->id,
                     'product_name' => $item->products->name,
                     'quantity' => $item->quantity,
-                    'price' => $item->price
+                    'total' => $item->price,
+                    'price'=>$price_now,
 
 
                 ]);
             };
-            $delet=Cart::where('user_id',auth()->user()->id)->delete();
-return redirect()->route('langs.index');
+            $delet = Cart::where('user_id', auth()->user()->id)->delete();
+            return redirect()->route('langs.index');
 
         }
     }
@@ -78,13 +82,12 @@ return redirect()->route('langs.index');
 
 
         $items = Item::with('product')->where('order_id', '=', $order)->get();
-
         $sum = 0;
-        for ($i = 0; $i <= $items->count() - 1; $i++) {
-            $sum = $sum + ($items[$i]->product->price * $items[$i]->quantity);
 
-        }
 
+        $sum = $items->sum('total');
+
+//        dd($sum);
 
         return view('pages.order-details', compact('items', 'sum'));
 

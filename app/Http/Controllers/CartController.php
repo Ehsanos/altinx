@@ -17,9 +17,11 @@ class CartController extends Controller
     public function index()
     {
         if (auth()->check()) {
-            $cart = Cart::where('user_id', auth()->user()->id)->get();
+            $cart = Cart::with('products')->where('user_id', auth()->user()->id)->get();
 //        dd(auth()->user()->id);
             $sum = $cart->sum('price');
+//            dd($cart[0]->products->id);
+
             return view('pages.cart', compact('cart', 'sum'));
         }
         else

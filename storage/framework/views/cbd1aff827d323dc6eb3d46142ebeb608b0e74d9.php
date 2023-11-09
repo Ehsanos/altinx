@@ -38,7 +38,7 @@
 
             <div class="product">
                 <div class="product-image">
-                    <a href="<?php echo e(route('langs.product_details',$item->products)); ?>">
+                    <a href="<?php echo e(route('langs.product_details',$item->products->id)); ?>">
                         <img src="<?php echo e($item->products->getFirstMediaUrl('products')); ?>">
                     </a>
                 </div>

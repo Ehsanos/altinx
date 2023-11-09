@@ -132,6 +132,7 @@
                                                     </svg>
                                                 </a>
                                                 <span><?php echo e($order->order_code); ?></span>
+                                                <span><?php echo e($order->status); ?></span>
 
                                             </li>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

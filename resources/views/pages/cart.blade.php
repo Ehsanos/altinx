@@ -39,7 +39,7 @@
 
             <div class="product">
                 <div class="product-image">
-                    <a href="{{route('langs.product_details',$item->products)}}">
+                    <a href="{{route('langs.product_details',$item->products->id)}}">
                         <img src="{{$item->products->getFirstMediaUrl('products')}}">
                     </a>
                 </div>
