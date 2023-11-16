@@ -1,10 +1,15 @@
 ;
 <?php $__env->startSection('content'); ?>;
 
-
 <main>
 
-    <header class="h-100">
+    <?php if(Session::has('message')): ?>
+
+        <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
+            <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+        </div>
+    <?php endif; ?>
+    <header>
         <div class="top-content">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -209,8 +214,6 @@
     </section>
 
 </main>
-
-
 
 <?php $__env->stopSection(); ?>
 

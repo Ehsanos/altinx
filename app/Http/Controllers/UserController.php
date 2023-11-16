@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class UserController extends Controller
 {
@@ -14,6 +15,21 @@ class UserController extends Controller
     public function index()
     {
         //
+    }
+
+    public function addimg(Request $request)
+    {
+        if(auth()->check())
+{
+        if ($request->has('photo') && auth()->check()) {
+//            dd($request->file('photo')->getSize());
+//            $request->file('photo')->store('public/storag');
+            auth()->user()->clearMediaCollection('users'); // all media in the images collection will be deleted
+            auth()->user()->addMedia($request->file('photo')->path())->toMediaCollection('users');
+        };
+        return redirect(route('langs.index'));}
+
+        else return redirect('login');
     }
 
     /**
@@ -29,7 +45,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +56,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +67,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +78,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +90,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

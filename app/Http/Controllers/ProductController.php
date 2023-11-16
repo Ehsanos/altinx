@@ -54,7 +54,9 @@ class ProductController extends Controller
 
 
     public function profile(){
+        if (auth()->check())
         return view('pages.profile');
+        else return redirect('login');
 
     }
     /**

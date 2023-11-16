@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/slide-animation-test.css')}}">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
+
     @livewireStyles
 </head>
 @php
@@ -56,7 +58,8 @@
 
 <body class="p-0">
 <main>
-    <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom" id="mainNav">
+    <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom "
+         id="mainNav">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
@@ -249,6 +252,7 @@
         </div>
     </footer>
 </main>
+<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
 
 @livewireScripts
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -265,7 +269,6 @@
 <script src="{{asset('assets/js/Off-Canvas-Sidebar-Drawer-Navbar-off-canvas-sidebar.js')}}"></script>
 <script src="{{asset('assets/js/details-product.js')}}"></script>
 <script src="{{asset('assets/js/slide-animation-test.js')}}"></script>
-<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
 </body>
 
 </html>

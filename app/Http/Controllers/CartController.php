@@ -62,7 +62,7 @@ class CartController extends Controller
 
 
 
-            return redirect()->back()->with([
+            return redirect(route('langs.products'))->with([
                 'type' => 'Success',
                 'message' => 'تم إضافة المنتج للسلة بنجاح'
             ]);

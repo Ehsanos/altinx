@@ -16,12 +16,12 @@
 <body>
 
 <div class="container mt-lg-5">
-    <h1 class="text-black-50">محتويات الطلب</h1>
+    <h1 class="text-black-50">{{lang('order_content')}}:{{$items[0]->order->order_code ?? ''}}</h1>
     {{--   <h1 class="bg-info"> {{$items}}</h1>--}}
 
 </div>
 
-<div class="shopping-cart">
+<div class="shopping-cart ">
 
     <div class="product">
         <label class="product-image">{{lang('img_product')}}</label>
@@ -37,50 +37,43 @@
         <div class="product ">
             <div class="product-image">
                 <a href="{{route('langs.product_details',$item->product->id)}}">
-                <img src="{{$item->product->getFirstMediaUrl('products')}}">
-                    </a>
+                    <img src="{{$item->product->getFirstMediaUrl('products')}}">
+                </a>
             </div>
             <div class="product-details">
                 <div class="product-title">{{getTrans($item->product,'name')}}</div>
                 <p class="product-description">{{getTrans($item->product,'discrption')}}</p>
             </div>
             <div class="product-details">{{$item->price}}</div>
-            <div class="product-details">
-                <h3 class="product-detail">{{$item->quantity}}</h3>
-            </div>
+            <div class="product-details">{{$item->quantity}}</div>
 
             <div class="product-details">{{$item->total}}</div>
         </div>
     @endforeach
 
-    {{--    <div class="product">--}}
-    {{--        <div class="product-image">--}}
-    {{--            <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">--}}
-    {{--        </div>--}}
-    {{--        <div class="product-details">--}}
-    {{--            <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>--}}
-    {{--            <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>--}}
-    {{--        </div>--}}
-    {{--        <div class="product-price">45.99</div>--}}
-    {{--        <div class="product-quantity">--}}
-    {{--            <h3 class="text-black-50">44</h3>--}}
-    {{--        </div>--}}
-    {{--        <div class="product-line-price">45.99</div>--}}
-    {{--    </div>--}}
-
 
     <div class="totals">
         <div class="totals-item">
-            <label>Subtotal</label>
+            <label>{{lang('sub_total')}}</label>
             <div class="sum d-none">
 
             </div>
 
 
             <div class="totals-value " id="cart-subtotal">{{$sum}}</div>
-        </div>
-    </div>
 
+
+        </div>
+
+        <div class="totals-item bg-gray w-25 float-right  d-flex justify-content-end date">
+
+            <div class="product-detail  mb-0"><h6>{{lang('history')}}: {{date('d-m-y',strtotime($items[0]->created_at))}}</h6>
+            </div>
+
+
+        </div>
+
+    </div>
 
 </div>
 

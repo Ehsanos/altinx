@@ -1,10 +1,15 @@
 @extends('layouts.master');
 @section('content');
 
-
 <main>
 {{--   <h1 class="bg-danger">{{Auth()->user()->name ?? 'none'}} </h1>--}}
-    <header class="h-100">
+    @if(Session::has('message'))
+
+        <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
+            <div class="alert alert-success">{{ Session::get('message') }}</div>
+        </div>
+    @endif
+    <header>
         <div class="top-content">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -209,7 +214,5 @@
     </section>
 
 </main>
-
-
 
 @endsection

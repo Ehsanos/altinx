@@ -7,14 +7,14 @@ use Livewire\Component;
 
 class Counter extends Component
 {
-    protected $listner = ['addTocart' => 'checkCart'];
+//    protected $listner = ['addTocart' => 'checkCart'];
     public $counter;
 
     public function checkCart()
     {
         if (auth()->check()) {
             return
-                $this->counter = Cart::all()->count();
+                $this->counter = Cart::where('user_id',auth()->user()->id)->count();
         } else {
             return 0;
         }

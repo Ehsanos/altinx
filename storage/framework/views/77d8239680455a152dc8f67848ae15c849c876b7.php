@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/slide-animation-test.css')); ?>">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
+
     <?php echo \Livewire\Livewire::styles(); ?>
 
 </head>
@@ -57,7 +59,8 @@
 
 <body class="p-0">
 <main>
-    <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom" id="mainNav">
+    <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom "
+         id="mainNav">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
@@ -121,15 +124,15 @@
                                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('counter', [])->html();
-} elseif ($_instance->childHasBeenRendered('CVj1jRk')) {
-    $componentId = $_instance->getRenderedChildComponentId('CVj1jRk');
-    $componentTag = $_instance->getRenderedChildComponentTagName('CVj1jRk');
+} elseif ($_instance->childHasBeenRendered('LvuXpLU')) {
+    $componentId = $_instance->getRenderedChildComponentId('LvuXpLU');
+    $componentTag = $_instance->getRenderedChildComponentTagName('LvuXpLU');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('CVj1jRk');
+    $_instance->preserveRenderedChild('LvuXpLU');
 } else {
     $response = \Livewire\Livewire::mount('counter', []);
     $html = $response->html();
-    $_instance->logRenderedChild('CVj1jRk', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('LvuXpLU', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -264,6 +267,7 @@ echo $html;
         </div>
     </footer>
 </main>
+<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
 
 <?php echo \Livewire\Livewire::scripts(); ?>
 
@@ -281,7 +285,6 @@ echo $html;
 <script src="<?php echo e(asset('assets/js/Off-Canvas-Sidebar-Drawer-Navbar-off-canvas-sidebar.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/details-product.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/slide-animation-test.js')); ?>"></script>
-<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
 </body>
 
 </html>

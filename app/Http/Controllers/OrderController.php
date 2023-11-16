@@ -55,7 +55,12 @@ class OrderController extends Controller
                 ]);
             };
             $delet = Cart::where('user_id', auth()->user()->id)->delete();
-            return redirect()->route('langs.index');
+            return redirect()->route('langs.index')->with(
+                ['type'=>'success',
+                    'message'=>'تم ارسال الطلب بنجاح'
+
+                ]
+                );
 
         }
     }
@@ -79,17 +84,12 @@ class OrderController extends Controller
      */
     public function show($order)
     {
-
-
-        $items = Item::with('product')->where('order_id', '=', $order)->get();
         $sum = 0;
-
+        $items = Item::with('product')->where('order_id', '=', $order)->get();
 
         $sum = $items->sum('total');
 
-//        dd($sum);
-
-        return view('pages.order-details', compact('items', 'sum'));
+        return view('pages.order-details', compact('items', 'sum','order'));
 
     }
 

@@ -15,12 +15,12 @@
 <body>
 
 <div class="container mt-lg-5">
-    <h1 class="text-black-50">محتويات الطلب</h1>
+    <h1 class="text-black-50"><?php echo e(lang('order_content')); ?>:<?php echo e($items[0]->order->order_code ?? ''); ?></h1>
     
 
 </div>
 
-<div class="shopping-cart">
+<div class="shopping-cart ">
 
     <div class="product">
         <label class="product-image"><?php echo e(lang('img_product')); ?></label>
@@ -36,50 +36,43 @@
         <div class="product ">
             <div class="product-image">
                 <a href="<?php echo e(route('langs.product_details',$item->product->id)); ?>">
-                <img src="<?php echo e($item->product->getFirstMediaUrl('products')); ?>">
-                    </a>
+                    <img src="<?php echo e($item->product->getFirstMediaUrl('products')); ?>">
+                </a>
             </div>
             <div class="product-details">
                 <div class="product-title"><?php echo e(getTrans($item->product,'name')); ?></div>
                 <p class="product-description"><?php echo e(getTrans($item->product,'discrption')); ?></p>
             </div>
             <div class="product-details"><?php echo e($item->price); ?></div>
-            <div class="product-details">
-                <h3 class="product-detail"><?php echo e($item->quantity); ?></h3>
-            </div>
+            <div class="product-details"><?php echo e($item->quantity); ?></div>
 
             <div class="product-details"><?php echo e($item->total); ?></div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 
     <div class="totals">
         <div class="totals-item">
-            <label>Subtotal</label>
+            <label><?php echo e(lang('sub_total')); ?></label>
             <div class="sum d-none">
 
             </div>
 
 
             <div class="totals-value " id="cart-subtotal"><?php echo e($sum); ?></div>
-        </div>
-    </div>
 
+
+        </div>
+
+        <div class="totals-item bg-gray w-25 float-right  d-flex justify-content-end date">
+
+            <div class="product-detail  mb-0"><h6><?php echo e(lang('history')); ?>: <?php echo e(date('d-m-y',strtotime($items[0]->created_at))); ?></h6>
+            </div>
+
+
+        </div>
+
+    </div>
 
 </div>
 

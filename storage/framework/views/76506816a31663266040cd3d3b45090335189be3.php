@@ -28,21 +28,25 @@
 
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <div class="personal-image">
+                                        <form action="<?php echo e(route('langs.setImg')); ?>" method="post"
+                                              enctype="multipart/form-data">
+                                            <label class="label">
 
-                                        <label class="label">
-                                            <input type="file"/>
-                                            <figure class="personal-figure">
-                                                <img src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>"
-                                                     class="personal-avatar"  >
-                                                <figcaption class="personal-figcaption">
-                                                    <img
-                                                        src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
-                                                </figcaption>
-                                            </figure>
-                                        </label>
+                                                <?php echo csrf_field(); ?>
+                                                <input type="file" name="photo" id="img" onchange="chang()"/>
+                                                <figure class="personal-figure">
+                                                    <img src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>"
+                                                         class="personal-avatar">
+                                                    <figcaption class="personal-figcaption">
+                                                        <img
+                                                            src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
+                                                    </figcaption>
+                                                </figure>
+                                                <button type="submit" name="ttt" class="btn rounded" id="btnupload" style="display: none; background-color: goldenrod;color: whitesmoke">Update</button>
 
-                                        <a href="">Edit</a>
+                                            </label>
 
+                                        </form>
                                     </div>
 
                                     <div class="mt-3">
@@ -149,7 +153,14 @@
             </div>
         </div>
     </section>
+    <script>
+const img=document.getElementById('img');
+const btn1=document.getElementById('btnupload');
 
+function chang(){
+    btn1.style.display="inline-block";
+}
+    </script>
 
     </body>
     </html>

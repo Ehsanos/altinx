@@ -13,15 +13,13 @@
 
         <?php if(Session::has('message')): ?>
 
-            <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
+            <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 1500)" x-show="show">
                 <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
             </div>
         <?php endif; ?>
 
 
-
-
-            <div class="card-wrapper  py-4">
+        <div class="card-wrapper  py-4">
             <div class="card">
                 <!-- card left -->
                 <div class="product-imgs">

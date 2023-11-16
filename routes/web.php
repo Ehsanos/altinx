@@ -39,16 +39,17 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/delegte', [DelegteController::class, 'index'])->name('delegte');
     Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/order/{data}',[OrderController::class, 'show'])->name('order_details');
+    Route::get('/order/{data}', [OrderController::class, 'show'])->name('order_details');
     Route::get('/about', [IndexController::class, 'about'])->name('about');
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/profile', [ProductController::class, 'profile'])->name('profile');
-    Route::get('/user/{id}',[UserController::class,'edit'])->name('user_edit');
-    Route::post('add_to_cart',[CartController::class,'addToCart'])->name('addToCart');
-    Route::get('delcart/{id}',[CartController::class,'destroy'])->name('delCart');
-    Route::post('/createOrder',[OrderController::class,'create'])->name('create_order');
+    Route::get('/user/{id}', [UserController::class, 'edit'])->name('user_edit');
+    Route::post('add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('delcart/{id}', [CartController::class, 'destroy'])->name('delCart');
+    Route::post('/createOrder', [OrderController::class, 'create'])->name('create_order');
+    Route::post('/setimg', [UserController::class, 'addimg'])->name('setImg');
 
-    Route::get('/test',[IndexController::class,'test']);
+    Route::get('/test', [IndexController::class, 'test']);
 
 
 });
@@ -59,8 +60,6 @@ Route::get('/ship', [MailTestingController::class, 'ship']);
 Route::get('/complete', [MailTestingController::class, 'complete']);
 
 
-
-
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -69,4 +68,4 @@ Route::get('/complete', [MailTestingController::class, 'complete']);
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

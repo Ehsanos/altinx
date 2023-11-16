@@ -77,10 +77,11 @@ label {
 
 .shopping-cart {
     background-color:lightgrey;
-    padding: 50px 50px;
+    padding: 50px 50px 10px 20px;
     margin: 1%  10%;
     border-radius: 25px;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    background-color: #f6ed8a;
 }
 
 /* Column headers */
@@ -147,7 +148,7 @@ label {
     clear: both;
     width: 100%;
     margin-bottom: 10px;
-    color: black;
+    color: #2f2e2e;
 }
 .totals .totals-item label {
     float: left;
@@ -258,5 +259,9 @@ label {
     }
     .totals .totals-item .totals-value {
         width: 40%;
+    }
+    .date{
+        float: right;
+        clear: left;
     }
 }
