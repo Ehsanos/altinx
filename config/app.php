@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         spatie\Tags\TagsServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class
 
     ],
 
@@ -186,6 +187,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // ...
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'PDF'=>  Barryvdh\DomPDF\Facade\Pdf::class,
 
 
     ])->toArray(),

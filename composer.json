@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0",
         "algolia/algoliasearch-client-php": "^3.3",
+        "barryvdh/laravel-dompdf": "^2.0",
         "bezhansalleh/filament-shield": "^2.4",
         "butschster/meta-tags": "^2.3",
         "cheesegrits/filament-google-maps": "^1.0",

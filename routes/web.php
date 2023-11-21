@@ -21,7 +21,7 @@ use App\Models\Catalog;
 use App\Models\Country;
 
 
-//    Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/sendemail', [IndexController::class, 'sendemail'])->name('send_email');
 
 Route::get('/log', [IndexController::class, 'login'])->name('login');
 

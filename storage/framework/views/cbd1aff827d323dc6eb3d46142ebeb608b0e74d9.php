@@ -95,7 +95,7 @@
         <?php endif; ?>
     </div>
     </form>
-
+<a class="bg-danger" href="<?php echo e(route('send_email')); ?>"> Test Emails</a>
 <?php else: ?>
     <div class="container d-flex align-items-center justify-content-center">
         <img height="80%" width="60%" src="<?php echo e(asset('assets/img/empty-cart.gif')); ?>">

@@ -95,7 +95,7 @@
         @endif
     </div>
     </form>
-
+<a class="bg-danger" href="{{route('send_email')}}"> Test Emails</a>
 @else
     <div class="container d-flex align-items-center justify-content-center">
         <img height="80%" width="60%" src="{{asset('assets/img/empty-cart.gif')}}">

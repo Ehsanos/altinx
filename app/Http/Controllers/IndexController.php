@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Statics;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class IndexController extends Controller
 {
@@ -80,8 +84,27 @@ class IndexController extends Controller
     }
 
 
-    public function test(){
+    public function test()
+    {
         return view('livewire.test');
+    }
+
+    public function sendemail()
+    {
+        $data = User::all();
+        view()->share('user', $data);
+        $pdf = PDF::loadView('pages.pdf');
+
+        return $pdf->stream();
+
+
+        $cart = Cart::where('user_id', auth()->user()->id)->get();
+
+        $sum = $cart->sum('price');
+//        $data=array(['name'=>"ehsanos"]);
+
+        return view('pages.email', compact('cart'));
+
     }
 
 }

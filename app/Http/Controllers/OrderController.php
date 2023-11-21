@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use function Symfony\Component\String\b;
 
 
@@ -34,33 +35,46 @@ class OrderController extends Controller
         if (auth()->check()) {
 
             $cart = Cart::with('products')->where('user_id', auth()->user()->id)->get();
+
+
+
             $order = Order::create([
                 'user_id' => auth()->user()->id,
                 'order_code' => str_pad('NO', '3', auth()->user()->id) . rand(1000, 2000),
                 'status' => OrderStatusEnum::Wait->value,
                 'total' => $cart->sum('price'),
+                'discount'=>0,
             ]);
 
+
+
             foreach ($cart as $item) {
-                $price_now=$item->products->price;
+                $price_now = $item->products->price;
                 $items = Item::create([
                     'order_id' => $order->id,
                     'product_id' => $item->products->id,
                     'product_name' => $item->products->name,
                     'quantity' => $item->quantity,
                     'total' => $item->price,
-                    'price'=>$price_now,
+                    'price' => $price_now,
 
 
                 ]);
             };
+
+//            return view('pages.email',compact('cart','order'));
+            Mail::send('pages.email',['cart'=>$cart,'order'=>$order], function ($message) use ($cart,$order) {
+                $message->from(auth()->user()->email)
+                    ->to('ehsan.gamor90@gmail.com')
+                    ->subject('test');
+            });
             $delet = Cart::where('user_id', auth()->user()->id)->delete();
             return redirect()->route('langs.index')->with(
-                ['type'=>'success',
-                    'message'=>'تم ارسال الطلب بنجاح'
+                ['type' => 'success',
+                    'message' => 'تم ارسال الطلب بنجاح'
 
                 ]
-                );
+            );
 
         }
     }
@@ -89,7 +103,7 @@ class OrderController extends Controller
 
         $sum = $items->sum('total');
 
-        return view('pages.order-details', compact('items', 'sum','order'));
+        return view('pages.order-details', compact('items', 'sum', 'order'));
 
     }
 
