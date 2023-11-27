@@ -23,8 +23,7 @@ class CartController extends Controller
 //            dd($cart[0]->products->id);
 
             return view('pages.cart', compact('cart', 'sum'));
-        }
-        else
+        } else
             return redirect('/login');
 
 
@@ -61,8 +60,7 @@ class CartController extends Controller
             ]);
 
 
-
-            return redirect(route('langs.products'))->with([
+            return redirect()->back()->with([
                 'type' => 'Success',
                 'message' => 'تم إضافة المنتج للسلة بنجاح'
             ]);

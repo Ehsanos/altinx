@@ -6,6 +6,7 @@ use App\Filament\Resources\JobResource\Pages;
 use App\Filament\Resources\JobResource\RelationManagers;
 use App\Models\Job;
 use Filament\Forms;
+use Filament\Forms\Components\Wizard;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -30,6 +31,40 @@ class JobResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('الوظائف ')->schema([
+                    Wizard::make()->schema([
+                        Wizard\Step::make('AR')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('title')->required()->label('اسم الوظيفة'),
+                            Forms\Components\RichEditor::make('discrption')->required()->label('تفاصيل الوظيفة'),
+
+                        ])->columns(2)]),
+                        Wizard\Step::make('EN')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('title_en')->nullable()->label('ENاسم الوظيفة'),
+                            Forms\Components\RichEditor::make('discrption_en')->nullable()->label('تفاصيل الوظيفةEN'),
+
+                        ])->columns(2)]),
+                        Wizard\Step::make('TR')->schema([Forms\Components\Card::make()->schema([
+
+                            Forms\Components\TextInput::make('title_tr')->nullable()->label('TRاسم الوظيفة'),
+                            Forms\Components\RichEditor::make('discrption_tr')->nullable()->label('Tتفاصيل الوظيفةر'),
+                        ])->columns(2),
+                        ]),
+                        Wizard\Step::make('ES')->schema([Forms\Components\Card::make()->schema([
+
+                            Forms\Components\TextInput::make('title_du')->nullable()->label('DUاسم الوظيفة'),
+
+                            Forms\Components\RichEditor::make('discrption_du')->nullable()->label('DUتفاصيل الوظيفة'),
+
+                        ])->columns(2),
+                        ]),
+                        Wizard\Step::make('DU')->schema([Forms\Components\Card::make()->schema([
+                            Forms\Components\TextInput::make('title_es')->nullable()->label('اسم الوظيفةES'),
+                            Forms\Components\RichEditor::make('discrption_es')->nullable()->label('تفاصيل الوظيفةES'),
+                        ])->columns(2),
+                        ]),
+                    ])->skippable()
+
+                ]),
 
             ]);
     }
@@ -38,13 +73,8 @@ class JobResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('phone')->searchable(),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\TextColumn::make('address')->words(5)->searchable(),
-                Tables\Columns\TextColumn::make('section')->searchable(),
-                Tables\Columns\TextColumn::make('details')->words(5)->searchable(),
-                Tables\Columns\TextColumn::make('cv')->url(fn($record)=>"https://google.com")->formatStateUsing(fn($state)=>'عرض السي في'),
+                Tables\Columns\TextColumn::make('title')->searchable(),
+                Tables\Columns\TextColumn::make('discrption')->searchable(),
             ])
             ->filters([
                 //

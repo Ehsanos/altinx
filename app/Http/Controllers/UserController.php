@@ -19,17 +19,15 @@ class UserController extends Controller
 
     public function addimg(Request $request)
     {
-        if(auth()->check())
-{
-        if ($request->has('photo') && auth()->check()) {
+        if (auth()->check()) {
+            if ($request->has('photo') && auth()->check()) {
 //            dd($request->file('photo')->getSize());
 //            $request->file('photo')->store('public/storag');
-            auth()->user()->clearMediaCollection('users'); // all media in the images collection will be deleted
-            auth()->user()->addMedia($request->file('photo')->path())->toMediaCollection('users');
-        };
-        return redirect(route('langs.index'));}
-
-        else return redirect('login');
+                auth()->user()->clearMediaCollection('users'); // all media in the images collection will be deleted
+                auth()->user()->addMedia($request->file('photo')->path())->toMediaCollection('users');
+            };
+            return redirect()->back();
+        } else return redirect('login');
     }
 
     /**

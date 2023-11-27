@@ -6,7 +6,7 @@
     font-size: 17px;
 }
 .agent-color{
-    color: coral;
+    color: #2a2121;
 }
 .card {
     background: #fff;
@@ -18,6 +18,10 @@
     position: relative;
     width: 100%;
     box-shadow: none;
+    transition: 1s ease;
+}
+.card:hover {
+    transform: scale(1.1);
 }
 
 .team-info li+li {
@@ -64,9 +68,9 @@
 
 .agent .agent-content .agent-contact-details {
     list-style: none;
-    color: #9e9e9e;
+    color: #eadf81;
     padding: 18px 32px !important;
-    background-color: #f5f5f5
+    background-color: #2a2121
 }
 
 .agent .agent-content .agent-contact-details li {
@@ -93,7 +97,8 @@
 }
 
 .agent .agent-content .social-icons li {
-    list-style: none
+    list-style: none;
+    color: #2a2121;
 }
 
 .agent .agent-content .social-icons li a {

@@ -1,5 +1,4 @@
-;
-<?php $__env->startSection('content'); ?>;
+<?php $__env->startSection('content'); ?>
 
 <main>
 

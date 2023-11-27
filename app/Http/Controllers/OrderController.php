@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\User;
+use Elibyy\TCPDF\Facades\TCPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use function Symfony\Component\String\b;
@@ -37,15 +38,13 @@ class OrderController extends Controller
             $cart = Cart::with('products')->where('user_id', auth()->user()->id)->get();
 
 
-
             $order = Order::create([
                 'user_id' => auth()->user()->id,
                 'order_code' => str_pad('NO', '3', auth()->user()->id) . rand(1000, 2000),
                 'status' => OrderStatusEnum::Wait->value,
                 'total' => $cart->sum('price'),
-                'discount'=>0,
+                'discount' => 0,
             ]);
-
 
 
             foreach ($cart as $item) {
@@ -62,8 +61,18 @@ class OrderController extends Controller
                 ]);
             };
 
-//            return view('pages.email',compact('cart','order'));
-            Mail::send('pages.email',['cart'=>$cart,'order'=>$order], function ($message) use ($cart,$order) {
+//            return view('pages.email',compact('order','cart'));
+
+            $data['order'] = $order;
+            $data['cart'] = $cart;
+
+            $pdf2 = new TCPDF;
+
+//            $pdf = PDF::loadView('pages.pdf', $data)
+//                ->setOptions(['defaultFont' => 'sans-serif'])
+//                ->setPaper('a4');
+//            return $pdf->stream();
+            Mail::send('pages.email', ['cart' => $cart, 'order' => $order], function ($message) use ($cart, $order) {
                 $message->from(auth()->user()->email)
                     ->to('ehsan.gamor90@gmail.com')
                     ->subject('test');

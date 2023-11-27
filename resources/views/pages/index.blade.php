@@ -1,5 +1,5 @@
-@extends('layouts.master');
-@section('content');
+@extends('layouts.master')
+@section('content')
 
 <main>
 {{--   <h1 class="bg-danger">{{Auth()->user()->name ?? 'none'}} </h1>--}}

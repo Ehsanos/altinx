@@ -11,6 +11,8 @@
         "bezhansalleh/filament-shield": "^2.4",
         "butschster/meta-tags": "^2.3",
         "cheesegrits/filament-google-maps": "^1.0",
+        "dompdf/dompdf": "^2.0",
+        "elibyy/tcpdf-laravel": "^10.0",
         "filament/filament": "^2.17",
         "filament/spatie-laravel-media-library-plugin": "^2.17",
         "filament/spatie-laravel-tags-plugin": "3.0-stable",

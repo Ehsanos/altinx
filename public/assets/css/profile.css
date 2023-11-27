@@ -6,7 +6,17 @@ a{
     text-decoration: none;
     color: black;
 }
+.btn-sign {
+    background-color: #33270f;
+    color: #ffffff;
+    transition: all 700ms;
+    border: none;
+}
 
+.btn-sign:hover {
+    background-color: #c3ae5b;
+    color: #33270f;
+}
 .personal-image {
     text-align: center;
 }

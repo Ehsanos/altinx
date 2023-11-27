@@ -60,13 +60,13 @@
 <main>
     <nav class="navbar navbar-light navbar-expand-lg sticky-top navbar-shrink py-3 border-bottom "
          id="mainNav">
-        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center"></a>
+        <div class="container-fluid"><a href="{{route('langs.index')}}" class="navbar-brand d-flex align-items-center"></a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item flex-column justify-content-start align-items-center main-link"><a
-                            class="nav-link @if (\Request::route()->getName() =='langs.index') active @endif"
+                            class="nav-link font-weight-bolder  @if (\Request::route()->getName() =='langs.index') active @endif"
                             href="{{route('langs.index')}}">{{lang('home')}}</a></li>
 
 

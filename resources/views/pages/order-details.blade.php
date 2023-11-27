@@ -65,7 +65,7 @@
 
         </div>
 
-        <div class="totals-item bg-gray w-25 float-right  d-flex justify-content-end date">
+        <div class="totals-item w-25 float-right  d-flex justify-content-end date">
 
             <div class="product-detail  mb-0"><h6>{{lang('history')}}: {{date('d-m-y',strtotime($items[0]->created_at))}}</h6>
             </div>

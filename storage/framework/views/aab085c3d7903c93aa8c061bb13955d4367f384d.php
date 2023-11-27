@@ -1,20 +1,14 @@
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title> تأكيد الطلب  </title>
-<meta name="robots" content="noindex,nofollow"/>
-<meta name="viewport" content="width=device-width; initial-scale=1.0;"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title> تأكيد الطلب </title>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
 <style type="text/css">
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
-    body {
-        margin: 0;
-        padding: 0;
-        background: #e1e1e1;
-        /*direction: rtl; */
 
 
-    }
 
     div, p, a, li, td {
         -webkit-text-size-adjust: none;
@@ -33,7 +27,7 @@
     body {
         width: 100%;
         height: 100%;
-        background-color: #e1e1e1;
+        background-color:#FFFFFF;
         margin: 0;
         padding: 0;
         -webkit-font-smoothing: antialiased;
@@ -41,6 +35,7 @@
 
     html {
         width: 100%;
+        background-color: #FFFFFF;
     }
 
     p {
@@ -123,7 +118,10 @@
 
 
 <!-- Header -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#fffff
+">
     <tr>
         <td height="20"></td>
     </tr>
@@ -131,7 +129,7 @@
         <td>
             <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable"
                    bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
-                <tr class="hiddenMobile">
+                <tr class="">
                     <td height="40"></td>
                 </tr>
                 <tr class="visibleMobile">
@@ -149,11 +147,10 @@
                                            class="col">
                                         <tbody>
                                         <tr>
-                                            <td align="left"><img src="<?php echo e(asset('assets/img/Altinmix.svg')); ?>"
+                                            <td align="left"><img src="<?php echo e(asset('/assets/img/1.jpg')); ?>"
                                                                   width="50" height="50" alt="logo" border="0"/></td>
                                         </tr>
-                                        <tr class="hiddenMobile">
-                                            <td height="40"></td>
+                                        <td height="40"></td>
                                         </tr>
                                         <tr class="visibleMobile">
                                             <td height="20"></td>
@@ -181,7 +178,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        <tr class="hiddenMobile">
+                                        <tr class="">
                                             <td height="50"></td>
                                         </tr>
                                         <tr class="visibleMobile">
@@ -208,8 +205,8 @@
 <!-- /Header -->
 <!-- Order Details -->
 
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#fffff
+">
     <tbody>
     <tr>
         <td>
@@ -217,7 +214,7 @@
                    bgcolor="#ffffff">
                 <tbody>
                 <tr>
-                <tr class="hiddenMobile">
+                <tr class="">
                     <td height="60"></td>
                 </tr>
                 <tr class="visibleMobile">
@@ -253,31 +250,31 @@
 
 
 
-                            <tr>
+                                <tr>
 
 
-                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b;  line-height: 18px;  vertical-align: top; padding:10px 0;"
-                                    class="article">
-                                    <?php echo e($item->products->name); ?>
+                                    <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b;  line-height: 18px;  vertical-align: top; padding:10px 0;"
+                                        class="article">
+                                        <?php echo e($item->products->name); ?>
 
-                                </td>
-                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b;  line-height: 18px;  vertical-align: top; padding:10px 0;">
-                                    <small><?php echo e($item->products->price); ?></small></td>
-                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e;  line-height: 18px;  vertical-align: top; padding:10px 0;"
-                                    align="center">
-                                    <?php echo e($item->quantity); ?>
+                                    </td>
+                                    <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b;  line-height: 18px;  vertical-align: top; padding:10px 0;">
+                                        <small><?php echo e($item->products->price); ?></small></td>
+                                    <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e;  line-height: 18px;  vertical-align: top; padding:10px 0;"
+                                        align="center">
+                                        <?php echo e($item->quantity); ?>
 
-                                </td>
-                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;"
-                                    align="right">
-                                    <?php echo e($item->price); ?>
+                                    </td>
+                                    <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;"
+                                        align="right">
+                                        <?php echo e($item->price); ?>
 
-                                </td>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
-                            </tr>
+                                </tr>
+                                <tr>
+                                    <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
+                                </tr>
 
 
 
@@ -296,10 +293,8 @@
     </tbody>
 </table>
 <!-- /Order Details -->
-
-
 <!-- Total -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#fffff">
     <tbody>
     <tr>
         <td>
@@ -324,7 +319,7 @@
                             </tr>
                             <tr>
                                 <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                الحسم
+                                    الحسم
                                 </td>
                                 <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
                                     %
@@ -354,10 +349,8 @@
 
     </tbody>
 </table>
-<!-- /Total -->
-<!-- Information -->
-<!-- /Information -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#e1e1e1">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#fffff">
 
     <tr>
         <td>
@@ -367,10 +360,10 @@
                     <td>
                         <table width="480" border="0" cellpadding="0" cellspacing="0" align="center"
                                class="fullPadding">
-                            <tbody >
+                            <tbody>
 
                             <tr>
-                                <td height="1" style="background: #bebebe;" colspan="4" ></td>
+                                <td height="1" style="background: #bebebe;" colspan="4"></td>
                             </tr>
                             <tr></tr>
                             <tr>
@@ -378,11 +371,12 @@
                                     <i class="fa fa-phone" style="margin-top: 10px">09999404187</i>
                                 </td>
                                 <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: center;">
-                                    <i class="fa fa-whatsapp " style="margin-top: 10px" >09999404187</i>
+                                    <i class="fa fa-whatsapp " style="margin-top: 10px">09999404187</i>
                                 </td>
                                 <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: right;">
 
-                                    <i class="fa fa-globe"style="margin-top: 10px"><a  style="text-decoration: none;color: #5b5b5b" href="https://altinmix.com">Altinmix</a></i>
+                                    <i class="fa fa-globe" style="margin-top: 10px"><a
+                                            style="text-decoration: none;color: #5b5b5b" href="https://altinmix.com">Altinmix</a></i>
 
                                 </td>
                             </tr>

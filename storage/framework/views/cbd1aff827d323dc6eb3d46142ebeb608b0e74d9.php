@@ -91,11 +91,11 @@
 
 
                 <input hidden name="user" value="<?php echo e(auth()->user()->id); ?>"></input>
-                <button type="submit" class="checkout"><?php echo e(lang('Offer_Price')); ?>  </button>
+                <button type="submit" class="checkout btn-sign"><?php echo e(lang('Offer_Price')); ?> </button>
         <?php endif; ?>
     </div>
     </form>
-<a class="bg-danger" href="<?php echo e(route('send_email')); ?>"> Test Emails</a>
+<a class="bg-danger" href="<?php echo e(route('send_email')); ?>" > Test Emails</a>
 <?php else: ?>
     <div class="container d-flex align-items-center justify-content-center">
         <img height="80%" width="60%" src="<?php echo e(asset('assets/img/empty-cart.gif')); ?>">

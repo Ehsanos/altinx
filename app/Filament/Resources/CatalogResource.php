@@ -47,11 +47,11 @@ class CatalogResource extends Resource
             ->schema([
 
                 Forms\Components\Card::make()->schema([
-                    DatePicker::make('year')->required(),
+                    DatePicker::make('year')->required()->label('السنة'),
 
-                    FileUpload::make('file')->acceptedFileTypes(['application/pdf'])->uploadButtonPosition('left'),
+                    FileUpload::make('file')->acceptedFileTypes(['application/pdf'])->uploadButtonPosition('left')->label('الملف'),
                     SpatieMediaLibraryFileUpload::make('img')->collection('catalogs')->label('الصورة'),
-                    SpatieMediaLibraryFileUpload::make('img')->collection('catalogs-slider')->multiple()->label('صور السلايدر'),
+//                    SpatieMediaLibraryFileUpload::make('img')->collection('catalogs-slider')->multiple()->label('صور السلايدر'),
 
                 ])->columns(3),
 
@@ -59,8 +59,8 @@ class CatalogResource extends Resource
 
                     Forms\Components\Wizard::make()->schema([
                         Forms\Components\Wizard\Step::make('AR')->schema([Forms\Components\Card::make()->schema([
-                            Forms\Components\TextInput::make('name')->nullable()->label('الاسم'),
-                            TextArea::make('description')->label('وصف'),
+                            Forms\Components\TextInput::make('name')->nullable()->label('الاسم')->required(),
+                            TextArea::make('description')->label('وصف')->required(),
                         ])->columns(2),
                         ]),
 

@@ -1,5 +1,5 @@
-@extends('layouts.master');
-@section('content');
+@extends('layouts.master')
+@section('content')
 <header class="h-100">
     <div class="top-content">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
