@@ -7,6 +7,7 @@ use App\Filament\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Pages\Actions\DeleteAction;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -67,6 +68,7 @@ class SliderResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
