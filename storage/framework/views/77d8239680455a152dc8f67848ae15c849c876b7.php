@@ -124,15 +124,15 @@
                                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('counter', [])->html();
-} elseif ($_instance->childHasBeenRendered('I7IiKjc')) {
-    $componentId = $_instance->getRenderedChildComponentId('I7IiKjc');
-    $componentTag = $_instance->getRenderedChildComponentTagName('I7IiKjc');
+} elseif ($_instance->childHasBeenRendered('crWWFiM')) {
+    $componentId = $_instance->getRenderedChildComponentId('crWWFiM');
+    $componentTag = $_instance->getRenderedChildComponentTagName('crWWFiM');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('I7IiKjc');
+    $_instance->preserveRenderedChild('crWWFiM');
 } else {
     $response = \Livewire\Livewire::mount('counter', []);
     $html = $response->html();
-    $_instance->logRenderedChild('I7IiKjc', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('crWWFiM', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -141,8 +141,13 @@ echo $html;
                         </a>
 
                         <a href="<?php echo e(route('langs.profile')); ?>">
+                            <?php if(auth()->user()->getFirstMediaUrl('users')): ?>
                             <img style="height: 50px; width:50px; border-radius: 50% "
-                                 src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>" alt="<?php echo e(auth()->user()->name); ?>">
+                                 src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>" alt=" ">
+                            <?php else: ?>
+                                <img style="height: 50px; width:50px; border-radius: 50% "
+                                     src="<?php echo e(asset('assets/img/vec.png')); ?>" alt=" ">
+                            <?php endif; ?>
                         </a>
                     </div>
 

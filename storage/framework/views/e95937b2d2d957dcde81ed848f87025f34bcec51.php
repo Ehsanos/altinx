@@ -52,7 +52,7 @@
             <?php $__currentLoopData = $delegtes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $deleget): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card agent">
+                    <div class="card agent ">
                         <div class="agent-avatar">
                             <a class="agent-name " href="agent-profile.html">
                                 <img src="<?php echo e($deleget->getFirstMediaUrl('users')); ?>" class="img-fluid " alt="">

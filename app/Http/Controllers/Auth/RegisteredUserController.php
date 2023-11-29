@@ -22,15 +22,15 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        $countries=Country::all();
+        $countries = Country::all();
 //        dd($countries);
-        return view('auth.register',compact('countries'));
+        return view('auth.register', compact('countries'));
     }
 
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -42,20 +42,26 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'country'=>'required'
+            'country' => 'required'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'country_id'=>$request->country,
+            'country_id' => $request->country,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with(
+            [
+                'type'=>'success',
+                'message'=>'الرجاء تأكيد بريدك الإلكتروني'
+
+            ]
+        );
     }
 }

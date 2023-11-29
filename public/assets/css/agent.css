@@ -20,7 +20,7 @@
     box-shadow: none;
     transition: 1s ease;
 }
-.card:hover {
+.agent:hover {
     transform: scale(1.1);
 }
 

@@ -37,7 +37,7 @@
          <?php $__env->endSlot(); ?>
 
         <div class="mb-4 text-sm text-gray-600">
-            <?php echo e(__('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.')); ?>
+            <?php echo e(__('نسيت كلمة السر؟ لا مشكلة. فقط أخبرنا بعنوان بريدك الإلكتروني وسنرسل إليك عبر البريد الإلكتروني رابط إعادة تعيين كلمة المرور الذي سيسمح لك باختيار كلمة مرور جديدة.')); ?>
 
         </div>
 
@@ -123,7 +123,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-                    <?php echo e(__('Email Password Reset Link')); ?>
+                    <?php echo e(__('إعادة تعيين كلمة المرور')); ?>
 
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

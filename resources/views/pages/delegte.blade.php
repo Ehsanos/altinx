@@ -53,7 +53,7 @@
             @foreach($delegtes as $deleget)
 
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card agent">
+                    <div class="card agent ">
                         <div class="agent-avatar">
                             <a class="agent-name " href="agent-profile.html">
                                 <img src="{{$deleget->getFirstMediaUrl('users')}}" class="img-fluid " alt="">

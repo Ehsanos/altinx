@@ -126,8 +126,13 @@
                         </a>
 
                         <a href="{{route('langs.profile')}}">
+                            @if(auth()->user()->getFirstMediaUrl('users'))
                             <img style="height: 50px; width:50px; border-radius: 50% "
-                                 src="{{auth()->user()->getFirstMediaUrl('users')}}" alt="{{auth()->user()->name}}">
+                                 src="{{auth()->user()->getFirstMediaUrl('users')}}" alt=" ">
+                            @else
+                                <img style="height: 50px; width:50px; border-radius: 50% "
+                                     src="{{asset('assets/img/vec.png')}}" alt=" ">
+                            @endif
                         </a>
                     </div>
 

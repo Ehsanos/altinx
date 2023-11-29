@@ -52,7 +52,7 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-        <?php echo e(__('Already registered?')); ?>
+        <?php echo e(__('AltimMix Company')); ?>
 
 
         <form method="POST" action="<?php echo e(route('register')); ?>">
@@ -236,7 +236,7 @@
 
                 <div class="flex items-center justify-end mt-4">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('login')); ?>">
-                        <?php echo e(__('Already registered?')); ?>
+                        <?php echo e(__('لدي حساب ')); ?>
 
                     </a>
 
@@ -249,7 +249,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'ml-4']); ?>
-                        <?php echo e(__('Register')); ?>
+                        <?php echo e(__('إنشاء حساب')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

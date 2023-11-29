@@ -44,15 +44,16 @@ Route::name('langs.')->middleware('locale')->group(function () {
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/profile', [ProductController::class, 'profile'])->name('profile');
     Route::get('/user/{id}', [UserController::class, 'edit'])->name('user_edit');
-    Route::post('add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
-    Route::get('delcart/{id}', [CartController::class, 'destroy'])->name('delCart');
-    Route::post('/createOrder', [OrderController::class, 'create'])->name('create_order');
+    Route::post('add_to_cart', [CartController::class, 'addToCart'])->name('addToCart')->middleware('verified');
+    Route::get('delcart/{id}', [CartController::class, 'destroy'])->name('delCart')->middleware('verified');
+    Route::post('/createOrder', [OrderController::class, 'create'])->name('create_order')->middleware('verified');
     Route::post('/setimg', [UserController::class, 'addimg'])->name('setImg');
 
     Route::get('/test', [IndexController::class, 'test']);
 
 
 });
+
 Route::get('country', [CountryController::class, 'index'])->name('country');
 Route::get('/slider', [SliderController::class, 'index'])->name('allslider');
 Route::get('/start', [MailTestingController::class, 'start']);

@@ -36,8 +36,16 @@
                                                 @csrf
                                                 <input type="file" name="photo" id="img" onchange="chang()"/>
                                                 <figure class="personal-figure">
-                                                    <img src="{{auth()->user()->getFirstMediaUrl('users')}}"
-                                                         class="personal-avatar">
+
+{{--                                                    <img src="{{auth()->user()->getFirstMediaUrl('users')}}"--}}
+{{--                                                         class="personal-avatar">--}}
+                                                    @if(auth()->user()->getFirstMediaUrl('users'))
+                                                        <img src="{{auth()->user()->getFirstMediaUrl('users')}}" alt=" " class="personal-avatar">
+                                                    @else
+                                                        <img src="{{asset('assets/img/vec.png')}}" alt=" " class="personal-avatar">
+                                                    @endif
+
+
                                                     <figcaption class="personal-figcaption">
                                                         <img
                                                             src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">

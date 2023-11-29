@@ -35,8 +35,16 @@
                                                 <?php echo csrf_field(); ?>
                                                 <input type="file" name="photo" id="img" onchange="chang()"/>
                                                 <figure class="personal-figure">
-                                                    <img src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>"
-                                                         class="personal-avatar">
+
+
+
+                                                    <?php if(auth()->user()->getFirstMediaUrl('users')): ?>
+                                                        <img src="<?php echo e(auth()->user()->getFirstMediaUrl('users')); ?>" alt=" " class="personal-avatar">
+                                                    <?php else: ?>
+                                                        <img src="<?php echo e(asset('assets/img/vec.png')); ?>" alt=" " class="personal-avatar">
+                                                    <?php endif; ?>
+
+
                                                     <figcaption class="personal-figcaption">
                                                         <img
                                                             src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
