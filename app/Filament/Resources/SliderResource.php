@@ -36,11 +36,10 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                SpatieMediaLibraryFileUpload::make('img')->collection('slider')->label('الصورة'),
+                SpatieMediaLibraryFileUpload::make('img')->collection('slider')->label('الصورة')->required(),
 
 
                 Forms\Components\Card::make()->schema([
-                    Forms\Components\TextInput::make('discrption')->required()->label('سلايدر لقسم :'),
                     Forms\Components\Radio::make('discrption')->options([
                         'main'=>"الرئيسية",
                         'product'=>"المنتجات",
@@ -50,7 +49,7 @@ class SliderResource extends Resource
                         'jobs'=>"الوظائف",
                         'news'=>"الأخبار",
                         'catalogs'=>"الكتالوج",
-                    ]),
+                    ])->required()->label('قسم :'),
 
                 ])->columns(2),
             ]);
