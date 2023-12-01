@@ -69,7 +69,7 @@
                                                                       src="<?php echo e($product->getFirstMediaUrl('products')); ?>"></div>
                                         <div class="card-body">
                                             <p class="card-text sub-text-color"><?php echo e(getTrans($product,'name')); ?></p>
-                                            <p class="card-text cardbody-sub-text"><?php echo e(getTrans($product,'description')); ?></p>
+
                                         </div>
                                     </div>
                                 </a></div>
@@ -100,7 +100,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text sub-text-color"><?php echo e($cat->name); ?></p>
-                                            <p class="card-text cardbody-sub-text"><?php echo e($cat->description); ?></p>
+
                                         </div>
                                     </div>
                                 </a></div>
@@ -161,7 +161,7 @@
                                                                   src="<?php echo e($new->getFirstMediaUrl('posts')); ?>"></div>
                                     <div class="card-body">
                                         <p class="card-text sub-text-color"><?php echo e(getTrans($new,'tilte')); ?></p>
-                                        <p class="card-text cardbody-sub-text"><?php echo e(getTrans($new,'body')); ?></p>
+
                                     </div>
                                 </div>
                             </a></div>

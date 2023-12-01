@@ -30,7 +30,7 @@ class DelegteResource extends Resource
                     Forms\Components\TextInput::make('name')->label('اسم المندوب')->required(),
 
                     Forms\Components\TextInput::make('password')->password()->dehydrateStateUsing(fn($state) => Hash::make($state))
-                        ->dehydrated(fn($state) => filled($state)),
+                        ->dehydrated(fn($state) => filled($state))->required(),
                     Forms\Components\SpatieMediaLibraryFileUpload::make('الصورة')->collection('users')->imageResizeMode(1),
                     Forms\Components\Select::make('country_id')->relationship('country', 'name')->label('الدولة')->required(),
 

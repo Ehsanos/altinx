@@ -56,7 +56,7 @@
 
                     <div class="product-detail">
                         <h2><?php echo e(lang('details')); ?></h2>
-                        <p class="product-detail"><?php echo e(getTrans($product,'description')); ?></p>
+                        <p class="product-detail"><?php echo getTrans($product,'description'); ?></p>
 
 
                     </div>

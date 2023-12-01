@@ -70,7 +70,7 @@
                                                                       src="{{$product->getFirstMediaUrl('products')}}"></div>
                                         <div class="card-body">
                                             <p class="card-text sub-text-color">{{getTrans($product,'name')}}</p>
-                                            <p class="card-text cardbody-sub-text">{{getTrans($product,'description')}}</p>
+{{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
                                         </div>
                                     </div>
                                 </a></div>
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text sub-text-color">{{$cat->name}}</p>
-                                            <p class="card-text cardbody-sub-text">{{$cat->description}}</p>
+{{--                                            <p class="card-text cardbody-sub-text">{{$cat->description}}</p>--}}
                                         </div>
                                     </div>
                                 </a></div>
@@ -162,7 +162,7 @@
                                                                   src="{{$new->getFirstMediaUrl('posts')}}"></div>
                                     <div class="card-body">
                                         <p class="card-text sub-text-color">{{getTrans($new,'tilte')}}</p>
-                                        <p class="card-text cardbody-sub-text">{{getTrans($new,'body')}}</p>
+{{--                                        <p class="card-text cardbody-sub-text">{{getTrans($new,'body')}}</p>--}}
                                     </div>
                                 </div>
                             </a></div>

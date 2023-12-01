@@ -16,7 +16,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->can('view_any_statics');
     }
@@ -28,7 +28,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Statics $statics)
+    public function view(User $user, Statics $statics): bool
     {
         return $user->can('view_statics');
     }
@@ -39,7 +39,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->can('create_statics');
     }
@@ -51,7 +51,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Statics $statics)
+    public function update(User $user, Statics $statics): bool
     {
         return $user->can('update_statics');
     }
@@ -63,7 +63,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Statics $statics)
+    public function delete(User $user, Statics $statics): bool
     {
         return $user->can('delete_statics');
     }
@@ -74,7 +74,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function deleteAny(User $user)
+    public function deleteAny(User $user): bool
     {
         return $user->can('delete_any_statics');
     }
@@ -86,7 +86,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Statics $statics)
+    public function forceDelete(User $user, Statics $statics): bool
     {
         return $user->can('force_delete_statics');
     }
@@ -97,7 +97,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDeleteAny(User $user)
+    public function forceDeleteAny(User $user): bool
     {
         return $user->can('force_delete_any_statics');
     }
@@ -109,7 +109,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Statics $statics)
+    public function restore(User $user, Statics $statics): bool
     {
         return $user->can('restore_statics');
     }
@@ -120,7 +120,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restoreAny(User $user)
+    public function restoreAny(User $user): bool
     {
         return $user->can('restore_any_statics');
     }
@@ -132,7 +132,7 @@ class StaticsPolicy
      * @param  \App\Models\Statics  $statics
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Statics $statics)
+    public function replicate(User $user, Statics $statics): bool
     {
         return $user->can('replicate_statics');
     }
@@ -143,7 +143,7 @@ class StaticsPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function reorder(User $user)
+    public function reorder(User $user): bool
     {
         return $user->can('reorder_statics');
     }

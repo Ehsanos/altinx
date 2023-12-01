@@ -16,7 +16,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->can('view_any_city');
     }
@@ -28,7 +28,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, City $city)
+    public function view(User $user, City $city): bool
     {
         return $user->can('view_city');
     }
@@ -39,7 +39,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->can('create_city');
     }
@@ -51,7 +51,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, City $city)
+    public function update(User $user, City $city): bool
     {
         return $user->can('update_city');
     }
@@ -63,7 +63,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, City $city)
+    public function delete(User $user, City $city): bool
     {
         return $user->can('delete_city');
     }
@@ -74,7 +74,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function deleteAny(User $user)
+    public function deleteAny(User $user): bool
     {
         return $user->can('delete_any_city');
     }
@@ -86,7 +86,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, City $city)
+    public function forceDelete(User $user, City $city): bool
     {
         return $user->can('force_delete_city');
     }
@@ -97,7 +97,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDeleteAny(User $user)
+    public function forceDeleteAny(User $user): bool
     {
         return $user->can('force_delete_any_city');
     }
@@ -109,7 +109,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, City $city)
+    public function restore(User $user, City $city): bool
     {
         return $user->can('restore_city');
     }
@@ -120,7 +120,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restoreAny(User $user)
+    public function restoreAny(User $user): bool
     {
         return $user->can('restore_any_city');
     }
@@ -132,7 +132,7 @@ class CityPolicy
      * @param  \App\Models\City  $city
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, City $city)
+    public function replicate(User $user, City $city): bool
     {
         return $user->can('replicate_city');
     }
@@ -143,7 +143,7 @@ class CityPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function reorder(User $user)
+    public function reorder(User $user): bool
     {
         return $user->can('reorder_city');
     }

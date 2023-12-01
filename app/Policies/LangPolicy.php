@@ -16,7 +16,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->can('view_any_lang');
     }
@@ -28,7 +28,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Lang $lang)
+    public function view(User $user, Lang $lang): bool
     {
         return $user->can('view_lang');
     }
@@ -39,7 +39,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->can('create_lang');
     }
@@ -51,7 +51,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Lang $lang)
+    public function update(User $user, Lang $lang): bool
     {
         return $user->can('update_lang');
     }
@@ -63,7 +63,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Lang $lang)
+    public function delete(User $user, Lang $lang): bool
     {
         return $user->can('delete_lang');
     }
@@ -74,7 +74,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function deleteAny(User $user)
+    public function deleteAny(User $user): bool
     {
         return $user->can('delete_any_lang');
     }
@@ -86,7 +86,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Lang $lang)
+    public function forceDelete(User $user, Lang $lang): bool
     {
         return $user->can('force_delete_lang');
     }
@@ -97,7 +97,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDeleteAny(User $user)
+    public function forceDeleteAny(User $user): bool
     {
         return $user->can('force_delete_any_lang');
     }
@@ -109,7 +109,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Lang $lang)
+    public function restore(User $user, Lang $lang): bool
     {
         return $user->can('restore_lang');
     }
@@ -120,7 +120,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restoreAny(User $user)
+    public function restoreAny(User $user): bool
     {
         return $user->can('restore_any_lang');
     }
@@ -132,7 +132,7 @@ class LangPolicy
      * @param  \App\Models\Lang  $lang
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Lang $lang)
+    public function replicate(User $user, Lang $lang): bool
     {
         return $user->can('replicate_lang');
     }
@@ -143,7 +143,7 @@ class LangPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function reorder(User $user)
+    public function reorder(User $user): bool
     {
         return $user->can('reorder_lang');
     }

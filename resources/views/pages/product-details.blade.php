@@ -56,7 +56,7 @@
 
                     <div class="product-detail">
                         <h2>{{lang('details')}}</h2>
-                        <p class="product-detail">{{getTrans($product,'description')}}</p>
+                        <p class="product-detail">{!! getTrans($product,'description')!!}</p>
 
 
                     </div>
