@@ -19,14 +19,14 @@ return new class extends Migration {
             $table->string('img')->nullable();
             $table->text('video')->nullable();
 
-            $table->longText('tilte_ar')->nullable();
+            $table->longText('tilte')->nullable();
             $table->longText('tilte_en')->nullable();
             $table->longText('tilte_tr')->nullable();
             $table->longText('tilte_du')->nullable();
             $table->longText('tilte_es')->nullable();
 
 
-            $table->longText('body_ar')->nullable();
+            $table->longText('body')->nullable();
             $table->longText('body_en')->nullable();
             $table->longText('body_tr')->nullable();
             $table->longText('body_du')->nullable();

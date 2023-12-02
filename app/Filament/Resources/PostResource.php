@@ -82,7 +82,7 @@ class PostResource extends Resource
                 ]),
 
                 Forms\Components\CheckboxList::make('section_id')->relationship('section', 'title')->label('قسم'),
-                Forms\Components\TagsInput::make('tags'),
+                Forms\Components\SpatieTagsInput::make('tags')->type('post'),
 
             ]);
     }
@@ -91,8 +91,8 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('tilte_ar')->label('عنوان المنشور')->searchable(),
-                Tables\Columns\TextColumn::make('body_ar')->words(5)->label('المنشور')->searchable(),
+                Tables\Columns\TextColumn::make('tilte')->label('عنوان المنشور')->searchable(),
+                Tables\Columns\TextColumn::make('body')->words(5)->label('المنشور')->searchable(),
                 SpatieMediaLibraryImageColumn::make('الصورة')->collection('posts')->label('صورة المنشور'),
                 Tables\Columns\TagsColumn::make('tags.name')->label('كلمات مفتاحية')->searchable()
             ])

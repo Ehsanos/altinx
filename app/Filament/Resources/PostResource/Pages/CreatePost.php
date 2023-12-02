@@ -12,22 +12,25 @@ class CreatePost extends CreateRecord
 {
     protected static string $resource = PostResource::class;
 
-    protected function handleRecordCreation(array $data): Model
-    {
 
-$post=Post::create(collect($data)->except('tags')->toArray());
 
-foreach ($data['tags'] as $tag){
 
-    $post->tags()->create([
-        'name'=>$tag
-    ]);
-
-    }
-
-return $post;
-
-    }
+//    protected function handleRecordCreation(array $data): Model
+//    {
+//
+//$post=Post::create(collect($data)->except('tags')->toArray());
+//
+//foreach ($data['tags'] as $tag){
+//
+//    $post->tags()->create([
+//        'name'=>$tag
+//    ]);
+//
+//    }
+//
+//return $post;
+//
+//    }
 
 
 }

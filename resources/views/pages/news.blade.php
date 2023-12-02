@@ -8,37 +8,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <div class="text-center"><img class="img-fluid" src="{{$post->getFirstMediaUrl('posts')}}"></div>
+                        <div class="text-center"><img class="img-fluid" src="{{$post->getFirstMediaUrl('posts')}}">
+                        </div>
                     </div>
                     <div class="col">
                         <h1 class="text-dark">{{getTrans($post,'tilte')}}</h1>
-                        <p class="text-dark"><span style="font-weight: normal !important; font-style: normal !important; color: rgb(122, 122, 122);">
+                        <p class="text-dark"><span
+                                style="font-weight: normal !important; font-style: normal !important; color: rgb(122, 122, 122);">
                              {{getTrans($post,'body')}}
                             </span><br><br></p>
                     </div>
                 </div>
                 <div class=" mt-2">
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                    <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-
-
-
-
-
+                    @foreach($post->tags as $tag)
+                        <a href="#" class="badge badge-dark tag-div py-2 px-2">{{$tag->name}}</a>
+                    @endforeach
 
                 </div>
 
