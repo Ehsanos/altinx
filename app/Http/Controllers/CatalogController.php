@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Spatie\Tags\Tag;
 
 class CatalogController extends Controller
 {
@@ -17,8 +18,9 @@ class CatalogController extends Controller
     {
         $catalogs=Catalog::all();
         $slider = Slider::where('discrption', '=', 'catalogs')->get();
+        $tags=Tag::where('type','catalog')->get();
 
-        return view('pages.Catalog',compact('catalogs','slider'));
+        return view('pages.Catalog',compact('catalogs','slider','tags'));
     }
 
     /**

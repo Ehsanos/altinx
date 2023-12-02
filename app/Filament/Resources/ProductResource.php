@@ -72,7 +72,6 @@ class ProductResource extends Resource
                             Forms\Components\TextInput::make('marke_en')->label('ماركة EN'),
                             Forms\Components\RichEditor::make('description')->label('توصيف EN'),
 
-                            SpatieTagsInput::make('tags'),
 
                         ])]),
                         Forms\Components\Wizard\Step::make("TR")->schema([Forms\Components\Card::make()->schema([
@@ -119,7 +118,7 @@ class ProductResource extends Resource
                 ]),
 
 
-                SpatieTagsInput::make('tags'),
+                SpatieTagsInput::make('tags')->type('product')->label('كلمات مفتاحية'),
 //                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية انجليزي'),
 
             ]);

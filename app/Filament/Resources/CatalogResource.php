@@ -89,7 +89,7 @@ class CatalogResource extends Resource
 
                 ]),
 
-                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية')
+                Forms\Components\SpatieTagsInput::make('tags')->type('catalog')->label('كلمات مفتاحية')
 
             ]);
     }

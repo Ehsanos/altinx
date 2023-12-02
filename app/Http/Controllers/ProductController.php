@@ -43,7 +43,7 @@ class ProductController extends Controller
 
 
 
-        $tags = Tag::all();
+        $tags = Tag::where('type','product')->get();
         $lang=App()->getLocale();
 
 
@@ -90,6 +90,7 @@ class ProductController extends Controller
     {
         $product = Product::with('media')->findOrfail($id);
         $imgs = Product::with('media')->findOrfail($id)->getMedia("*");
+
     //     dd($imgs);
         return view('pages.product-details', compact('product', 'imgs'));
     }

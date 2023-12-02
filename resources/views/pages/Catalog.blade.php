@@ -83,19 +83,21 @@
                     <div class="row">
                         @foreach($catalogs as $catalog)
                             <div class="col-6 col-lg-4 mb-4">
-                                    <div class="product-main border py-1">
-                                        <div class="product-img border-bottom mb-1">
-                                            <div class="p-2"><img class="img-fluid" src="{{$catalog->getFirstMediaUrl('catalogs')}}"></div>
-                                        </div>
-                                        <div class="product-desc px-3">
-                                            <h5 class="text-dark m-0 py-1">{{getTrans($catalog,'name')}}</h5>
-                                            <p class="text-dark m-0 py-2">{{getTrans($catalog,'description')}}</p>
-                                        </div>
-                                        <div class="product-btn px-3 py-2"><a type="button"
-                                                class="text-decoration-none products-details"
-                                                href="{{Storage::url($catalog->file)}}">{{lang('download')}} </a></div>
+                                <div class="product-main border py-1">
+                                    <div class="product-img border-bottom mb-1">
+                                        <div class="p-2"><img class="img-fluid"
+                                                              src="{{$catalog->getFirstMediaUrl('catalogs')}}"></div>
                                     </div>
-                              </div>
+                                    <div class="product-desc px-3">
+                                        <h5 class="text-dark m-0 py-1">{{getTrans($catalog,'name')}}</h5>
+                                        <p class="text-dark m-0 py-2">{{getTrans($catalog,'description')}}</p>
+                                    </div>
+                                    <div class="product-btn px-3 py-2"><a type="button"
+                                                                          class="text-decoration-none products-details"
+                                                                          href="{{Storage::url($catalog->file)}}">{{lang('download')}} </a>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
 
 
@@ -103,24 +105,10 @@
                 </div>
             </div>
             <div class=" mt-2">
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+                @foreach($tags as $tag )
+                    <a href="#" class="badge badge-dark tag-div py-2 px-2">{{$tag->name}}</a>
 
-
+                @endforeach
             </div>
         </div>
     </section>

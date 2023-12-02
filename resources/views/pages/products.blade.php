@@ -160,7 +160,7 @@
         <div class=" mt-2 container">
             @foreach($tags as $tag)
 
-                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">{{$tag->name[$lang] ?? ''}}</a>
+                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">{{$tag->name['ar']}}</a>
 
             @endforeach
 

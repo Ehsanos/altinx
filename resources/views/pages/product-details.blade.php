@@ -93,6 +93,15 @@
                 </div>
             </div>
         </div>
+            <div class=" mt-2 container">
+                @foreach($product->tags as $tag)
+
+
+                    <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">{{$tag->name}}</a>
+
+
+                @endforeach
+            </div>
 
     </main>
     <script>

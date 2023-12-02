@@ -82,19 +82,21 @@
                     <div class="row">
                         <?php $__currentLoopData = $catalogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $catalog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-6 col-lg-4 mb-4">
-                                    <div class="product-main border py-1">
-                                        <div class="product-img border-bottom mb-1">
-                                            <div class="p-2"><img class="img-fluid" src="<?php echo e($catalog->getFirstMediaUrl('catalogs')); ?>"></div>
-                                        </div>
-                                        <div class="product-desc px-3">
-                                            <h5 class="text-dark m-0 py-1"><?php echo e(getTrans($catalog,'name')); ?></h5>
-                                            <p class="text-dark m-0 py-2"><?php echo e(getTrans($catalog,'description')); ?></p>
-                                        </div>
-                                        <div class="product-btn px-3 py-2"><a type="button"
-                                                class="text-decoration-none products-details"
-                                                href="<?php echo e(Storage::url($catalog->file)); ?>"><?php echo e(lang('download')); ?> </a></div>
+                                <div class="product-main border py-1">
+                                    <div class="product-img border-bottom mb-1">
+                                        <div class="p-2"><img class="img-fluid"
+                                                              src="<?php echo e($catalog->getFirstMediaUrl('catalogs')); ?>"></div>
                                     </div>
-                              </div>
+                                    <div class="product-desc px-3">
+                                        <h5 class="text-dark m-0 py-1"><?php echo e(getTrans($catalog,'name')); ?></h5>
+                                        <p class="text-dark m-0 py-2"><?php echo e(getTrans($catalog,'description')); ?></p>
+                                    </div>
+                                    <div class="product-btn px-3 py-2"><a type="button"
+                                                                          class="text-decoration-none products-details"
+                                                                          href="<?php echo e(Storage::url($catalog->file)); ?>"><?php echo e(lang('download')); ?> </a>
+                                    </div>
+                                </div>
+                            </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
@@ -102,24 +104,10 @@
                 </div>
             </div>
             <div class=" mt-2">
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
-                <a href="#" class="badge badge-dark tag-div py-2 px-2">Dark</a>
+                <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="#" class="badge badge-dark tag-div py-2 px-2"><?php echo e($tag->name); ?></a>
 
-
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>
